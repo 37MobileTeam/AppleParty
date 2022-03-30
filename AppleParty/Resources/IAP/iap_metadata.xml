@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://apple.com/itunes/importer" version="software5.9">
+    <provider>{team_id}</provider>
+    <software>
+        <vendor_id>{SKU}</vendor_id>
+        <software_metadata>
+            <in_app_purchases>
+                <in_app_purchase>
+                    <!-- 可以由字母、数字、下划线（_）和句点（.）构成，最多 255 个字符 -->
+                    <product_id>com.app.1usd</product_id>
+                    <reference_name>1ud（2~64 个字符）</reference_name>
+                    <!-- 消耗型项目consumable 非消耗型non-consumable 自动续期订阅auto-renewable 非续期订阅subscription -->
+                    <type>consumable</type>
+                    <products>
+                        <product>
+                            <cleared_for_sale>true</cleared_for_sale>
+                            <wholesale_price_tier>3</wholesale_price_tier>
+                        </product>
+                    </products>
+                    <locales>
+                        <locale name="en-US">
+                            <title>2~30个字符</title>
+                            <description>至少10~45个字符</description>
+                        </locale>
+                        <locale name="zh-Hans">
+                            <title>中文2~30个字符</title>
+                            <description>至少10~45个字符</description>
+                        </locale>
+                    </locales>
+                    <review_screenshot>
+                        <!-- Supported dimensions are: 1334x750, 750x1334, 1024x768, 1024x748, 768x1024, 768x1004, 2048x1536, 2048x1496, 1536x2048, 1536x2008, 2224x1668, 1668x2224, 960x640, 960x600, 640x960, 640x920, 2208x1242, 1242x2208, 2436x1125, 1125x2436, 312x390, 1136x640, 1136x600, 640x1136, 640x1096, 2732x2048, 2048x2732" -->
+                        <size>636132</size>
+                        <file_name>IMG_5180.PNG</file_name>
+                        <checksum type="md5">xxxxx</checksum>
+                    </review_screenshot>
+                    <review_notes>Some notes for the reviewer.（2~4000字符）</review_notes>
+                </in_app_purchase>
+                <in_app_purchase>
+                    <!-- 可以由字母、数字、下划线（_）和句点（.）构成，最多 255 个字符 -->
+                    <product_id>com.app.3usd</product_id>
+                    <reference_name>3ud（2~64 个字符）</reference_name>
+                    <type>non-consumable</type>
+                    <products>
+                        <product>
+                            <cleared_for_sale>true</cleared_for_sale>
+                            <wholesale_price_tier>3</wholesale_price_tier>
+                        </product>
+                    </products>
+                    <locales>
+                        <locale name="ko">
+                            <title>2~30个字符</title>
+                            <description>至少10~45个字符</description>
+                        </locale>
+                    </locales>
+                    <review_screenshot>
+                        <!-- Supported dimensions are: 1334x750, 750x1334, 1024x768, 1024x748, 768x1024, 768x1004, 2048x1536, 2048x1496, 1536x2048, 1536x2008, 2224x1668, 1668x2224, 960x640, 960x600, 640x960, 640x920, 2208x1242, 1242x2208, 2436x1125, 1125x2436, 312x390, 1136x640, 1136x600, 640x1136, 640x1096, 2732x2048, 2048x2732" -->
+                        <size>636132</size>
+                        <file_name>IMG_5180.PNG</file_name>
+                        <checksum type="md5">xxxxx</checksum>
+                    </review_screenshot>
+                    <review_notes>Some notes for the reviewer.（2~4000字符）</review_notes>
+                </in_app_purchase>
+                <subscription_group name="订阅群组参考名称">
+                    <locales>
+                        <locale name="en-US">
+                            <title>订阅群组显示名称(2-75)</title>
+                            <app_name>App 名称显示选项：使用自定义名称(2-30)</app_name>
+                        </locale>
+                    </locales>
+                    <in_app_purchase>
+                        <product_id>every_movie_in_the_world_plus_1month</product_id>
+                        <reference_name>参考名称</reference_name>
+                        <type>auto-renewable</type>
+                        <duration>1 Month</duration>
+                        <bonus_duration>7 Days</bonus_duration>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <locales>
+                            <locale name="en-US">
+                                <title>订阅显示名称</title>
+                                <description>订阅描述Every movie ever plus.</description>
+                            </locale>
+                        </locales>
+                        <review_screenshot>
+                            <size>636132</size>
+                            <file_name>IMG_5180.PNG</file_name>
+                            <checksum type="md5">xxxxx</checksum>
+                        </review_screenshot>
+                        <review_notes>Some notes for the reviewer.（2~4000字符）</review_notes>
+                    </in_app_purchase>
+                </subscription_group>
+                <in_app_purchase>
+                    <!-- 可以由字母、数字、下划线（_）和句点（.）构成，最多 255 个字符 -->
+                    <product_id>com.app.6usd</product_id>
+                    <reference_name>6ud（2~64 个字符）</reference_name>
+                    <type>subscription</type>
+                    <products>
+                        <product>
+                            <cleared_for_sale>true</cleared_for_sale>
+                            <wholesale_price_tier>49</wholesale_price_tier>
+                        </product>
+                    </products>
+                    <locales>
+                        <locale name="ko">
+                            <title>2~30个字符</title>
+                            <description>至少10~45个字符</description>
+                        </locale>
+                    </locales>
+                    <review_screenshot>
+                        <!-- Supported dimensions are: 1334x750, 750x1334, 1024x768, 1024x748, 768x1024, 768x1004, 2048x1536, 2048x1496, 1536x2048, 1536x2008, 2224x1668, 1668x2224, 960x640, 960x600, 640x960, 640x920, 2208x1242, 1242x2208, 2436x1125, 1125x2436, 312x390, 1136x640, 1136x600, 640x1136, 640x1096, 2732x2048, 2048x2732" -->
+                        <size>636132</size>
+                        <file_name>IMG_5180.PNG</file_name>
+                        <checksum type="md5">xxxxx</checksum>
+                    </review_screenshot>
+                    <review_notes>Some notes for the reviewer.（2~4000字符）</review_notes>
+                </in_app_purchase>
+            </in_app_purchases>
+        </software_metadata>
+    </software>
+</package>

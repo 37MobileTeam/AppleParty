@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="APRootCollectionCell" customModule="AppleParty" customModuleProvider="target">
+            <connections>
+                <outlet property="imgView" destination="pbp-UW-5EH" id="bpu-Tg-Gqb"/>
+                <outlet property="nameView" destination="fh3-fG-nhA" id="jhb-wQ-A6R"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="263"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pbp-UW-5EH">
+                    <rect key="frame" x="52" y="30" width="233" height="233"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="pbp-UW-5EH" secondAttribute="height" id="n7v-JV-tW1"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PlaceholderIcon" id="4Qo-RD-78V"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fh3-fG-nhA">
+                    <rect key="frame" x="8" y="0.0" width="321" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="9rz-my-PwS"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="App" id="WzX-zP-QWR">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="fh3-fG-nhA" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="6kU-Zs-YIh"/>
+                <constraint firstItem="pbp-UW-5EH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Dsk-At-lKU"/>
+                <constraint firstAttribute="trailing" secondItem="fh3-fG-nhA" secondAttribute="trailing" constant="10" id="IRx-dU-tUV"/>
+                <constraint firstItem="fh3-fG-nhA" firstAttribute="top" secondItem="pbp-UW-5EH" secondAttribute="bottom" constant="10" id="TY9-SH-G2k"/>
+                <constraint firstItem="pbp-UW-5EH" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="XGp-wM-83h"/>
+                <constraint firstAttribute="bottom" secondItem="fh3-fG-nhA" secondAttribute="bottom" id="iaf-hY-jPk"/>
+            </constraints>
+            <point key="canvasLocation" x="67.5" y="149.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="PlaceholderIcon" width="141" height="141"/>
+    </resources>
+</document>

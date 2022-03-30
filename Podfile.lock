@@ -1,0 +1,56 @@
+PODS:
+  - Alamofire (5.5.0)
+  - CoreXLSX (0.14.1):
+    - XMLCoder (~> 0.11.1)
+    - ZIPFoundation (~> 0.9.11)
+  - ExpandingDatePicker (1.0.2)
+  - Kanna (5.2.7)
+  - KeychainAccess (4.2.2)
+  - MBProgressHUD-OSX (0.0.1)
+  - SnapKit (5.0.1)
+  - Sparkle (2.1.0)
+  - SWXMLHash (5.0.1)
+  - XMLCoder (0.11.1)
+  - ZIPFoundation (0.9.13)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - CoreXLSX (~> 0.14)
+  - ExpandingDatePicker (~> 1.0)
+  - Kanna (~> 5.2)
+  - KeychainAccess (~> 4.2)
+  - MBProgressHUD-OSX
+  - SnapKit (~> 5.0)
+  - Sparkle (~> 2.0)
+  - SWXMLHash (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CoreXLSX
+    - ExpandingDatePicker
+    - Kanna
+    - KeychainAccess
+    - MBProgressHUD-OSX
+    - SnapKit
+    - Sparkle
+    - SWXMLHash
+    - XMLCoder
+    - ZIPFoundation
+
+SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  CoreXLSX: f9a7a70b509150ceb675b05877b7ac041a587030
+  ExpandingDatePicker: 87635f25b5b6613814db39621e704815a11cf5c1
+  Kanna: 01cfbddc127f5ff0963692f285fcbc8a9d62d234
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  MBProgressHUD-OSX: 7d2dc7973de678785c3b75b8573d776f08a4bb64
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Sparkle: 7f5f6d4328458515e23272f4138e610c1fa3e32d
+  SWXMLHash: 9cc0c2e4807926c74377724aa8722ee5707a0485
+  XMLCoder: c4638336674de7ba279cd23f2005817d69f538e0
+  ZIPFoundation: ae5b4b813d216d3bf0a148773267fff14bd51d37
+
+PODFILE CHECKSUM: 397321dffb64a32d607b88dd7ff53ae5dccf24de
+
+COCOAPODS: 1.11.2

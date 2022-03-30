@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="APAppListCell" customModule="AppleParty" customModuleProvider="target">
+            <connections>
+                <outlet property="imgView" destination="ua3-NY-53n" id="kAD-Bq-3qV"/>
+                <outlet property="nameView" destination="66e-57-Sbq" id="3Bf-jl-Gem"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="182"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ua3-NY-53n">
+                    <rect key="frame" x="10" y="20" width="142" height="142"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ua3-NY-53n" secondAttribute="height" id="HYa-6B-qMQ"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PlaceholderIcon" id="WgU-9p-su6"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="66e-57-Sbq">
+                    <rect key="frame" x="170" y="141" width="216" height="21"/>
+                    <textFieldCell key="cell" lineBreakMode="charWrapping" truncatesLastVisibleLine="YES" allowsUndo="NO" title="App" id="0Xh-fB-Cb2">
+                        <font key="font" metaFont="systemBold" size="18"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aV2-cM-e0o">
+                    <rect key="frame" x="165" y="64" width="132" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="ZLF-9M-xkM"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="上传商店图/视频" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bPm-Fb-nKp">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name="STSongti-SC-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedScreenshotItem:" target="-2" id="8Nl-TD-kpN"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="osx-a5-YMW">
+                    <rect key="frame" x="165" y="99" width="114" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="7Jd-yY-gR9"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="上传内购项目" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="w9k-1j-6eh">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedPurchseItem:" target="-2" id="Rze-yt-gng"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ua3-NY-53n" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="51T-Sw-w41"/>
+                <constraint firstItem="aV2-cM-e0o" firstAttribute="leading" secondItem="66e-57-Sbq" secondAttribute="leading" id="VlU-Rb-hoR"/>
+                <constraint firstAttribute="trailing" secondItem="66e-57-Sbq" secondAttribute="trailing" constant="20" id="dic-eb-ugT"/>
+                <constraint firstItem="66e-57-Sbq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="gaf-lX-5U5"/>
+                <constraint firstItem="ua3-NY-53n" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="j8M-Z4-uEW"/>
+                <constraint firstItem="osx-a5-YMW" firstAttribute="top" secondItem="66e-57-Sbq" secondAttribute="bottom" constant="15" id="kpc-Ag-sOu"/>
+                <constraint firstItem="66e-57-Sbq" firstAttribute="leading" secondItem="ua3-NY-53n" secondAttribute="trailing" constant="20" id="tvr-pZ-tsU"/>
+                <constraint firstItem="osx-a5-YMW" firstAttribute="leading" secondItem="66e-57-Sbq" secondAttribute="leading" id="uFZ-bD-xHJ"/>
+                <constraint firstItem="ua3-NY-53n" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="uo4-mG-tIg"/>
+                <constraint firstAttribute="bottom" secondItem="ua3-NY-53n" secondAttribute="bottom" constant="20" id="wJA-Fd-dWN"/>
+                <constraint firstItem="aV2-cM-e0o" firstAttribute="top" secondItem="osx-a5-YMW" secondAttribute="bottom" constant="15" id="zua-6z-GtP"/>
+            </constraints>
+            <point key="canvasLocation" x="116" y="129"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="PlaceholderIcon" width="141" height="141"/>
+    </resources>
+</document>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="software5.10" xmlns="http://apple.com/itunes/importer">
+    <provider>{provider}</provider>
+    <team_id>{provider}</team_id>
+    <software>
+        <vendor_id>{vendor_id}</vendor_id>
+        <software_metadata app_platform="{app_platform}">
+            <versions>
+                <version string="{app_version}">
+                    <locales>
+                        <locale name="{app_locale}">
+                            <title>{title}</title>
+                            <app_previews>
+                                <app_preview display_target="{iOS-5.5-in}" position="{1}">
+                                    <data_file role="source">
+                                        <size>{video_size}</size>
+                                        <file_name>{video_name}</file_name>
+                                        <checksum>{video_md5}</checksum>
+                                    </data_file>
+                                    <preview_image_time format="30/1:1/nonDrop">{00:00:05:00}</preview_image_time>
+                                </app_preview>
+                            </app_previews>
+                            <software_screenshots>
+                                <software_screenshot display_target="{iOS-5.5-in}" position="{1}">
+                                    <size>{image_size}</size>
+                                    <file_name>{image_name}</file_name>
+                                    <checksum type="md5">{image_md5}</checksum>
+                                </software_screenshot>
+                            </software_screenshots>
+                        </locale>
+                    </locales>
+                </version>
+            </versions>
+        </software_metadata>
+    </software>
+</package>

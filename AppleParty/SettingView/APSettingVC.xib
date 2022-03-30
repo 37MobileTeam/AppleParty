@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="APSettingVC">
+            <connections>
+                <outlet property="clearCacheBtn" destination="CIQ-yY-qAH" id="Mk4-R7-k6m"/>
+                <outlet property="sPasswordBtn" destination="OeI-Rx-XtW" id="qOB-78-ZuO"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="376"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BKC-66-mUu">
+                    <rect key="frame" x="23" y="333" width="98" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="vQz-oQ-tcK"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="设置选项" id="kek-10-Cgd">
+                        <font key="font" metaFont="system" size="23"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nK7-5f-UIm">
+                    <rect key="frame" x="23" y="287" width="106" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="hLE-Pd-isf"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="信任当前设备" bezelStyle="regularSquare" imagePosition="left" lineBreakMode="truncatingTail" state="on" inset="2" id="xCh-9D-HiS">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedSAccountBtn:" target="-2" id="TnY-cG-QOJ"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OeI-Rx-XtW">
+                    <rect key="frame" x="147" y="281" width="114" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="QVA-uj-MiU"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="设置专用密码" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8of-Bf-BU2">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" usesAppearanceFont="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedSPasswordBtn:" target="-2" id="et4-Z4-s9t"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TXz-pa-Bnd" userLabel="Line Label">
+                    <rect key="frame" x="15" y="252" width="449" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Hb5-8R-DdZ"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" drawsBackground="YES" id="FWN-Oq-vFj">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CIQ-yY-qAH">
+                    <rect key="frame" x="272" y="281" width="114" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="J5b-3X-pyU"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="清除缓存数据" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ylL-yw-axd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedClearCacheBtn:" target="-2" id="Sy2-qH-JPk"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OeI-Rx-XtW" firstAttribute="centerY" secondItem="nK7-5f-UIm" secondAttribute="centerY" id="1fH-HN-CXg"/>
+                <constraint firstAttribute="trailing" secondItem="TXz-pa-Bnd" secondAttribute="trailing" constant="15" id="7d6-CI-IjY"/>
+                <constraint firstItem="BKC-66-mUu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="25" id="9hM-UB-Bbc"/>
+                <constraint firstItem="CIQ-yY-qAH" firstAttribute="leading" secondItem="nK7-5f-UIm" secondAttribute="trailing" priority="550" constant="25" id="FAu-ZM-maQ"/>
+                <constraint firstItem="TXz-pa-Bnd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="GHp-tK-8s3"/>
+                <constraint firstItem="CIQ-yY-qAH" firstAttribute="centerY" secondItem="nK7-5f-UIm" secondAttribute="centerY" id="Koe-bl-rog"/>
+                <constraint firstItem="TXz-pa-Bnd" firstAttribute="top" secondItem="nK7-5f-UIm" secondAttribute="bottom" constant="35" id="Nue-2l-Tec"/>
+                <constraint firstItem="BKC-66-mUu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="15" id="bcl-Ls-nqp"/>
+                <constraint firstItem="nK7-5f-UIm" firstAttribute="top" secondItem="BKC-66-mUu" secondAttribute="bottom" constant="25" id="l1u-Xr-4yX"/>
+                <constraint firstItem="nK7-5f-UIm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="25" id="n3v-kC-eX9"/>
+                <constraint firstItem="OeI-Rx-XtW" firstAttribute="leading" secondItem="nK7-5f-UIm" secondAttribute="trailing" constant="25" id="qUw-wS-OCL"/>
+                <constraint firstItem="CIQ-yY-qAH" firstAttribute="leading" secondItem="OeI-Rx-XtW" secondAttribute="trailing" priority="750" constant="25" id="wnS-ya-Ulb"/>
+            </constraints>
+            <point key="canvasLocation" x="48.5" y="194"/>
+        </customView>
+    </objects>
+</document>

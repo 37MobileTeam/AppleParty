@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="EmailSettingVC" customModule="AppleParty" customModuleProvider="target">
+            <connections>
+                <outlet property="emailAddrView" destination="xC8-OP-5OB" id="iA5-lT-uGT"/>
+                <outlet property="emailNameView" destination="eDA-H4-wtu" id="ggR-LW-T6u"/>
+                <outlet property="emailPwdView" destination="VVK-4v-kKh" id="gkL-zS-b4P"/>
+                <outlet property="emailSMTPView" destination="Fnq-BH-an4" id="c0U-Xb-4Ak"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="328"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UGV-LT-zwz">
+                    <rect key="frame" x="8" y="283" width="303" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="MTZ-og-I8m"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="设置邮箱账户" id="Txf-cs-igw">
+                        <font key="font" metaFont="systemBold" size="17"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fOt-av-hwc">
+                    <rect key="frame" x="206" y="18" width="80" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="8Vn-vC-kMW"/>
+                        <constraint firstAttribute="width" constant="66" id="II3-ZH-6L6"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="设置" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P5t-QJ-zKH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedSubmitBtn:" target="-2" id="5bV-hs-YGt"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-p4-ggn">
+                    <rect key="frame" x="33" y="18" width="80" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="66" id="Le4-RM-yje"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zzW-EO-bUm">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name="STSongti-SC-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickedCancelBtn:" target="-2" id="Fdm-gw-h3c"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eDA-H4-wtu">
+                    <rect key="frame" x="40" y="219" width="239" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="Pha-T8-v9U"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="发送人名字" bezelStyle="round" id="u8o-KC-IxS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xC8-OP-5OB">
+                    <rect key="frame" x="40" y="173" width="239" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="80Y-rx-GcW"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="发送邮箱地址" bezelStyle="round" id="g7M-ao-gse">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VVK-4v-kKh">
+                    <rect key="frame" x="40" y="127" width="239" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="kT1-yB-MMR"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="发送邮箱密码" bezelStyle="round" id="Doe-al-eff">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fnq-BH-an4">
+                    <rect key="frame" x="40" y="81" width="239" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="zSX-jX-gJu"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="邮箱服务地址(如 smtp.xx.com)" bezelStyle="round" id="otT-Sn-TWW">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="VVK-4v-kKh" firstAttribute="top" secondItem="xC8-OP-5OB" secondAttribute="bottom" constant="12" id="5gY-FH-ljk"/>
+                <constraint firstItem="xC8-OP-5OB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="40" id="Ax7-4Z-zIa"/>
+                <constraint firstAttribute="trailing" secondItem="eDA-H4-wtu" secondAttribute="trailing" constant="40" id="BaG-jk-2M6"/>
+                <constraint firstItem="Fnq-BH-an4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="40" id="FCR-Fd-als"/>
+                <constraint firstItem="Fnq-BH-an4" firstAttribute="top" secondItem="VVK-4v-kKh" secondAttribute="bottom" constant="12" id="Lsf-Gg-Hi5"/>
+                <constraint firstItem="LT7-p4-ggn" firstAttribute="leading" secondItem="Fnq-BH-an4" secondAttribute="leading" id="NqC-bU-xow"/>
+                <constraint firstAttribute="bottom" secondItem="LT7-p4-ggn" secondAttribute="bottom" constant="25" id="Pgl-yp-65W"/>
+                <constraint firstItem="fOt-av-hwc" firstAttribute="trailing" secondItem="Fnq-BH-an4" secondAttribute="trailing" id="TNu-gl-01i"/>
+                <constraint firstItem="VVK-4v-kKh" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="40" id="TeH-8x-GIb"/>
+                <constraint firstItem="eDA-H4-wtu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="40" id="UtA-LQ-pGW"/>
+                <constraint firstItem="UGV-LT-zwz" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="XAE-zG-uBj"/>
+                <constraint firstItem="xC8-OP-5OB" firstAttribute="top" secondItem="eDA-H4-wtu" secondAttribute="bottom" constant="12" id="fG3-IY-ptx"/>
+                <constraint firstAttribute="trailing" secondItem="Fnq-BH-an4" secondAttribute="trailing" constant="40" id="oJO-fs-eS0"/>
+                <constraint firstAttribute="trailing" secondItem="VVK-4v-kKh" secondAttribute="trailing" constant="40" id="olk-5z-Atb"/>
+                <constraint firstAttribute="bottom" secondItem="fOt-av-hwc" secondAttribute="bottom" constant="25" id="qUL-ii-wn5"/>
+                <constraint firstAttribute="trailing" secondItem="UGV-LT-zwz" secondAttribute="trailing" constant="10" id="rew-BG-Egu"/>
+                <constraint firstAttribute="trailing" secondItem="xC8-OP-5OB" secondAttribute="trailing" constant="40" id="z5o-8S-Uvi"/>
+                <constraint firstItem="eDA-H4-wtu" firstAttribute="top" secondItem="UGV-LT-zwz" secondAttribute="bottom" constant="30" id="zDm-hN-QrO"/>
+                <constraint firstItem="UGV-LT-zwz" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="zVD-UO-S2w"/>
+            </constraints>
+            <point key="canvasLocation" x="58.5" y="182"/>
+        </customView>
+    </objects>
+</document>

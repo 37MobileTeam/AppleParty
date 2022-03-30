@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="f4w-gm-NjX">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Dz3-j1-bnD">
+            <objects>
+                <customObject id="Wso-0F-bWE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <windowController storyboardIdentifier="APQRcode" id="f4w-gm-NjX" sceneMemberID="viewController">
+                    <window key="window" title="二维码工具" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="r7n-lN-NFg">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="462" width="475" height="364"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+                        <view key="contentView" id="EJY-HM-BUX">
+                            <rect key="frame" x="0.0" y="0.0" width="475" height="364"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="f4w-gm-NjX" id="C4p-du-RcV"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="JMg-NC-UdZ" kind="relationship" relationship="window.shadowedContentViewController" id="989-Yb-rd2"/>
+                    </connections>
+                </windowController>
+            </objects>
+            <point key="canvasLocation" x="-344.5" y="156"/>
+        </scene>
+        <!--二维码工具-->
+        <scene sceneID="9pW-9x-UcR">
+            <objects>
+                <viewController title="二维码工具" id="JMg-NC-UdZ" customClass="APQRcodeVC" customModule="AppleParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="YL6-zb-Bcj">
+                        <rect key="frame" x="0.0" y="0.0" width="698" height="403"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ug2-kb-Ht1">
+                                <rect key="frame" x="20" y="341" width="552" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="5u9-zd-zBc"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" placeholderString="粘贴需要生成二维码的内容" drawsBackground="YES" id="Eeo-iN-PpZ">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kXS-QG-QKh">
+                                <rect key="frame" x="573" y="345" width="109" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="37D-fG-MjE"/>
+                                    <constraint firstAttribute="height" constant="21" id="H9R-dc-W0a"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="生成二维码" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tw0-oT-hAN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="createQrcode:" target="JMg-NC-UdZ" id="eqd-Jm-wdw"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aIK-jb-PcK">
+                                <rect key="frame" x="411" y="201" width="214" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9OI-Oe-yQA"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="复制二维码" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ucb-TM-gYn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="copyQrcode:" target="JMg-NC-UdZ" id="m9E-O6-wh4"/>
+                                </connections>
+                            </button>
+                            <scrollView hidden="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMS-8O-hMW">
+                                <rect key="frame" x="28" y="16" width="345" height="299"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Rb9-Io-7Mc">
+                                    <rect key="frame" x="0.0" y="0.0" width="345" height="299"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="g7E-G6-qr7">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="299"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="345" height="299"/>
+                                            <size key="maxSize" width="345" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Esa-gt-bwB">
+                                    <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="6mG-be-32t">
+                                    <rect key="frame" x="329" y="0.0" width="16" height="299"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZk-nU-Hui">
+                                <rect key="frame" x="50" y="15" width="301" height="301"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FZk-nU-Hui" secondAttribute="height" multiplier="1:1" id="Gbh-Ch-V3c"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="QRcode" id="gvL-Ja-sIo"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fdf-Fu-jC2">
+                                <rect key="frame" x="411" y="153" width="214" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="n0o-Oe-hbP"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="保存二维码" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ixZ-mG-dr1">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveQrcode:" target="JMg-NC-UdZ" id="NMx-l9-AQT"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DO5-oD-0Zz">
+                                <rect key="frame" x="411" y="105" width="214" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="IBz-lN-MrF"/>
+                                    <constraint firstAttribute="height" constant="25" id="OlD-PH-AMy"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="分享二维码" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OFP-an-Kde">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="shareQrcode:" target="JMg-NC-UdZ" id="E7u-EL-760"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bhy-Kt-6FM">
+                                <rect key="frame" x="411" y="57" width="214" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="EK2-O2-r9Z"/>
+                                    <constraint firstAttribute="height" constant="25" id="LdC-mT-hfw"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="AirDrop分享" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ss3-R8-8ZV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="shareQrcodeByAirDrop:" target="JMg-NC-UdZ" id="qck-Qz-CDH"/>
+                                </connections>
+                            </button>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kqV-kg-e6O">
+                                <rect key="frame" x="515" y="252" width="107" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="1024x1024" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1024" imageScaling="proportionallyDown" inset="2" selectedItem="Ezh-Eq-5N3" id="tDM-tj-Cnk">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" title="分辨率" id="iDl-wk-ACt">
+                                        <items>
+                                            <menuItem title="300x300" tag="300" id="cd3-Tx-sIl"/>
+                                            <menuItem title="666x666" tag="680" id="J4k-L2-eI9"/>
+                                            <menuItem title="1024x1024" state="on" tag="1024" id="Ezh-Eq-5N3"/>
+                                            <menuItem title="1680x1680" tag="1680" id="yKW-h3-FzF"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nkA-C8-cXN">
+                                <rect key="frame" x="416" y="258" width="94" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="H24-4r-oi6"/>
+                                    <constraint firstAttribute="height" constant="16" id="svz-da-sgJ"/>
+                                </constraints>
+                                <textFieldCell key="cell" title="二维码分辨率：" id="lpe-Oy-Zj8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oFq-OZ-56q">
+                                <rect key="frame" x="418" y="307" width="202" height="16"/>
+                                <textFieldCell key="cell" id="M8S-NJ-r4H">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vpq-0F-Rre">
+                                <rect key="frame" x="411" y="9" width="214" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="DX1-8F-PWN"/>
+                                    <constraint firstAttribute="height" constant="25" id="RZy-Lp-VQi"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="扫描屏幕上的二维码" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IE9-17-MVr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="scanQrcode:" target="JMg-NC-UdZ" id="nKQ-rX-scz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="RMS-8O-hMW" firstAttribute="height" secondItem="FZk-nU-Hui" secondAttribute="height" multiplier="0.996337" id="0lC-La-Fe2"/>
+                            <constraint firstAttribute="trailing" secondItem="Vpq-0F-Rre" secondAttribute="trailing" constant="80" id="3HB-cl-Bo7"/>
+                            <constraint firstItem="kqV-kg-e6O" firstAttribute="leading" secondItem="nkA-C8-cXN" secondAttribute="trailing" constant="10" id="5Hd-0w-UDL"/>
+                            <constraint firstItem="aIK-jb-PcK" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="5pi-bF-JY8"/>
+                            <constraint firstAttribute="trailing" secondItem="aIK-jb-PcK" secondAttribute="trailing" constant="80" id="5xg-F6-DUj"/>
+                            <constraint firstAttribute="trailing" secondItem="DO5-oD-0Zz" secondAttribute="trailing" constant="80" id="7vu-Wm-qhQ"/>
+                            <constraint firstItem="Ug2-kb-Ht1" firstAttribute="top" secondItem="YL6-zb-Bcj" secondAttribute="top" constant="20" symbolic="YES" id="81I-ze-g3K"/>
+                            <constraint firstAttribute="trailing" secondItem="Fdf-Fu-jC2" secondAttribute="trailing" constant="80" id="8PQ-BB-8bV"/>
+                            <constraint firstAttribute="trailing" secondItem="Vpq-0F-Rre" secondAttribute="trailing" constant="80" id="GiS-So-8mk"/>
+                            <constraint firstItem="bhy-Kt-6FM" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="LF9-2I-3uN"/>
+                            <constraint firstItem="FZk-nU-Hui" firstAttribute="centerX" secondItem="RMS-8O-hMW" secondAttribute="centerX" id="NMm-m2-f84"/>
+                            <constraint firstItem="oFq-OZ-56q" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="69" id="PzN-pg-eqG"/>
+                            <constraint firstItem="FZk-nU-Hui" firstAttribute="centerY" secondItem="RMS-8O-hMW" secondAttribute="centerY" id="QxO-Wo-srO"/>
+                            <constraint firstItem="Fdf-Fu-jC2" firstAttribute="top" secondItem="aIK-jb-PcK" secondAttribute="bottom" constant="23" id="V0h-t7-6Gj"/>
+                            <constraint firstItem="FZk-nU-Hui" firstAttribute="leading" secondItem="YL6-zb-Bcj" secondAttribute="leading" constant="50" id="VDe-Q8-9PN"/>
+                            <constraint firstAttribute="trailing" secondItem="oFq-OZ-56q" secondAttribute="trailing" constant="80" id="XJ6-yE-Ntt"/>
+                            <constraint firstItem="Vpq-0F-Rre" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="Y7x-4H-RjY"/>
+                            <constraint firstItem="kqV-kg-e6O" firstAttribute="top" secondItem="Ug2-kb-Ht1" secondAttribute="bottom" constant="65" id="YEL-BY-ut6"/>
+                            <constraint firstItem="DO5-oD-0Zz" firstAttribute="top" secondItem="Fdf-Fu-jC2" secondAttribute="bottom" constant="23" id="Ypl-LZ-Mq5"/>
+                            <constraint firstAttribute="trailing" secondItem="bhy-Kt-6FM" secondAttribute="trailing" constant="80" id="a0a-Oa-9kH"/>
+                            <constraint firstAttribute="trailing" secondItem="kqV-kg-e6O" secondAttribute="trailing" constant="80" id="dBG-ER-u2w"/>
+                            <constraint firstItem="nkA-C8-cXN" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="feM-R3-Qk4"/>
+                            <constraint firstItem="oFq-OZ-56q" firstAttribute="top" secondItem="Ug2-kb-Ht1" secondAttribute="bottom" constant="18" id="g4b-8B-jEz"/>
+                            <constraint firstItem="Vpq-0F-Rre" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="gBB-bU-bqb"/>
+                            <constraint firstAttribute="trailing" secondItem="kXS-QG-QKh" secondAttribute="trailing" constant="23" id="gz3-mW-f9A"/>
+                            <constraint firstItem="kXS-QG-QKh" firstAttribute="centerY" secondItem="Ug2-kb-Ht1" secondAttribute="centerY" id="iya-pl-bDW"/>
+                            <constraint firstItem="RMS-8O-hMW" firstAttribute="width" secondItem="FZk-nU-Hui" secondAttribute="width" multiplier="1.14286" id="l0c-4A-01h"/>
+                            <constraint firstAttribute="bottom" secondItem="FZk-nU-Hui" secondAttribute="bottom" constant="15" id="ohm-Zu-1WD"/>
+                            <constraint firstItem="Vpq-0F-Rre" firstAttribute="top" secondItem="bhy-Kt-6FM" secondAttribute="bottom" constant="23" id="ooP-O8-GCs"/>
+                            <constraint firstItem="bhy-Kt-6FM" firstAttribute="top" secondItem="DO5-oD-0Zz" secondAttribute="bottom" constant="23" id="ovb-Bw-TRf"/>
+                            <constraint firstItem="kqV-kg-e6O" firstAttribute="centerY" secondItem="nkA-C8-cXN" secondAttribute="centerY" id="q3U-Le-a73"/>
+                            <constraint firstItem="FZk-nU-Hui" firstAttribute="top" secondItem="Ug2-kb-Ht1" secondAttribute="bottom" constant="25" id="qQE-gB-m3H"/>
+                            <constraint firstItem="aIK-jb-PcK" firstAttribute="top" secondItem="kqV-kg-e6O" secondAttribute="bottom" constant="23" id="rWH-hA-TD5"/>
+                            <constraint firstItem="Fdf-Fu-jC2" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="sSR-g2-znd"/>
+                            <constraint firstItem="Vpq-0F-Rre" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="tKR-17-heC"/>
+                            <constraint firstItem="Ug2-kb-Ht1" firstAttribute="leading" secondItem="YL6-zb-Bcj" secondAttribute="leading" constant="20" id="tMb-EV-T0G"/>
+                            <constraint firstItem="DO5-oD-0Zz" firstAttribute="leading" secondItem="FZk-nU-Hui" secondAttribute="trailing" constant="67" id="wNM-xz-93l"/>
+                            <constraint firstItem="kXS-QG-QKh" firstAttribute="leading" secondItem="Ug2-kb-Ht1" secondAttribute="trailing" constant="8" id="xPZ-gg-ekQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Vpq-0F-Rre" secondAttribute="trailing" constant="80" id="zbv-Ik-hNs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="copyQrcodeBtn" destination="aIK-jb-PcK" id="gof-pb-gv8"/>
+                        <outlet property="createQrcodeBtn" destination="kXS-QG-QKh" id="4d9-ha-E2M"/>
+                        <outlet property="inputTextField" destination="Ug2-kb-Ht1" id="dIn-HQ-wDi"/>
+                        <outlet property="messageLbl" destination="oFq-OZ-56q" id="xKI-yE-tXi"/>
+                        <outlet property="qrcodeImageView" destination="FZk-nU-Hui" id="bbk-Km-JV9"/>
+                        <outlet property="qrcodeSizeBtn" destination="kqV-kg-e6O" id="Lac-Nf-7aT"/>
+                        <outlet property="saveQrcodeBtn" destination="Fdf-Fu-jC2" id="DBR-Bz-crE"/>
+                        <outlet property="scanQrcodeBtn" destination="Vpq-0F-Rre" id="Ew1-De-IaS"/>
+                        <outlet property="shareQrcodeBtn" destination="DO5-oD-0Zz" id="bvQ-kp-gDU"/>
+                        <outlet property="shareQrcodeByAirDropBtn" destination="bhy-Kt-6FM" id="xVg-Aw-9xp"/>
+                        <outlet property="textScrollView" destination="RMS-8O-hMW" id="0yW-gv-qtS"/>
+                        <outlet property="textView" destination="g7E-G6-qr7" id="vJy-Tg-oLR"/>
+                    </connections>
+                </viewController>
+                <customObject id="3RX-1S-TLr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="156.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="QRcode" width="145" height="145"/>
+    </resources>
+</document>
