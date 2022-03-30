@@ -6,7 +6,7 @@
 
 ###  一、App 介绍
 
-AppleParty 是三七互娱旗下37手游iOS团队研发，实现快速操作 App Store Connect 后台的自动化 macOS 工具。
+AppleParty 是三七互娱旗下37手游 iOS 团队研发，实现快速操作 App Store Connect 后台的自动化 macOS 工具。
 
 **支持功能**
 
@@ -65,6 +65,8 @@ App 分析的指标：
 
 #### 下载安装包
 
+- [Releases](https://github.com/37iOS/AppleParty/releases)
+
 
 **update 更新**
 
@@ -83,6 +85,15 @@ pod install
 
 
 > 项目依赖 Swift Package，Xcode 可能下载失败，可以清理缓存试试： 打开 Xcode File -> Packages ->  Reset Package Caches
+
+### 效果示例
+<img src="screenshot/01.jpg" width="800" height:auto alt="screenshot/01.jpg"/>
+<img src="screenshot/03.jpg" width="800" height:auto alt="screenshot/03.jpg"/>
+<img src="screenshot/04.jpg" width="800" height:auto alt="screenshot/04.jpg"/>
+<img src="screenshot/06.jpg" width="800" height:auto alt="screenshot/06.jpg"/>
+<img src="screenshot/09.jpg" width="800" height:auto alt="screenshot/09.jpg"/>
+<img src="screenshot/10.jpg" width="800" height:auto alt="screenshot/10.jpg"/>
+
 
 
 ### 特别感谢
