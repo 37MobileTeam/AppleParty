@@ -333,7 +333,7 @@
 		6D36DE7627DAFCFD00BBC931 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6D3ECCEF27F1ECD3005E4597 /* IAP */,
+				6D3ECCEF27F1ECD3005E4597 /* Transporter */,
 				6D36DE4B27DAFACE00BBC931 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -361,7 +361,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6D3ECCEF27F1ECD3005E4597 /* IAP */ = {
+		6D3ECCEF27F1ECD3005E4597 /* Transporter */ = {
 			isa = PBXGroup;
 			children = (
 				6D59A21E27F2F6B600C7D8F5 /* screenshot-default.jpg */,
@@ -370,7 +370,7 @@
 				6D3ECCF227F1ECF8005E4597 /* shot_metadata.xml */,
 				6D3ECCF027F1ECE2005E4597 /* iap_metadata.xml */,
 			);
-			path = IAP;
+			path = Transporter;
 			sourceTree = "<group>";
 		};
 		6D59A23C27F3E5FA00C7D8F5 /* Tests */ = {
