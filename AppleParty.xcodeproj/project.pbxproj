@@ -53,8 +53,6 @@
 		6D59A22627F306A900C7D8F5 /* QrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A22527F306A900C7D8F5 /* QrcodeUtil.m */; };
 		6D59A22F27F31E7000C7D8F5 /* APSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A22D27F31E7000C7D8F5 /* APSettingVC.swift */; };
 		6D59A23027F31E7000C7D8F5 /* APSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A22E27F31E7000C7D8F5 /* APSettingVC.xib */; };
-		6D59A23427F321BA00C7D8F5 /* update.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A23327F321BA00C7D8F5 /* update.xml */; };
-		6D59A23627F321CA00C7D8F5 /* AppleParty-release.html in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A23527F321CA00C7D8F5 /* AppleParty-release.html */; };
 		6D59A23A27F3395900C7D8F5 /* EmailSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A23827F3395900C7D8F5 /* EmailSettingVC.swift */; };
 		6D59A23B27F3395A00C7D8F5 /* EmailSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A23927F3395900C7D8F5 /* EmailSettingVC.xib */; };
 		6D8F184A27F07E97001A30BF /* APAppListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F182D27F07E97001A30BF /* APAppListVC.swift */; };
@@ -678,7 +676,6 @@
 				6D8F187027F08F65001A30BF /* APLoginVC.xib in Resources */,
 				6D3ECCEE27F1E989005E4597 /* APInAppPurchseVC.storyboard in Resources */,
 				6D59A23027F31E7000C7D8F5 /* APSettingVC.xib in Resources */,
-				6D59A23627F321CA00C7D8F5 /* AppleParty-release.html in Resources */,
 				6D8F186427F081D3001A30BF /* APAppListCell.xib in Resources */,
 				6D8F187927F0A2DD001A30BF /* APLogin2FAVC.xib in Resources */,
 				6D8F185027F07E97001A30BF /* APRootCollectionCell.xib in Resources */,
@@ -697,7 +694,6 @@
 				6D36DE8527DB77C600BBC931 /* Localizable.strings in Resources */,
 				6D3ECCD827F1CAD6005E4597 /* ScreenShotHelpPopoverVC.xib in Resources */,
 				6D36DE7C27DB775800BBC931 /* InfoPlist.strings in Resources */,
-				6D59A23427F321BA00C7D8F5 /* update.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,7 +1073,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppleParty/AppleParty.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2022.03.29;
+				CURRENT_PROJECT_VERSION = 2022.04.06;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleParty/Info.plist;
@@ -1090,7 +1086,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1111,7 +1107,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppleParty/AppleParty.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2022.03.29;
+				CURRENT_PROJECT_VERSION = 2022.04.06;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleParty/Info.plist;
@@ -1124,7 +1120,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
