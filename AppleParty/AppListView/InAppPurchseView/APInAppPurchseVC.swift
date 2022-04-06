@@ -59,9 +59,10 @@ class APInAppPurchseVC: NSViewController {
         
         // 创建格式
         var iaps = "productId, 商品名称, 价格等级, 价格(RMB), AppleID, 商品类型, 状态, 送审图片\n"
+        let separator = "\",\""
         iaps += iapList.map { item -> String in
-            return item.vendorId + ", " + item.referenceName + ", " + item.tierStem + ", " + levelChargeMoney(item.tierStem) + ", " + item.adamId
-            + ", " + item.addOnType.CNValue() + ", " + item.iTunesConnectStatus.statusValue.0 + ", " + (item.reviewScreenshot?.url ?? "-")
+            return "\"" + item.vendorId + separator + item.referenceName + separator + item.tierStem + separator + levelChargeMoney(item.tierStem) + separator + item.adamId
+            + separator + item.addOnType.CNValue() + separator + item.iTunesConnectStatus.statusValue.0 + separator + (item.reviewScreenshot?.url ?? "-") + "\""
         }.joined(separator: "\n")
         
         // 保存文件
@@ -74,10 +75,11 @@ class APInAppPurchseVC: NSViewController {
         mySave.begin { (result) -> Void in
             if result == .OK {
                 let filePath = mySave.url
-                // 含有中文，编码不能用 utf8
-                let gb_18030_2000 = String.Encoding(rawValue: CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue)))
                 do {
-                    try iaps.write(to: filePath!, atomically: true, encoding: gb_18030_2000)
+                    // 含有中文，excel在打开CSV文件时默认用ASNI打开，无BOM头的unicode文件会出现乱码
+                    var data = Data([0xEF, 0xBB, 0xBF])
+                    data.append(contentsOf: iaps.data(using: .utf8) ?? Data())
+                    try data.write(to: filePath!)
                 } catch {
                     // failed to write file (bad permissions, bad filename etc.)
                 }

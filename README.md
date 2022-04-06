@@ -91,12 +91,16 @@ pod install
 > 项目依赖 Swift Package，Xcode 可能下载失败，可以清理缓存试试： 打开 Xcode File -> Packages ->  Reset Package Caches
 
 ### 效果示例
-<img src="screenshot/01.jpg" width="800" height:auto alt="screenshot/01.jpg"/>
-<img src="screenshot/03.jpg" width="800" height:auto alt="screenshot/03.jpg"/>
-<img src="screenshot/04.jpg" width="800" height:auto alt="screenshot/04.jpg"/>
-<img src="screenshot/06.jpg" width="800" height:auto alt="screenshot/06.jpg"/>
-<img src="screenshot/09.jpg" width="800" height:auto alt="screenshot/09.jpg"/>
-<img src="screenshot/10.jpg" width="800" height:auto alt="screenshot/10.jpg"/>
+<img src="screenshot/01.png" width="800" height:auto alt="screenshot/01.png"/>
+<img src="screenshot/02.png" width="800" height:auto alt="screenshot/02.png"/>
+<img src="screenshot/03.png" width="800" height:auto alt="screenshot/03.png"/>
+<img src="screenshot/04.png" width="800" height:auto alt="screenshot/04.png"/>
+<img src="screenshot/05.png" width="800" height:auto alt="screenshot/05.png"/>
+<img src="screenshot/06.png" width="800" height:auto alt="screenshot/06.png"/>
+<img src="screenshot/07.png" width="800" height:auto alt="screenshot/07.png"/>
+<img src="screenshot/08.png" width="800" height:auto alt="screenshot/08.png"/>
+<img src="screenshot/09.png" width="800" height:auto alt="screenshot/09.png"/>
+<img src="screenshot/10.png" width="800" height:auto alt="screenshot/10.png"/>
 
 
 
