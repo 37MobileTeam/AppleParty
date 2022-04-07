@@ -669,7 +669,7 @@
                                     <items>
                                         <menuItem title="AppleParty Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="showHelp:" target="Voe-Tx-rLC" id="SBg-I9-EKg"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="检查更新" id="NNA-eB-8bp">
@@ -732,6 +732,20 @@
                                         <action selector="clicedFeedbackItem:" target="B8D-0N-5wS" id="vxo-oy-czh"/>
                                     </connections>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="92A79F05-7917-4528-A3C1-E6AACBC6B574" label="37手游" paletteLabel="37手游" tag="-1" image="37M-logo" bordered="YES" id="kJn-zB-vca">
+                                    <size key="minSize" width="90" height="25"/>
+                                    <size key="maxSize" width="90" height="25"/>
+                                    <connections>
+                                        <action selector="cliced37MobileGamesItem:" target="B8D-0N-5wS" id="U3P-4L-1sA"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="3B07357D-81F7-4C93-8016-D9659246F252" label="37手游iOS团队" paletteLabel="37手游iOS团队" tag="-1" image="37iOSTeam-Round" id="b4d-dA-VY5">
+                                    <size key="minSize" width="32" height="32"/>
+                                    <size key="maxSize" width="32" height="32"/>
+                                    <connections>
+                                        <action selector="cliced37iOSTeamItem:" target="B8D-0N-5wS" id="LVB-pV-KJq"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="Vks-4o-OVK"/>
@@ -767,6 +781,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="37M-logo" width="749.5" height="190.5"/>
+        <image name="37iOSTeam-Round" width="512" height="512"/>
         <image name="NSHomeTemplate" width="20" height="16"/>
         <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="NSTouchBarMailTemplate" width="19" height="13"/>
