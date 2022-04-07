@@ -55,6 +55,7 @@
 		6D59A23027F31E7000C7D8F5 /* APSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A22E27F31E7000C7D8F5 /* APSettingVC.xib */; };
 		6D59A23A27F3395900C7D8F5 /* EmailSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A23827F3395900C7D8F5 /* EmailSettingVC.swift */; };
 		6D59A23B27F3395A00C7D8F5 /* EmailSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A23927F3395900C7D8F5 /* EmailSettingVC.xib */; };
+		6D59A24727FE833800C7D8F5 /* APConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A24627FE833800C7D8F5 /* APConstants.swift */; };
 		6D8F184A27F07E97001A30BF /* APAppListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F182D27F07E97001A30BF /* APAppListVC.swift */; };
 		6D8F184D27F07E97001A30BF /* APRootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F183927F07E97001A30BF /* APRootVC.swift */; };
 		6D8F184F27F07E97001A30BF /* APRootWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F183D27F07E97001A30BF /* APRootWC.swift */; };
@@ -173,6 +174,7 @@
 		6D59A23827F3395900C7D8F5 /* EmailSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingVC.swift; sourceTree = "<group>"; };
 		6D59A23927F3395900C7D8F5 /* EmailSettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSettingVC.xib; sourceTree = "<group>"; };
 		6D59A23D27F3E5FA00C7D8F5 /* IAP-test-data.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IAP-test-data.xlsx"; sourceTree = "<group>"; };
+		6D59A24627FE833800C7D8F5 /* APConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APConstants.swift; sourceTree = "<group>"; };
 		6D8F182D27F07E97001A30BF /* APAppListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APAppListVC.swift; sourceTree = "<group>"; };
 		6D8F183927F07E97001A30BF /* APRootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APRootVC.swift; sourceTree = "<group>"; };
 		6D8F183D27F07E97001A30BF /* APRootWC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APRootWC.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			children = (
 				6D8F187227F0A070001A30BF /* UserCenter.swift */,
 				6D8F187427F0A0B3001A30BF /* InfoCenter.swift */,
+				6D59A24627FE833800C7D8F5 /* APConstants.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				6D8F186627F081ED001A30BF /* APAppListAdapter.swift in Sources */,
 				6D584B5827F20A8000924BFE /* APInAppPurchseCell.swift in Sources */,
 				6D3ECCDA27F1CAD6005E4597 /* ScreenShotUploadVC.swift in Sources */,
+				6D59A24727FE833800C7D8F5 /* APConstants.swift in Sources */,
 				6D59A21327F29F4C00C7D8F5 /* EmailUtils.swift in Sources */,
 				6D3ECCCF27F1A9FE005E4597 /* APSwichAccountPopover.swift in Sources */,
 				6D8F188827F0ACA5001A30BF /* GDataXMLNode.m in Sources */,
@@ -1073,7 +1077,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppleParty/AppleParty.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2022.04.06;
+				CURRENT_PROJECT_VERSION = 2022.04.07;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleParty/Info.plist;
@@ -1086,7 +1090,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1107,7 +1111,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppleParty/AppleParty.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2022.04.06;
+				CURRENT_PROJECT_VERSION = 2022.04.07;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleParty/Info.plist;
@@ -1120,7 +1124,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

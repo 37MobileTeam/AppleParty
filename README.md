@@ -65,7 +65,7 @@ App 分析的指标：
 所以，Apple Party（苹果派对），简称：**苹果派**，就是希望大家在使用苹果的服务时，像似参加一场苹果派对，尽情欢乐，欢聚宴会~
 
 
-###  二、使用说明
+### 三、安装说明
 
 #### 下载安装包
 
@@ -90,7 +90,15 @@ pod install
 
 > 项目依赖 Swift Package，Xcode 可能下载失败，可以清理缓存试试： 打开 Xcode File -> Packages ->  Reset Package Caches
 
-### 效果示例
+### 四、FAQ
+
+- [AppleParty 使用说明 - wiki](https://github.com/37iOS/AppleParty/wiki/AppleParty-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+
+- [New Issue](https://github.com/37iOS/AppleParty/issues/new/choose)
+
+
+### 五、效果示例
+
 <img src="screenshot/01.png" width="800" height:auto alt="screenshot/01.png"/>
 <img src="screenshot/02.png" width="800" height:auto alt="screenshot/02.png"/>
 <img src="screenshot/03.png" width="800" height:auto alt="screenshot/03.png"/>
@@ -104,7 +112,7 @@ pod install
 
 
 
-### 特别感谢
+### 六、特别感谢
 
 - [Alamofire/Alamofire](https://github.com/Alamofire/Alamofire)
 - [Kitura/Swift-SMTP](https://github.com/Kitura/Swift-SMTP)

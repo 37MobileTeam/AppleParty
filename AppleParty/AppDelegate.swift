@@ -45,5 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
+    @IBAction func showHelp(_ sender: Any) {
+        let url = URL(string: kApplePartyWiKi)
+        NSWorkspace.shared.open(url!)
+    }
 }
-

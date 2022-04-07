@@ -31,7 +31,6 @@ class APLoginVC: NSViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.doubleAction = #selector(selectedNewAccount)
         
         // 最近登录的账号
         let name = UserCenter.shared.loginedUser.appleid
@@ -112,6 +111,8 @@ extension APLoginVC {
             let code = response?.statusCode
             // 登陆态有效
             if code == 200 {
+                // 账号密码正确
+                UserCenter.shared.loginedUser = User(appleid: account, password: pwd)
                 self?.validateSession()
             } else {
                 self?.showTips("\(code ?? 0),\(error.debugDescription)")
@@ -206,16 +207,15 @@ extension APLoginVC: NSTableViewDelegate, NSTableViewDataSource {
         return nil
     }
     
-    
-    @objc func selectedNewAccount() {
-        let clickedRow = tableView.clickedRow
+    func tableViewSelectionDidChange(_ notification: Notification){
+        let tableView = notification.object as! NSTableView
+        let clickedRow = tableView.selectedRow
         guard clickedRow >= 0 else {
             return
         }
-        
+        tableView.deselectRow(clickedRow)
         accountView.stringValue = UserCenter.shared.historyUser[clickedRow].appleid
         passwordView.stringValue = UserCenter.shared.historyUser[clickedRow].password
         showAccountHistoryList(clickedRow)
     }
-    
 }

@@ -73,15 +73,25 @@ class APRootWC: NSWindowController {
     }
     
     @IBAction func clickedGithubItem(_ sender: Any) {
-        let url = URL(string: "https://github.com/37iOS/AppleParty")
+        let url = URL(string: kApplePartyGitHub)
         NSWorkspace.shared.open(url!)
     }
     
     @IBAction func clicedFeedbackItem(_ sender: Any) {
-        let url = URL(string: "https://github.com/37iOS/AppleParty/issues/new/choose")
+        let url = URL(string: kApplePartyNewIssues)
         NSWorkspace.shared.open(url!)
     }
     
+    @IBAction func cliced37MobileGamesItem(_ sender: Any) {
+        let url = URL(string: k37MobileGamesSite)
+        NSWorkspace.shared.open(url!)
+    }
+    
+    
+    @IBAction func cliced37iOSTeamItem(_ sender: Any) {
+        let url = URL(string: k37iOSTeamJueJinSite)
+        NSWorkspace.shared.open(url!)
+    }
 }
 
 
