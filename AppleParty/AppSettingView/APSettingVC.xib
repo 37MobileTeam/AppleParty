@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="clearCacheBtn" destination="CIQ-yY-qAH" id="Mk4-R7-k6m"/>
                 <outlet property="sPasswordBtn" destination="OeI-Rx-XtW" id="qOB-78-ZuO"/>
+                <outlet property="trusDeviceBtn" destination="nK7-5f-UIm" id="bjH-fk-npo"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

@@ -298,7 +298,7 @@ extension APClient {
     func request(showLoading: Bool = false, inView: NSView = currentView() , retry: Int = 3, completionHandler: CompletionHandler?) {
         
         if showLoading {
-            APHUD.showLoading(view: inView)
+            APHUD.showLoading(inView)
         }
         
         APClientSession.shared.session.request(getUrl(),

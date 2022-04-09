@@ -18,6 +18,7 @@ class APLogin2FAVC: NSViewController {
     @IBOutlet weak var voiceCodeBtn: NSButton!
     @IBOutlet weak var phoneCodeView: NSTextField!
     @IBOutlet weak var tipsWarningView: NSTextField!
+    @IBOutlet weak var trusDeviceBtn: NSButton!
     @IBOutlet weak var indicatorView: NSProgressIndicator!
     @IBOutlet weak var verifyBtn: NSButton!
     
@@ -31,6 +32,7 @@ class APLogin2FAVC: NSViewController {
         super.viewDidLoad()
         phoneCodeView.delegate = self
         fetchPhoneList()
+        trusDeviceBtn.state = InfoCenter.shared.trusDevice ? .on : .off
     }
     
     @IBAction func clickedCancelBtn(_ sender: NSButton) {

@@ -19,7 +19,6 @@ class APSwichAccountPopover: NSViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.doubleAction = #selector(handleDoubleClick)
     }
     
     @IBAction func cliedCancelBtn(_ sender: Any) {
@@ -50,8 +49,13 @@ extension APSwichAccountPopover: NSTableViewDelegate, NSTableViewDataSource {
         return nil
     }
     
-    @objc func handleDoubleClick() {
-        let clickedRow = tableView.clickedRow
+    func tableViewSelectionDidChange(_ notification: Notification){
+        let tableView = notification.object as! NSTableView
+        let clickedRow = tableView.selectedRow
+        guard clickedRow >= 0 else {
+            return
+        }
+        tableView.deselectRow(clickedRow)
         if let selectFunc = selectHandle {
             selectFunc(clickedRow)
         }

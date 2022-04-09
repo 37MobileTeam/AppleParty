@@ -19,7 +19,7 @@ class HUD: NSObject {
     private var loadHud: MBProgressHUD?
     private var textHud: MBProgressHUD?
     
-    func showLoading(view: NSView = currentView()) {
+    func showLoading(_ view: NSView = currentView()) {
         if loadHud != nil {
             loadHud?.hide(true)
         }
@@ -53,12 +53,14 @@ class HUD: NSObject {
     }
     
     func hide(message: String, view: NSView = currentView(), delayTime: TimeInterval = 3) {
-        guard let hud = MBProgressHUD.showAdded(to: view, animated: true) else {
+        guard let hud = MBProgressHUD(view: view) else {
             return
         }
         hud.mode = MBProgressHUDModeText
         hud.labelText = message
         hud.removeFromSuperViewOnHide = true
+        view.addSubview(hud)
+        hud.show(true)
         hud.hide(true, afterDelay: delayTime)
     }
 }

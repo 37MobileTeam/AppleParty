@@ -18,6 +18,7 @@ class APSettingVC: NSViewController {
         }
     }
     
+    @IBOutlet weak var trusDeviceBtn: NSButton!
     @IBOutlet weak var sPasswordBtn: NSButton!
     @IBOutlet weak var clearCacheBtn: NSButton!
     
@@ -46,6 +47,7 @@ class APSettingVC: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "App设置"
+        trusDeviceBtn.state = InfoCenter.shared.trusDevice ? .on : .off
     }
     
 }

@@ -462,6 +462,7 @@
                     <connections>
                         <outlet property="appNameView" destination="RWS-I4-Hj5" id="B2s-1y-ClK"/>
                         <outlet property="outlineView" destination="Yd4-ve-MqM" id="gzd-Pc-XWm"/>
+                        <outlet property="outputIAPListBtn" destination="DoY-Xj-sox" id="evc-Ck-z2C"/>
                     </connections>
                 </viewController>
                 <customObject id="LWD-js-20w" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

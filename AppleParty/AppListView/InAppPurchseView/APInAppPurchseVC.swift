@@ -19,6 +19,7 @@ class APInAppPurchseVC: NSViewController {
     
     var iapList: [IAPList.IAP] = []
     
+    @IBOutlet weak var outputIAPListBtn: NSButton!
     @IBOutlet weak var appNameView: NSTextField!
     @IBOutlet weak var outlineView: NSOutlineView!
     
@@ -81,7 +82,7 @@ class APInAppPurchseVC: NSViewController {
                     data.append(contentsOf: iaps.data(using: .utf8) ?? Data())
                     try data.write(to: filePath!)
                 } catch {
-                    // failed to write file (bad permissions, bad filename etc.)
+                    NSAlert.show("导出失败：\(error.localizedDescription)")
                 }
             }
         }
@@ -107,7 +108,8 @@ extension APInAppPurchseVC {
     func fetchIAPs() {
         APClient.iaps(appid: currentApp!.adamId).request(showLoading: true, inView: self.view) { [weak self] result, response, error in
             guard let err = error else {
-                let iapL = IAPList(body:result, app: (self?.currentApp!)!)
+                guard let app = self?.currentApp else { return } //请求过程关闭页面可能导致为空
+                let iapL = IAPList(body:result, app: app)
                 self?.iapList = iapL.iapList
                 self?.outlineView.reloadData()
                 self?.updateRowInfo()
@@ -122,6 +124,7 @@ extension APInAppPurchseVC {
             return
         }
         
+        outputIAPListBtn.isEnabled = false
         let group = DispatchGroup()
         for i in 0..<self.iapList.count {
             group.enter()
@@ -139,6 +142,7 @@ extension APInAppPurchseVC {
             }
         }
         group.notify(queue: .main) {
+            self.outputIAPListBtn.isEnabled = true
             self.outlineView.reloadData()
         }
     }
@@ -159,7 +163,8 @@ extension APInAppPurchseVC {
         let dps = xlsx[4]
         let types = xlsx[5]
         let scrs = xlsx[6]
-        let langs = (xlsx.count >= 8 && xlsx[7].count > 0 ) ? xlsx[7] : [String](repeating: "zh-Hans", count: ids.count)
+        // 如果没有填写，默认用简中
+        let langs = xlsx[7].count > 0 ? xlsx[7].map { $0.count > 0 ? $0 : "zh-Hans" } : [String](repeating: "zh-Hans", count: ids.count)
         
         // 检查行数
         guard ids.count == names.count, pris.count == levs.count, dps.count == types.count, types.count == ids.count, names.count == langs.count else {

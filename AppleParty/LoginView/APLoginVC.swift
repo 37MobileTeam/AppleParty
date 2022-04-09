@@ -20,6 +20,7 @@ class APLoginVC: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     
     @IBOutlet weak var tipsWarningView: NSTextField!
+    @IBOutlet weak var autoLoginBtn: NSButton!
     @IBOutlet weak var indicatorView: NSProgressIndicator!
     @IBOutlet weak var loginBtn: NSButton!
     
@@ -29,12 +30,10 @@ class APLoginVC: NSViewController {
         passwordView.delegate = self
         tipsWarningView.maximumNumberOfLines = 5
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         // 最近登录的账号
-        let name = UserCenter.shared.loginedUser.appleid
-        let pwd = UserCenter.shared.loginedUser.password
+        let user = UserCenter.shared.loginedUser
+        let name = user.appleid
+        let pwd = user.password
         guard name.count > 0, pwd.count > 0 else { return }
         accountView.stringValue = name
         passwordView.stringValue = pwd
@@ -54,6 +53,11 @@ class APLoginVC: NSViewController {
     
     
     @IBAction func showAccountHistoryList(_ sender: Any) {
+        if historyBox.isHidden {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.reloadData()
+        }
         historyBox.isHidden = !historyBox.isHidden
     }
     
@@ -88,8 +92,11 @@ extension APLoginVC {
                 case .notAuthorized:
                     self?.showTips("Apple ID 或密码不正确")
                 case .twoStepOrFactor:
-                    // 账号密码正确
-                    UserCenter.shared.loginedUser = User(appleid: account, password: pwd)
+                    // 保存账号密码
+                    if self?.autoLoginBtn.state == .on {
+                        UserCenter.shared.isAutoLogin = true
+                        UserCenter.shared.loginedUser = User(appleid: account, password: pwd)
+                    }
                     // 双重认证
                     let vc = APLogin2FAVC()
                     vc.cancelHandle = { [weak self] in
@@ -111,8 +118,11 @@ extension APLoginVC {
             let code = response?.statusCode
             // 登陆态有效
             if code == 200 {
-                // 账号密码正确
-                UserCenter.shared.loginedUser = User(appleid: account, password: pwd)
+                // 保存账号密码
+                if self?.autoLoginBtn.state == .on {
+                    UserCenter.shared.isAutoLogin = true
+                    UserCenter.shared.loginedUser = User(appleid: account, password: pwd)
+                }
                 self?.validateSession()
             } else {
                 self?.showTips("\(code ?? 0),\(error.debugDescription)")
@@ -140,6 +150,8 @@ extension APLoginVC {
     }
     
     func trusDevice() {
+        guard InfoCenter.shared.trusDevice else { return}
+        
         APClient.trusDevice(isTrus: true).request { result, response, error in
             if response?.statusCode == 204 {
                 debugPrint("信任设备成功~")
@@ -166,6 +178,7 @@ extension APLoginVC {
     func viewEnabled(_ isEnabled: Bool) {
         showTips("")
         loginBtn.isEnabled = isEnabled
+        historyBox.isHidden = true
         isEnabled ? indicatorView.stopAnimation(nil) : indicatorView.startAnimation(nil)
     }
     

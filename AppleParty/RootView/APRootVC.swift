@@ -21,8 +21,10 @@ class APRootVC: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        let wc = self.view.window?.windowController as! APRootWC
-        wc.clickedAccountItem(nil)
+        if UserCenter.shared.isAutoLogin {
+            let wc = self.view.window?.windowController as! APRootWC
+            wc.clickedAccountItem(nil)
+        }
     }
     
     /// 配置显示的功能列表

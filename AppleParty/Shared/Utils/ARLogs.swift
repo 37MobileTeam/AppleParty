@@ -26,7 +26,7 @@ class APLogs {
         let dataPath = dateFormatter.string(from: Date())
         
         var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        documentsURL.appendPathComponent("AppleParyty")
+        documentsURL.appendPathComponent("AppleParty")
         documentsURL.appendPathComponent("Logs")
         documentsURL.appendPathComponent("\(dataPath)_log.txt")
         createFileDirectory(url: documentsURL)

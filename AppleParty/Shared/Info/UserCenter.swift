@@ -39,7 +39,7 @@ struct UserCenter {
     
     
     // MARK: - 历史登录用户
-    var historyUser: [User] = {
+    lazy var historyUser: [User] = {
         if let value = try? APUtil.keychain.getString(UserCenterKey_HistoryUser_Key) {
             let array = value.components(separatedBy: "|")
             var result = [User]()
@@ -53,7 +53,7 @@ struct UserCenter {
     
     // MARK: - 登录用户
     var loginedUser: User {
-        get {
+        mutating get {
             return historyUser.first ?? User(appleid: "", password: "")
         }
         set {

@@ -13,6 +13,7 @@
                 <outlet property="phoneListBtn" destination="YPd-lO-U4e" id="Sg5-Hb-iUb"/>
                 <outlet property="sendCodeBtn" destination="rx9-Oh-Gtq" id="cYT-hl-Kc7"/>
                 <outlet property="tipsWarningView" destination="ijo-CH-sfg" id="PLO-uS-eBh"/>
+                <outlet property="trusDeviceBtn" destination="8SV-WX-fvn" id="kyK-aJ-vJK"/>
                 <outlet property="verifyBtn" destination="E5o-kz-kvG" id="kcn-Ez-LwY"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="voiceCodeBtn" destination="kff-Qr-scI" id="khK-sS-hCc"/>
@@ -151,6 +152,17 @@ DQ
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8SV-WX-fvn">
+                    <rect key="frame" x="283" y="20" width="80" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="mX6-l7-rZj"/>
+                        <constraint firstAttribute="width" constant="78" id="vDy-Dk-GSE"/>
+                    </constraints>
+                    <buttonCell key="cell" type="check" title="信任设备" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="VBA-AP-I7T">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name="STSongti-SC-Regular"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="BiF-4T-JA0" secondAttribute="bottom" constant="15" id="1Fq-AL-3Ws"/>
@@ -159,6 +171,8 @@ DQ
                 <constraint firstAttribute="trailing" secondItem="rx9-Oh-Gtq" secondAttribute="trailing" constant="60" id="Euw-SM-wUx"/>
                 <constraint firstItem="YPd-lO-U4e" firstAttribute="leading" secondItem="vqk-uI-9AU" secondAttribute="trailing" constant="10" id="G4u-U5-hRW"/>
                 <constraint firstItem="vqk-uI-9AU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="60" id="Kat-r9-QXI"/>
+                <constraint firstItem="8SV-WX-fvn" firstAttribute="centerY" secondItem="E5o-kz-kvG" secondAttribute="centerY" id="Pfn-8j-tgF"/>
+                <constraint firstItem="E5o-kz-kvG" firstAttribute="leading" secondItem="8SV-WX-fvn" secondAttribute="trailing" constant="8" id="Q3C-bW-QSW"/>
                 <constraint firstAttribute="trailing" secondItem="kff-Qr-scI" secondAttribute="trailing" constant="60" id="Sxo-QH-rVU"/>
                 <constraint firstAttribute="trailing" secondItem="npy-jX-GQb" secondAttribute="trailing" constant="60" id="WBf-2q-NVj"/>
                 <constraint firstItem="npy-jX-GQb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="60" id="WxQ-Kb-Jj4"/>

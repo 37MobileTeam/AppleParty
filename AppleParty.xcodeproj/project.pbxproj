@@ -291,7 +291,7 @@
 				6D8F182B27F07E97001A30BF /* AppListView */,
 				6D8F183027F07E97001A30BF /* EmailToolView */,
 				6D8F183427F07E97001A30BF /* QRcodeView */,
-				6D8F183127F07E97001A30BF /* SettingView */,
+				6D8F183127F07E97001A30BF /* AppSettingView */,
 				6D8F184227F07E97001A30BF /* Shared */,
 				6D8F187A27F0AC74001A30BF /* Vendors */,
 				6D8F183327F07E97001A30BF /* SparkleUpdate */,
@@ -357,6 +357,8 @@
 				6D3ECCE927F1D6C6005E4597 /* IAPCharge.swift */,
 				6D3ECCE727F1D6BB005E4597 /* IAPModel.swift */,
 				6D3ECCDD27F1D027005E4597 /* XMLModel.swift */,
+				6D8F187D27F0AC83001A30BF /* TierStemParser.swift */,
+				6D8F187E27F0AC83001A30BF /* XLSXParser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -384,15 +386,14 @@
 		6D8F182B27F07E97001A30BF /* AppListView */ = {
 			isa = PBXGroup;
 			children = (
-				6D3ECCDC27F1D00B005E4597 /* Models */,
-				6D8F183227F07E97001A30BF /* InAppPurchseView */,
-				6D3ECCD127F1CAC5005E4597 /* ScreenShotsView */,
 				6D8F182D27F07E97001A30BF /* APAppListVC.swift */,
 				6D8F185E27F08161001A30BF /* AppList.storyboard */,
 				6D8F186527F081ED001A30BF /* APAppListAdapter.swift */,
 				6D8F186127F081D3001A30BF /* APAppListCell.swift */,
 				6D8F186227F081D3001A30BF /* APAppListCell.xib */,
 				6D8F186727F08201001A30BF /* APAppListModel.swift */,
+				6D8F183227F07E97001A30BF /* InAppPurchseView */,
+				6D3ECCD127F1CAC5005E4597 /* ScreenShotsView */,
 			);
 			path = AppListView;
 			sourceTree = "<group>";
@@ -409,13 +410,13 @@
 			path = EmailToolView;
 			sourceTree = "<group>";
 		};
-		6D8F183127F07E97001A30BF /* SettingView */ = {
+		6D8F183127F07E97001A30BF /* AppSettingView */ = {
 			isa = PBXGroup;
 			children = (
 				6D59A22D27F31E7000C7D8F5 /* APSettingVC.swift */,
 				6D59A22E27F31E7000C7D8F5 /* APSettingVC.xib */,
 			);
-			path = SettingView;
+			path = AppSettingView;
 			sourceTree = "<group>";
 		};
 		6D8F183227F07E97001A30BF /* InAppPurchseView */ = {
@@ -430,6 +431,7 @@
 				6D584B5727F20A8000924BFE /* APInAppPurchseCell.swift */,
 				6D584B5527F20A4D00924BFE /* APInappPurchseCell.xib */,
 				6D59A21A27F2D49000C7D8F5 /* DragView.swift */,
+				6D3ECCDC27F1D00B005E4597 /* Models */,
 			);
 			path = InAppPurchseView;
 			sourceTree = "<group>";
@@ -537,8 +539,6 @@
 			children = (
 				6D8F188627F0ACA5001A30BF /* GDataXMLNode.h */,
 				6D8F188727F0ACA5001A30BF /* GDataXMLNode.m */,
-				6D8F187D27F0AC83001A30BF /* TierStemParser.swift */,
-				6D8F187E27F0AC83001A30BF /* XLSXParser.swift */,
 				6D8F188027F0AC83001A30BF /* XMLManager.swift */,
 			);
 			path = ITMS;
@@ -1077,7 +1077,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppleParty/AppleParty.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2022.04.07;
+				CURRENT_PROJECT_VERSION = 2022.04.09;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleParty/Info.plist;
@@ -1090,7 +1090,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1111,7 +1111,7 @@
 				CODE_SIGN_ENTITLEMENTS = AppleParty/AppleParty.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2022.04.07;
+				CURRENT_PROJECT_VERSION = 2022.04.09;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleParty/Info.plist;
@@ -1124,7 +1124,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

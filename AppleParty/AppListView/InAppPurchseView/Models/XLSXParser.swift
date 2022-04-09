@@ -83,7 +83,7 @@ struct XLSXParser {
                         return column.filter { (value) -> Bool in
                             value == "语言"
                         }.isNotEmpty
-                    }.first ?? []
+                    }.first ?? xlsx[7]
 
                     return [pris.filter({ $0 != "金额" }),
                             prods.filter({ $0 != "Product ID" }),
