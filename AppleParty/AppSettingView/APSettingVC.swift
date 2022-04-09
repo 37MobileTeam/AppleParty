@@ -22,7 +22,7 @@ class APSettingVC: NSViewController {
     @IBOutlet weak var sPasswordBtn: NSButton!
     @IBOutlet weak var clearCacheBtn: NSButton!
     
-    @IBAction func clickedSAccountBtn(_ sender: NSButton) {
+    @IBAction func clickedTrusDeviceBtn(_ sender: NSButton) {
         InfoCenter.shared.trusDevice = sender.state == .on ? true : false
     }
     

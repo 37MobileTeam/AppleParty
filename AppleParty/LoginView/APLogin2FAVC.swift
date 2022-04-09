@@ -53,6 +53,10 @@ class APLogin2FAVC: NSViewController {
     @IBAction func clickedVerifyBtn(_ sender: NSButton) {
         verifySecurityCode()
     }
+    
+    @IBAction func clickedTrusDeviceBtn(_ sender: NSButton) {
+        InfoCenter.shared.trusDevice = sender.state == .on ? true : false
+    }
 }
 
 

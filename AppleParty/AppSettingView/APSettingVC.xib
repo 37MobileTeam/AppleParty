@@ -41,7 +41,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="clickedSAccountBtn:" target="-2" id="TnY-cG-QOJ"/>
+                        <action selector="clickedTrusDeviceBtn:" target="-2" id="n1j-ha-ysp"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OeI-Rx-XtW">
