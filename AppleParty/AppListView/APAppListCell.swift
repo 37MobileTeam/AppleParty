@@ -37,7 +37,7 @@ class APAppListCell: NSCollectionViewItem {
     func configure(app: App) {
         self.app = app
         nameView.stringValue = app.appName
-        imgView?.showWebImage(app.largeIconUrl)
+        imgView?.showWebImage(app.iconUrl)
     }
     
     

@@ -48,6 +48,11 @@ struct APClientSession {
     }
 }
 
+enum AppListStatus {
+    case all
+    case available
+    case filter(_ query: String?)
+}
 
 enum APClient {
     // 初始化登录请求
@@ -67,8 +72,7 @@ enum APClient {
     // 账号合同消息
     case providerContractMessage
     // 应用列表
-    case apps
-    case appsDetail
+    case appList(status: AppListStatus)
     // 应用版本
     case appVersion(appid: String)
     // 内购列表-新
@@ -132,7 +136,7 @@ extension APClient {
         switch self {
         case .signIn, .submitSecurityCode, .appAnalytics, .appSalestrends, .initCSRF, .switchProvider:
             return .post
-        case .signInSession, .apps, .appsDetail, .inAppPurchase, .iaps, .iapDetail, .ascProvider, .ascProviders, .appInfo, .trusDevice, .providerNews, .providerContractMessage, .validateSession, .sapVendorNumbers, .summaryFinancialReport, .paymentConsolidation, .generateFinancialReport, .generateFinancialReportStatus, .detailFinancialReport, .appVersion, .bankList, .bankAccountNumber, .userDetail:
+        case .signInSession, .inAppPurchase, .iaps, .iapDetail, .ascProvider, .ascProviders, .appInfo, .trusDevice, .providerNews, .providerContractMessage, .validateSession, .sapVendorNumbers, .summaryFinancialReport, .paymentConsolidation, .generateFinancialReport, .generateFinancialReportStatus, .detailFinancialReport, .appVersion, .bankList, .bankAccountNumber, .userDetail, .appList:
             return .get
         case .verifySecurityPhone:
             return .put
@@ -172,10 +176,16 @@ extension APClient {
             return "https://idmsa.apple.com/appleauth/auth/verify/phone"
         case let .submitSecurityCode(code):
             return "https://idmsa.apple.com/appleauth/auth/verify/\(code.urlPathComponent)/securitycode"
-        case .apps:
-            return "https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/apps/index"
-        case .appsDetail:
-            return "https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/apps/manageyourapps/summary/v2"
+        case let .appList(status):
+            switch status {
+            case .all:
+                return "https://appstoreconnect.apple.com/iris/v1/apps?limit=999"
+            case .available:
+                return "https://appstoreconnect.apple.com/iris/v1/apps?include=reviewSubmissions&limit=999&filter[removed]=false&filter[appStoreVersions.appStoreState]=READY_FOR_SALE"
+            case .filter(query: let query):
+                let filter = query ?? "limit=999&include=appStoreVersions&limit[appStoreVersions]=1"
+                return "https://appstoreconnect.apple.com/iris/v1/apps?\(filter)"
+            }
         case let .appVersion(appid):
             return "https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/apps/"+appid+"/overview"
         case let .inAppPurchase(appid, type):
@@ -428,8 +438,10 @@ extension APClient {
                 UserCenter.shared.developerId = string(from: dictionary(json["provider"])["providerId"])
                 UserCenter.shared.developerName = string(from: dictionary(json["provider"])["name"])
             }
-        case .apps:
-            UserCenter.shared.accountApps = json
+        case .appList:
+            if response?.statusCode != 200 {
+                return true
+            }
         case .ascProvider:
             let includeds = dictionaryArray(json["included"])
             for included in includeds {

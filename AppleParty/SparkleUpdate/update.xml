@@ -5,16 +5,16 @@
         <description>Most recent changes with links to updates.</description>
         <language>zh_CN</language>
         <item>
-            <title>Version 2.0.4</title>
+            <title>Version 2.0.5</title>
             <sparkle:releaseNotesLink>https://37iOS.GitHub.io/Sparkle/AppleParty-release.html</sparkle:releaseNotesLink>
-            <pubDate>2022-04-10</pubDate>
+            <pubDate>2022-07-13</pubDate>
             <enclosure
-                url="https://github.com/37iOS/AppleParty/releases/download/2.0.4/AppleParty-v2.0.4.zip"
-                sparkle:shortVersionString="2.0.4"
-                sparkle:version="2022.04.10"
+                url="https://github.com/37iOS/AppleParty/releases/download/2.0.5/AppleParty-v2.0.5.zip"
+                sparkle:shortVersionString="2.0.5"
+                sparkle:version="2022.07.13"
                 type="application/octet-stream"
-                sparkle:edSignature="0xx71tIiqTFovLz+g/XzFDbkG21pwQFtsp5wnmJkdZhy53ht1O+/9OiOnf0kLrt5ICNT2RHKJX1w4lhtI7moCQ=="
-                length="11576343"
+                sparkle:edSignature="XjFmK8BNBm0ogbqip9eW9ZkCK7bkbl1bGX1Lgp4i3b1AfJnryR+p49O1QXxTasUiaIL0hM/y31FBKf7moeTiAg=="
+                length="11583246"
             />
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
         </item>

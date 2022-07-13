@@ -152,7 +152,7 @@ extension ScreenShotUploadVC {
     }
     
     func fetchAppInfo(_ replay: Int = 3) {
-        guard let appid = currentApp?.adamId else {
+        guard let appid = currentApp?.appId else {
             APHUD.hide(message: "当前 App 的 appleid 为空！", delayTime: 1)
             return
         }
@@ -175,7 +175,7 @@ extension ScreenShotUploadVC {
     
     func fetchAppVersionData(_ replay: Int = 3) {
         
-        guard let appid = currentApp?.adamId else {
+        guard let appid = currentApp?.appId else {
             APHUD.hide(message: "当前 App 的 appleid 为空！", delayTime: 1)
             return
         }
@@ -311,7 +311,7 @@ extension ScreenShotUploadVC {
             uploadModel.vendor_id = info.sku
             
             // 获取创建 itms 文件的路径
-            let filePath = XMLManager.getShotsPath(currentApp!.adamId)
+            let filePath = XMLManager.getShotsPath(currentApp!.appId)
             
             // 先删除旧的文档
             XMLManager.deleteITMS(filePath)
@@ -393,7 +393,7 @@ extension ScreenShotUploadVC {
         if result.0 == 0 {
             NSAlert.show("上传成功！稍后可在苹果后台查看~")
             // 删除旧的文档，避免占用空间过大
-            let filePath = XMLManager.getShotsPath(currentApp!.adamId)
+            let filePath = XMLManager.getShotsPath(currentApp!.appId)
             XMLManager.deleteITMS(filePath)
         } else {
             let sb = NSStoryboard(name: "APDebugVC", bundle: Bundle(for: self.classForCoder))

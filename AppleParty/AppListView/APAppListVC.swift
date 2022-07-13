@@ -46,7 +46,7 @@ class APAppListVC: NSViewController {
 extension APAppListVC {
     
     func fetchAppList() {
-        APClient.apps.request(showLoading: true, inView: self.view) { [weak self] result, response, error in
+        APClient.appList(status: .filter(nil)).request(showLoading: true, inView: self.view) { [weak self] result, response, error in
             guard let err = error else {
                 let gamelist = AppList(body: result)
                 self?.adapter?.set(items: gamelist.games)

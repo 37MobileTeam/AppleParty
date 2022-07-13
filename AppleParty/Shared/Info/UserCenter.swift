@@ -32,8 +32,6 @@ struct UserCenter {
     var accountEmail = ""
     /// 账号所有子账号信息
     var accountProviders: [String: Any] = [:]
-    /// 账号所有 app
-    var accountApps: [String: Any] = [:]
     /// 账号登陆态是否有效
     var isAuthorized = false
     

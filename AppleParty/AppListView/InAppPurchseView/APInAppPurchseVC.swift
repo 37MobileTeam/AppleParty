@@ -106,7 +106,7 @@ extension APInAppPurchseVC {
     
     // 请求商品列表
     func fetchIAPs() {
-        APClient.iaps(appid: currentApp!.adamId).request(showLoading: true, inView: self.view) { [weak self] result, response, error in
+        APClient.iaps(appid: currentApp!.appId).request(showLoading: true, inView: self.view) { [weak self] result, response, error in
             guard let err = error else {
                 guard let app = self?.currentApp else { return } //请求过程关闭页面可能导致为空
                 let iapL = IAPList(body:result, app: app)
@@ -128,7 +128,7 @@ extension APInAppPurchseVC {
         let group = DispatchGroup()
         for i in 0..<self.iapList.count {
             group.enter()
-            APClient.iapDetail(appid: currentApp!.adamId, iapid: iapList[i].adamId).request { [weak self] result, response, error in
+            APClient.iapDetail(appid: currentApp!.appId, iapid: iapList[i].adamId).request { [weak self] result, response, error in
                 group.leave()
                 guard let err = error else {
                     if var newModel = self?.iapList[i] {

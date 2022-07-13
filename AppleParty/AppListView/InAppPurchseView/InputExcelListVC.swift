@@ -80,7 +80,7 @@ class InputExcelListVC: NSViewController {
     }
     
     @IBAction func createIAP(_ sender: Any) {
-        guard let appid = currentApp?.adamId else {
+        guard let appid = currentApp?.appId else {
             APHUD.hide(message: "当前 App 的 appleid 为空！", delayTime: 1)
             return
         }
@@ -120,7 +120,7 @@ class InputExcelListVC: NSViewController {
         APHUD.show(message: "上传中", view: self.view)
         let uploadIAPs: ((String) -> Void) = { [weak self] pwd in
             DispatchQueue.global(qos: .userInitiated).async {
-                let result = XMLManager.uploadITMS(account: UserCenter.shared.loginedUser.appleid, pwd: pwd, filePath: XMLManager.getITMSPath(self?.currentApp!.adamId ?? "null"))
+                let result = XMLManager.uploadITMS(account: UserCenter.shared.loginedUser.appleid, pwd: pwd, filePath: XMLManager.getITMSPath(self?.currentApp!.appId ?? "null"))
                 DispatchQueue.main.async {
                     APHUD.hide()
                     self?.enterBtn.isEnabled = true
@@ -180,7 +180,7 @@ class InputExcelListVC: NSViewController {
 extension InputExcelListVC {
     
     func fetchAppInfo(_ replay: Int = 3) {
-        guard let appid = currentApp?.adamId else {
+        guard let appid = currentApp?.appId else {
             APHUD.hide(message: "当前 App 的 appleid 为空！", delayTime: 1)
             return
         }
