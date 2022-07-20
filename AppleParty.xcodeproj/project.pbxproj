@@ -85,6 +85,7 @@
 		6D8F188A27F0ADC2001A30BF /* FoundationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F188927F0ADC2001A30BF /* FoundationUtil.swift */; };
 		6D8F188E27F0C121001A30BF /* APClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F188D27F0C121001A30BF /* APClient.swift */; };
 		6D8F189027F0C3CB001A30BF /* ARLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8F188F27F0C3CB001A30BF /* ARLogs.swift */; };
+		75BC23A92888109900D27D38 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC23A62888109900D27D38 /* MBProgressHUD.m */; };
 		814E3C3BB5538B3ED396D7DF /* Pods_ApplePartyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A4FD1F5C0341D48CF4D106 /* Pods_ApplePartyTests.framework */; };
 		BA7B4461DBCFDE92C6C0DDA8 /* Pods_AppleParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DDC8A0206F410C17653E3A /* Pods_AppleParty.framework */; };
 /* End PBXBuildFile section */
@@ -209,6 +210,8 @@
 		6D8F188D27F0C121001A30BF /* APClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APClient.swift; sourceTree = "<group>"; };
 		6D8F188F27F0C3CB001A30BF /* ARLogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARLogs.swift; sourceTree = "<group>"; };
 		6E2329117B30DC9F72DC1E3E /* Pods-AppleParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleParty.debug.xcconfig"; path = "Target Support Files/Pods-AppleParty/Pods-AppleParty.debug.xcconfig"; sourceTree = "<group>"; };
+		75BC23A62888109900D27D38 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		75BC23A72888109900D27D38 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F8DDC8A0206F410C17653E3A /* Pods_AppleParty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleParty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -286,6 +289,7 @@
 			children = (
 				6D36DE4727DAFACD00BBC931 /* AppDelegate.swift */,
 				6D8F188527F0ACA4001A30BF /* AppleParty-Bridging-Header.h */,
+				75BC23A42888108E00D27D38 /* 3rdth */,
 				6D8F183627F07E97001A30BF /* RootView */,
 				6D36DE7527DAFCD900BBC931 /* LoginView */,
 				6D8F182B27F07E97001A30BF /* AppListView */,
@@ -542,6 +546,23 @@
 				6D8F188027F0AC83001A30BF /* XMLManager.swift */,
 			);
 			path = ITMS;
+			sourceTree = "<group>";
+		};
+		75BC23A42888108E00D27D38 /* 3rdth */ = {
+			isa = PBXGroup;
+			children = (
+				75BC23A52888109900D27D38 /* MBProgressHUD */,
+			);
+			path = 3rdth;
+			sourceTree = "<group>";
+		};
+		75BC23A52888109900D27D38 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				75BC23A62888109900D27D38 /* MBProgressHUD.m */,
+				75BC23A72888109900D27D38 /* MBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		BD41E9D291F096DAD93AE347 /* Frameworks */ = {
@@ -841,6 +862,7 @@
 				6D3ECCD727F1CAD6005E4597 /* ScreenShotHelpPopoverVC.swift in Sources */,
 				6D8F188427F0AC83001A30BF /* XMLManager.swift in Sources */,
 				6D8F186627F081ED001A30BF /* APAppListAdapter.swift in Sources */,
+				75BC23A92888109900D27D38 /* MBProgressHUD.m in Sources */,
 				6D584B5827F20A8000924BFE /* APInAppPurchseCell.swift in Sources */,
 				6D3ECCDA27F1CAD6005E4597 /* ScreenShotUploadVC.swift in Sources */,
 				6D59A24727FE833800C7D8F5 /* APConstants.swift in Sources */,
