@@ -156,21 +156,42 @@ extension APInAppPurchseVC {
     func handelExcel(_ excelFilePath: URL) {
         // [pris, prods, names, levels, dps, types, scrs]
         let xlsx = XLSXParser.parser(filePath: excelFilePath.path)
-        let pris = xlsx[0]
-        let ids = xlsx[1]
-        let names = xlsx[2]
-        let levs = xlsx[3]
-        let dps = xlsx[4]
-        let types = xlsx[5]
-        let scrs = xlsx[6]
-        // 如果没有填写，默认用简中
-        let langs = xlsx[7].count > 0 ? xlsx[7].map { $0.count > 0 ? $0 : "zh-Hans" } : [String](repeating: "zh-Hans", count: ids.count)
+        var pris = xlsx[0]
+        var ids = xlsx[1]
+        var names = xlsx[2]
+        var levs = xlsx[3]
+        var dps = xlsx[4]
+        var types = xlsx[5]
+        var scrs = xlsx[6]
+        var langsOrigianl = xlsx[7]
         
         // 检查行数
-        guard ids.count == names.count, pris.count == levs.count, dps.count == types.count, types.count == ids.count, names.count == langs.count else {
+        guard ids.count == names.count, pris.count == levs.count, dps.count == types.count, types.count == ids.count, names.count == langsOrigianl.count else {
             NSAlert.show("表格行数不一致!")
             return
         }
+        
+        //忽略空行
+        let rowNum = ids.count
+        var index = 0
+        for _ in 0..<rowNum {
+            if pris[index].isEmpty,ids[index].isEmpty,names[index].isEmpty,levs[index].isEmpty,dps[index].isEmpty,types[index].isEmpty,scrs[index].isEmpty,langsOrigianl[index].isEmpty {
+                pris.remove(at: index)
+                ids.remove(at: index)
+                names.remove(at: index)
+                levs.remove(at: index)
+                dps.remove(at: index)
+                types.remove(at: index)
+                scrs.remove(at: index)
+                langsOrigianl.remove(at: index)
+            }
+            else {
+                index += 1
+            }
+        }
+        
+        // 如果没有填写，默认用简中
+        let langs = langsOrigianl.count > 0 ? langsOrigianl.map { $0.count > 0 ? $0 : "zh-Hans" } : [String](repeating: "zh-Hans", count: ids.count)
         
         // TODO: 检查字符长度要求
         if ids.count == 1, ids.first == "" {
