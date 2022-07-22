@@ -14,6 +14,7 @@ class APPasswordVC: NSViewController {
     
     typealias CallBackFunc = (_ password: String) -> Void
     var callBackFunc: CallBackFunc?
+    var cancelBtnFunc: (()->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,9 @@ class APPasswordVC: NSViewController {
     
     @IBAction func clickedCancelBtn(_ sender: Any) {
         dismiss(self)
+        if let cancelBtnFunc = cancelBtnFunc {
+            cancelBtnFunc()
+        }
     }
     
 }

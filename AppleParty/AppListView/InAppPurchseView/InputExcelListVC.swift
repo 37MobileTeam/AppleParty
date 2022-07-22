@@ -70,6 +70,7 @@ class InputExcelListVC: NSViewController {
         showUploadView()
     }
     
+    //点击右下角”设置特殊密码“
     @IBAction func clickedSPasswordBtn(_ sender: Any) {
         let sb = NSStoryboard(name: "APPasswordVC", bundle: Bundle(for: self.classForCoder))
         let pwdVC = sb.instantiateController(withIdentifier: "APPasswordVC") as? APPasswordVC
@@ -129,6 +130,7 @@ class InputExcelListVC: NSViewController {
             }
         }
         
+        weak var weakSelf = self
         let pwd = UserCenter.shared.developerKey
         if pwd.isEmpty {
             let sb = NSStoryboard(name: "APPasswordVC", bundle: Bundle(for: self.classForCoder))
@@ -136,6 +138,10 @@ class InputExcelListVC: NSViewController {
             pwdVC?.callBackFunc = { newPwd in
                 UserCenter.shared.developerKey = newPwd
                 uploadIAPs(newPwd)
+            }
+            pwdVC?.cancelBtnFunc = {
+                APHUD.hide()
+                weakSelf?.enterBtn.isEnabled = true
             }
             presentAsSheet(pwdVC!)
         } else {
