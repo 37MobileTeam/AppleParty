@@ -92,17 +92,18 @@ class ScreenShotUploadVC: NSViewController {
             return
         }
         
-        if UserCenter.shared.developerKey.isEmpty {
-            let sb = NSStoryboard(name: "APPasswordVC", bundle: Bundle(for: self.classForCoder))
-            let pwdVC = sb.instantiateController(withIdentifier: "APPasswordVC") as? APPasswordVC
-            pwdVC?.callBackFunc = { pwd in
-                UserCenter.shared.developerKey = pwd
-                self.uploadData()
+        guard let sp = UserCenter.shared.currentSPassword else {
+            let vc = APSPasswordSettingVC()
+            vc.updateCompletion = { [weak self] spassword in
+                if let sp = spassword  {
+                    self?.uploadData(sp)
+                }
             }
-            presentAsSheet(pwdVC!)
-        } else {
-            uploadData()
+            presentAsSheet(vc)
+            return
         }
+        
+        uploadData(sp)
     }
     
     @IBAction func reloadAppData(_ sender: Any) {
@@ -292,7 +293,7 @@ extension ScreenShotUploadVC: NSTableViewDelegate, NSTableViewDataSource {
 // MARK: - Upload
 extension ScreenShotUploadVC {
     
-    func uploadData() {
+    func uploadData(_ sp: SPassword) {
         
         APHUD.show(message: "上传中", view: self.view)
         
@@ -321,7 +322,7 @@ extension ScreenShotUploadVC {
             
             uploadModel.createShots(directoryPath: filePath)
             
-            let result = XMLManager.uploadITMS(account: UserCenter.shared.loginedUser.appleid, pwd: UserCenter.shared.developerKey, filePath: filePath)
+            let result = XMLManager.uploadITMS(account: sp.account, pwd: sp.password, filePath: filePath)
             
             DispatchQueue.main.async {
                 APHUD.hide()

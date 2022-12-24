@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Enu-OS-3cL">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Enu-OS-3cL">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,16 +23,16 @@
                                         <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw4-7v-82c">
                                             <rect key="frame" x="15" y="15" width="646" height="420"/>
                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="qgZ-nQ-2pd">
-                                                <rect key="frame" x="0.0" y="0.0" width="631" height="420"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="646" height="420"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="pw9-l5-Onr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="631" height="420"/>
+                                                    <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="pw9-l5-Onr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="646" height="420"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="631" height="420"/>
-                                                        <size key="maxSize" width="631" height="10000000"/>
+                                                        <size key="minSize" width="646" height="420"/>
+                                                        <size key="maxSize" width="646" height="10000000"/>
                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
                                                 </subviews>
@@ -42,15 +42,43 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Apq-tx-GKR">
-                                                <rect key="frame" x="631" y="0.0" width="15" height="420"/>
+                                                <rect key="frame" x="630" y="0.0" width="16" height="420"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tao-lm-OZJ">
+                                            <rect key="frame" x="585" y="403" width="62" height="32"/>
+                                            <buttonCell key="cell" type="push" title="分享" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SOU-XO-ihr">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <connections>
+                                                    <action selector="clickedShareBtn:" target="5N0-3q-mhf" id="TFi-kQ-vAv"/>
+                                                </connections>
+                                            </buttonCell>
+                                        </button>
+                                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="270-Zx-Lpx">
+                                            <rect key="frame" x="525" y="403" width="62" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="0RT-rC-qZR"/>
+                                                <constraint firstAttribute="width" constant="48" id="kB3-HZ-jTf"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="push" title="刷新" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lRJ-4k-bai">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="clickedRefreshBtn:" target="5N0-3q-mhf" id="Ypk-MJ-TAs"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="hw4-7v-82c" secondAttribute="trailing" constant="15" id="1dN-fY-nHr"/>
+                                        <constraint firstAttribute="trailing" secondItem="tao-lm-OZJ" secondAttribute="trailing" constant="36" id="4v2-wh-FN5"/>
                                         <constraint firstItem="hw4-7v-82c" firstAttribute="top" secondItem="Vdg-iC-KaL" secondAttribute="top" constant="15" id="VUc-Az-fdb"/>
                                         <constraint firstItem="hw4-7v-82c" firstAttribute="leading" secondItem="Vdg-iC-KaL" secondAttribute="leading" constant="15" id="hqo-7R-rNd"/>
+                                        <constraint firstItem="tao-lm-OZJ" firstAttribute="leading" secondItem="270-Zx-Lpx" secondAttribute="trailing" constant="12" symbolic="YES" id="li5-Y4-9US"/>
+                                        <constraint firstItem="270-Zx-Lpx" firstAttribute="top" secondItem="Vdg-iC-KaL" secondAttribute="top" constant="20" symbolic="YES" id="mPg-FA-mwC"/>
+                                        <constraint firstItem="tao-lm-OZJ" firstAttribute="top" secondItem="Vdg-iC-KaL" secondAttribute="top" constant="20" id="pi7-xW-763"/>
                                         <constraint firstAttribute="bottom" secondItem="hw4-7v-82c" secondAttribute="bottom" constant="15" id="wGb-Y7-3BE"/>
                                     </constraints>
                                 </view>
@@ -66,6 +94,8 @@
                     </view>
                     <connections>
                         <outlet property="debugTextView" destination="pw9-l5-Onr" id="deT-1E-OJt"/>
+                        <outlet property="refreshBtn" destination="270-Zx-Lpx" id="Sf3-rG-ts9"/>
+                        <outlet property="shareBtn" destination="tao-lm-OZJ" id="KnQ-3P-2yc"/>
                     </connections>
                 </viewController>
                 <customObject id="K28-Ri-F78" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -78,7 +108,6 @@
                 <windowController storyboardIdentifier="APDebugWC" id="Enu-OS-3cL" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="NRy-vs-FRC">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="600" height="500"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
                         <view key="contentView" id="rGV-R6-MVh">

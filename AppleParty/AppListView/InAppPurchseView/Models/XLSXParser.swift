@@ -21,7 +21,7 @@ struct XLSXParser {
                     print("This worksheet has a name: \(worksheetName)")
                 }
                 
-                if name != "Sheet1" {
+                if name != "AppleParty" {
                     continue
                 }
                 

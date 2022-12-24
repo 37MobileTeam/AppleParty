@@ -202,25 +202,6 @@ struct IAPList {
                 canSubmit = bool(from: dict["canSubmit"])
             }
         }
-        
-        struct ReviewScreenshot {
-            var url: String = ""
-            var thumbNailUrl: String = ""
-            var originalFileName: String = ""
-            var checksum: String = ""
-            var width: Int = 0
-            var height: Int = 0
-            
-            init(dict: [String: Any]) {
-                let value = dictionary(dict["value"])
-                width = int(from: value["width"]) ?? 0
-                height = int(from: value["height"]) ?? 0
-                checksum = string(from: value["checksum"])
-                originalFileName = string(from: value["originalFileName"])
-                url = string(from: value["url"])
-                thumbNailUrl = string(from: value["thumbNailUrl"])
-            }
-        }
 
         var familyReferenceName: String = ""
         var durationDays: Int = 0
@@ -244,23 +225,58 @@ struct IAPList {
         var iTunesConnectStatus: InAppPurchaseState = .unknown
         
         // detail
-        var publicId: String = ""
-        var tierStem: String = ""                   // 价格等级
-        var country: String = ""                    // 价格地区
-        var description: String = ""                // 商品描述
-        var localeCode: String = ""                 // 地区代码
         var status: String = ""                     // 状态
-        var reviewScreenshot: ReviewScreenshot?     // 截图
+        var familySharable: Bool = false            // 家庭共享
+        var availableInAllTerritories: Bool = true  // 可供销售
+        var reviewNote: String = ""                 // 截图
+        var reviewScreenshot: String = ""           // 截图
+        var localizations: [IAPLocalization] = []   // 本地化描述
         
         mutating func updateDetail(body: [String: Any]) {
             let data = dictionary(body["data"])
-            publicId = string(from: data["publicId"])
-            tierStem = string(from: dictionary(dictionaryArray(data["pricingIntervals"]).first?["value"])["tierStem"])
-            country = string(from: dictionary(dictionaryArray(data["pricingIntervals"]).first?["value"])["country"])
-            description = string(from: dictionary(dictionary(dictionaryArray(dictionary(dictionaryArray(data["versions"]).first?["details"])).first?["value"])["description"])["value"])
-            localeCode = string(from: (dictionary(dictionaryArray(dictionary(dictionaryArray(data["versions"]).first?["details"])).first?["value"])["localeCode"]))
-            status = string(from: (dictionary(dictionaryArray(dictionary(dictionaryArray(data["versions"]).first?["details"])).first?["value"])["status"]))
-            reviewScreenshot = ReviewScreenshot(dict: dictionary(dictionaryArray(data["versions"]).first?["reviewScreenshot"]))
+            status = string(from: dictionary(dictionary(data)["attributes"])["state"])
+            reviewNote = string(from: dictionary(dictionary(data)["attributes"])["reviewNote"])
+            familySharable = bool(from: dictionary(dictionary(data)["attributes"])["familySharable"])
+            
+            let included = dictionaryArray(body["included"])
+            for include in included {
+                guard let type = include["type"] as? String else {
+                    return
+                }
+                
+                if type == "inAppPurchaseLocalizations" {
+                    let attr = dictionary(include["attributes"])
+                    let name = string(from: attr["name"])
+                    let locale = string(from: attr["locale"])
+                    let description = string(from: attr["description"])
+                    localizations.append(IAPLocalization(name: name, description: description, locale: locale))
+                }
+                
+                if type == "inAppPurchaseAppStoreReviewScreenshots" {
+                    let attr = dictionary(include["attributes"])
+                    let asset = dictionary(attr["imageAsset"])
+                    let width = string(from: asset["width"])
+                    let height = string(from: asset["height"])
+                    let templateUrl = string(from: asset["templateUrl"])
+                    // {w}x{h}bb.{f}
+                    let reviewScreenshot = templateUrl
+                        .replacingOccurrences(of: "{w}", with: width)
+                        .replacingOccurrences(of: "{h}", with: height)
+                        .replacingOccurrences(of: "{f}", with: "png")
+                    self.reviewScreenshot = reviewScreenshot
+                }
+            }
+        }
+        
+        // price
+        var priceTier: String = ""                   // 价格等级
+        
+        mutating func updatePrices(body: [String: Any]) {
+            let included = dictionaryArray(body["included"])
+            for include in included {
+                let attr = dictionary(include["attributes"])
+                self.priceTier = string(from: attr["priceTier"])
+            }
         }
         
         /// 本地属性

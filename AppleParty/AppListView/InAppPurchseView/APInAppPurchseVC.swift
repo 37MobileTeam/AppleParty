@@ -18,14 +18,17 @@ class APInAppPurchseVC: NSViewController {
     }
     
     var iapList: [IAPList.IAP] = []
+    private var countryCode = ""
+    private var checkPrice = [String: String]()
     
+    @IBOutlet weak var pricePopupBtn: NSPopUpButton!
     @IBOutlet weak var outputIAPListBtn: NSButton!
     @IBOutlet weak var appNameView: NSTextField!
     @IBOutlet weak var outlineView: NSOutlineView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        clickedPriceSelectPopupBtn(pricePopupBtn)
         self.outlineView.delegate = self
         self.outlineView.dataSource = self
         self.outlineView.columnAutoresizingStyle = .uniformColumnAutoresizingStyle
@@ -59,11 +62,11 @@ class APInAppPurchseVC: NSViewController {
         }
         
         // 创建格式
-        var iaps = "productId, 商品名称, 价格等级, 价格(RMB), AppleID, 商品类型, 状态, 送审图片\n"
+        var iaps = "productId, 商品名称, 价格等级, 价格(\(countryCode)), AppleID, 商品类型, 状态, 送审图片\n"
         let separator = "\",\""
         iaps += iapList.map { item -> String in
-            return "\"" + item.vendorId + separator + item.referenceName + separator + item.tierStem + separator + levelChargeMoney(item.tierStem) + separator + item.adamId
-            + separator + item.addOnType.CNValue() + separator + item.iTunesConnectStatus.statusValue.0 + separator + (item.reviewScreenshot?.url ?? "-") + "\""
+            return "\"" + item.vendorId + separator + item.referenceName + separator + item.priceTier + separator + (checkPrice[item.priceTier] ?? "-") + separator + item.adamId
+            + separator + item.addOnType.CNValue() + separator + item.iTunesConnectStatus.statusValue.0 + separator + item.reviewScreenshot + "\""
         }.joined(separator: "\n")
         
         // 保存文件
@@ -86,6 +89,34 @@ class APInAppPurchseVC: NSViewController {
                 }
             }
         }
+    }
+    
+    
+    @IBAction func clickedPriceSelectPopupBtn(_ sender: NSPopUpButton) {
+        
+        var countryCode = "CN"
+        switch sender.selectedTag() {
+        case 1:
+            countryCode = "CN"
+        case 2:
+            countryCode = "US"
+        case 3:
+            countryCode = "KR"
+        case 4:
+            countryCode = "JP"
+        case 5:
+            countryCode = "HK"
+        case 6:
+            countryCode = "TW"
+        case 7:
+            countryCode = "GB"
+        case 8:
+            countryCode = "DE"
+        default: break
+        }
+        self.countryCode = countryCode
+        self.checkPrice = PriceTierParser.priceTiers(countryCode)
+        self.outlineView.reloadData()
     }
     
     @IBAction func outputProductID(_ sender: Any) {
@@ -128,13 +159,29 @@ extension APInAppPurchseVC {
         let group = DispatchGroup()
         for i in 0..<self.iapList.count {
             group.enter()
-            APClient.iapDetail(appid: currentApp!.appId, iapid: iapList[i].adamId).request { [weak self] result, response, error in
+            let iapid = iapList[i].adamId
+            // 商品详细
+            APClient.inAppPurchaseDetail(iapid: iapid).request { [weak self] result, response, error in
                 group.leave()
                 guard let err = error else {
                     if var newModel = self?.iapList[i] {
                         newModel.updateDetail(body: result)
                         self?.iapList[i] = newModel
                         self?.outlineView.reloadData()
+                        group.enter()
+                        // 商品价格
+                        APClient.inAppPurchasePrices(iapid: iapid).request { [weak self] result, response, error in
+                            group.leave()
+                            guard let err = error else {
+                                if var newModel = self?.iapList[i] {
+                                    newModel.updatePrices(body: result)
+                                    self?.iapList[i] = newModel
+                                    self?.outlineView.reloadData()
+                                }
+                                return
+                            }
+                            APHUD.hide(message: err.localizedDescription, view: self?.view ?? currentView())
+                        }
                     }
                     return
                 }
@@ -154,93 +201,23 @@ extension APInAppPurchseVC {
     
     
     func handelExcel(_ excelFilePath: URL) {
-        // [pris, prods, names, levels, dps, types, scrs]
-        let xlsx = XLSXParser.parser(filePath: excelFilePath.path)
-        let pris = xlsx[0]
-        let ids = xlsx[1]
-        let names = xlsx[2]
-        let levs = xlsx[3]
-        let dps = xlsx[4]
-        let types = xlsx[5]
-        let scrs = xlsx[6]
-        // 如果没有填写，默认用简中
-        let langs = xlsx[7].count > 0 ? xlsx[7].map { $0.count > 0 ? $0 : "zh-Hans" } : [String](repeating: "zh-Hans", count: ids.count)
+        let iaps = IAPExcelParser.parser(excelFilePath)
         
-        // 检查行数
-        guard ids.count == names.count, pris.count == levs.count, dps.count == types.count, types.count == ids.count, names.count == langs.count else {
-            NSAlert.show("表格行数不一致!")
-            return
-        }
-        
-        // TODO: 检查字符长度要求
-        if ids.count == 1, ids.first == "" {
-            NSAlert.show("数据不能为空！")
-            return
-        }
-        
-        // 【产品 ID】 可以由字母、数字、下划线（_）和句点（.）构成。 2 ~ 255 个字符）
-        if ids.contains(where: { $0.count < 2 || $0.count > 255 }) {
-            let msg = ids.filter { $0.count < 2 || $0.count > 255 }
-            NSAlert.show("商品id长度为：2~255 字符！详细错误：\(msg)")
-            return
-        }
-        
-        // 商品名称（必填） 2~30个字符
-        if names.contains(where: { $0.count < 2 || $0.count > 30 }) {
-            let msg = names.filter { $0.count < 2 || $0.count > 30 }
-            NSAlert.show("商品名称长度为：2~30 字符！详细错误：\(msg)")
-            return
-        }
-        
-        // 商品描述（必填） 10~45个字符
-        if dps.contains(where: { $0.count < 10 || $0.count > 45 }) {
-            let msg = dps.filter { $0.count < 10 || $0.count > 45 }
-            NSAlert.show("商品描述长度为：10~45 字符！详细错误：\(msg)")
-            return
-        }
-        
-        //【屏幕快照】5 ~ 255 个字符，暂时非强制
-        
-        // 检查品项是否已经存在
+        // 检查内购品项是否后台已经创建过
         if iapList.isNotEmpty {
+            let pids = iaps.map { $0.productId }
             let iaps = iapList.map { $0.vendorId }
-            let warns = ids.filter { iaps.contains($0) }
+            let warns = pids.filter { iaps.contains($0) }
             if warns.isNotEmpty {
                 NSAlert.show("‼️警告：已经存在相同商品id的品项！请检查：\(warns)。\n⚠️提示：如果继续上传，将会覆盖已有品项的信息！")
             }
         }
-
-        // 生成模型
-        var itms = XMLModel()
-        var isAllScreentshotEmpty = true
-        for i in 0..<ids.count {
-            var model = In_App_Purchase()
-            model.product_id = ids[i]
-            model.reference_name = names[i]
-            model.type = chargeType(ch: types[i])
-            model.wholesale_price_tier = chargeLevel(level: levs[i])
-            model.inputPrice = pris[i]
-            model.description = dps[i]
-            model.title = names[i]
-            model.review_notes = dps[i]
-            if scrs.count > i && scrs[i].isNotEmpty {
-                model.file_name = scrs[i]
-                isAllScreentshotEmpty = false
-            }else {
-                model.file_name = default_screenshot_file_name
-            }
-            model.lang = langs[i]
-            itms.iaps.append(model)
-        }
         
         let sb = NSStoryboard(name: "InAppPurchseView", bundle: Bundle(for: self.classForCoder))
         let wc = sb.instantiateController(withIdentifier: "InputExcelList") as? NSWindowController
-        let vc = wc?.contentViewController as? InputExcelListVC
+        let vc = wc?.contentViewController as? APUploadIAPListVC
         vc?.currentApp = currentApp
-        vc?.waitUploadModel = itms
-        vc?.isAllScreentshotEmpty = isAllScreentshotEmpty
-        vc?.checkPris = pris
-        vc?.screenshots = itms.iaps.map({ $0.file_name })
+        vc?.iaps = iaps
         wc?.showWindow(self)
     }
     
@@ -275,11 +252,11 @@ extension APInAppPurchseVC: NSOutlineViewDelegate, NSOutlineViewDataSource {
                 return cell
             case ColumnIdetifier.price.cellValue:
                 let cell = outlineView.makeView(withIdentifier: ColumnIdetifier.price.cellValue, owner: self) as? NSTableCellView
-                cell?.textField?.stringValue = levelChargeMoney(item.tierStem)
+                cell?.textField?.stringValue =  checkPrice[item.priceTier] ?? "-"
                 return cell
             case ColumnIdetifier.priceLevel.cellValue:
                 let cell = outlineView.makeView(withIdentifier: ColumnIdetifier.priceLevel.cellValue, owner: self) as? NSTableCellView
-                cell?.textField?.stringValue = item.tierStem
+                cell?.textField?.stringValue = item.priceTier
                 return cell
             case ColumnIdetifier.appleid.cellValue:
                 let cell = outlineView.makeView(withIdentifier: ColumnIdetifier.appleid.cellValue, owner: self) as? NSTableCellView
@@ -329,7 +306,7 @@ extension APInAppPurchseVC: NSOutlineViewDelegate, NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if let item = item as? IAPList.IAP {
-            return item.reviewScreenshot?.thumbNailUrl as Any
+            return item.reviewScreenshot as Any
         }
         return iapList[index]
     }

@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		35249A13BD02FE59DD5561A9 /* Pods_AppleParty_ApplePartyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE565FD4718E20367C0FBF5 /* Pods_AppleParty_ApplePartyUITests.framework */; };
+		6D0931592957154B00AE66EF /* PriceTierParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0931572957154B00AE66EF /* PriceTierParser.swift */; };
+		6D09315A2957154B00AE66EF /* IAPExcelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0931582957154B00AE66EF /* IAPExcelParser.swift */; };
+		6D09315E295715DD00AE66EF /* APUploadIAPListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D09315D295715DD00AE66EF /* APUploadIAPListVC.swift */; };
+		6D0931602957160B00AE66EF /* AppStoreConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D09315F2957160B00AE66EF /* AppStoreConnectAPI.swift */; };
+		6D0931652957312C00AE66EF /* APASCKeysEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0931612957312C00AE66EF /* APASCKeysEditVC.xib */; };
+		6D0931662957312C00AE66EF /* APASCKeysEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0931622957312C00AE66EF /* APASCKeysEditVC.swift */; };
+		6D0931672957312C00AE66EF /* APASCKeysSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0931632957312C00AE66EF /* APASCKeysSettingVC.xib */; };
+		6D0931682957312C00AE66EF /* APASCKeysSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0931642957312C00AE66EF /* APASCKeysSettingVC.swift */; };
+		6D09316C295731D000AE66EF /* AppStorePricingMatrix.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D09316A295731D000AE66EF /* AppStorePricingMatrix.json */; };
+		6D09316D295731D000AE66EF /* example.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 6D09316B295731D000AE66EF /* example.xlsx */; };
+		6D093171295732E000AE66EF /* IPAUpload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D09316F295732E000AE66EF /* IPAUpload.storyboard */; };
+		6D093172295732E000AE66EF /* APIPAUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D093170295732E000AE66EF /* APIPAUploadVC.swift */; };
+		6D0931772957345C00AE66EF /* APSPasswordSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0931732957345C00AE66EF /* APSPasswordSettingVC.swift */; };
+		6D0931782957345C00AE66EF /* APSPasswordEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0931742957345C00AE66EF /* APSPasswordEditVC.xib */; };
+		6D0931792957345C00AE66EF /* APSPasswordEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0931752957345C00AE66EF /* APSPasswordEditVC.swift */; };
+		6D09317A2957345C00AE66EF /* APSPasswordSettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0931762957345C00AE66EF /* APSPasswordSettingVC.xib */; };
+		6D09317F295736D000AE66EF /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = 6D09317E295736D000AE66EF /* AppStoreConnect-Swift-SDK */; };
 		6D36DE4827DAFACD00BBC931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D36DE4727DAFACD00BBC931 /* AppDelegate.swift */; };
 		6D36DE4C27DAFACE00BBC931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D36DE4B27DAFACE00BBC931 /* Assets.xcassets */; };
 		6D36DE5A27DAFACE00BBC931 /* ApplePartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D36DE5927DAFACE00BBC931 /* ApplePartyTests.swift */; };
@@ -27,14 +44,10 @@
 		6D3ECCDE27F1D027005E4597 /* XMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3ECCDD27F1D027005E4597 /* XMLModel.swift */; };
 		6D3ECCE027F1D2A0005E4597 /* APDebugVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D3ECCDF27F1D2A0005E4597 /* APDebugVC.storyboard */; };
 		6D3ECCE227F1D322005E4597 /* APDebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3ECCE127F1D322005E4597 /* APDebugVC.swift */; };
-		6D3ECCE427F1D51F005E4597 /* APPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3ECCE327F1D51F005E4597 /* APPasswordVC.swift */; };
-		6D3ECCE627F1D531005E4597 /* APPasswordVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D3ECCE527F1D531005E4597 /* APPasswordVC.storyboard */; };
 		6D3ECCE827F1D6BB005E4597 /* IAPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3ECCE727F1D6BB005E4597 /* IAPModel.swift */; };
 		6D3ECCEA27F1D6C6005E4597 /* IAPCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3ECCE927F1D6C6005E4597 /* IAPCharge.swift */; };
 		6D3ECCEC27F1E97F005E4597 /* APInAppPurchseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3ECCEB27F1E97F005E4597 /* APInAppPurchseVC.swift */; };
 		6D3ECCEE27F1E989005E4597 /* APInAppPurchseVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D3ECCED27F1E989005E4597 /* APInAppPurchseVC.storyboard */; };
-		6D3ECCF427F1ED0A005E4597 /* sample.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 6D3ECCF327F1ED0A005E4597 /* sample.xlsx */; };
-		6D3ECCF627F1ED2A005E4597 /* TierStem.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6D3ECCF527F1ED2A005E4597 /* TierStem.txt */; };
 		6D584B5627F20A4D00924BFE /* APInappPurchseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D584B5527F20A4D00924BFE /* APInappPurchseCell.xib */; };
 		6D584B5827F20A8000924BFE /* APInAppPurchseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D584B5727F20A8000924BFE /* APInAppPurchseCell.swift */; };
 		6D59A20B27F29DB600C7D8F5 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59A20A27F29DB600C7D8F5 /* SwiftSMTP */; };
@@ -43,11 +56,9 @@
 		6D59A21127F29E8B00C7D8F5 /* DropZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A20E27F29E8B00C7D8F5 /* DropZoneView.swift */; };
 		6D59A21327F29F4C00C7D8F5 /* EmailUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A21227F29F4C00C7D8F5 /* EmailUtils.swift */; };
 		6D59A21527F2C46100C7D8F5 /* InAppPurchseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A21427F2C46100C7D8F5 /* InAppPurchseView.storyboard */; };
-		6D59A21727F2CF7F00C7D8F5 /* InputExcelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A21627F2CF7F00C7D8F5 /* InputExcelListVC.swift */; };
 		6D59A21927F2D3C600C7D8F5 /* IAPUploadImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A21827F2D3C600C7D8F5 /* IAPUploadImageVC.swift */; };
 		6D59A21B27F2D49000C7D8F5 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A21A27F2D49000C7D8F5 /* DragView.swift */; };
 		6D59A21D27F2D77700C7D8F5 /* OutputExcelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A21C27F2D77700C7D8F5 /* OutputExcelVC.swift */; };
-		6D59A21F27F2F6B600C7D8F5 /* screenshot-default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A21E27F2F6B600C7D8F5 /* screenshot-default.jpg */; };
 		6D59A22127F3055300C7D8F5 /* APQRcodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A22027F3055300C7D8F5 /* APQRcodeVC.swift */; };
 		6D59A22327F3056B00C7D8F5 /* APQRcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D59A22227F3056B00C7D8F5 /* APQRcode.storyboard */; };
 		6D59A22627F306A900C7D8F5 /* QrcodeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D59A22527F306A900C7D8F5 /* QrcodeUtil.m */; };
@@ -114,6 +125,23 @@
 		526A86591D63E15605829ECE /* Pods-AppleParty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleParty.release.xcconfig"; path = "Target Support Files/Pods-AppleParty/Pods-AppleParty.release.xcconfig"; sourceTree = "<group>"; };
 		63F4DCD655332D4AA5E2ECF5 /* Pods-AppleParty-ApplePartyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleParty-ApplePartyUITests.debug.xcconfig"; path = "Target Support Files/Pods-AppleParty-ApplePartyUITests/Pods-AppleParty-ApplePartyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6CE565FD4718E20367C0FBF5 /* Pods_AppleParty_ApplePartyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleParty_ApplePartyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0931572957154B00AE66EF /* PriceTierParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTierParser.swift; sourceTree = "<group>"; };
+		6D0931582957154B00AE66EF /* IAPExcelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPExcelParser.swift; sourceTree = "<group>"; };
+		6D09315D295715DD00AE66EF /* APUploadIAPListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APUploadIAPListVC.swift; sourceTree = "<group>"; };
+		6D09315F2957160B00AE66EF /* AppStoreConnectAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreConnectAPI.swift; sourceTree = "<group>"; };
+		6D0931612957312C00AE66EF /* APASCKeysEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APASCKeysEditVC.xib; sourceTree = "<group>"; };
+		6D0931622957312C00AE66EF /* APASCKeysEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APASCKeysEditVC.swift; sourceTree = "<group>"; };
+		6D0931632957312C00AE66EF /* APASCKeysSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APASCKeysSettingVC.xib; sourceTree = "<group>"; };
+		6D0931642957312C00AE66EF /* APASCKeysSettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APASCKeysSettingVC.swift; sourceTree = "<group>"; };
+		6D09316A295731D000AE66EF /* AppStorePricingMatrix.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppStorePricingMatrix.json; sourceTree = "<group>"; };
+		6D09316B295731D000AE66EF /* example.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = example.xlsx; sourceTree = "<group>"; };
+		6D09316F295732E000AE66EF /* IPAUpload.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAUpload.storyboard; sourceTree = "<group>"; };
+		6D093170295732E000AE66EF /* APIPAUploadVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIPAUploadVC.swift; sourceTree = "<group>"; };
+		6D0931732957345C00AE66EF /* APSPasswordSettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APSPasswordSettingVC.swift; sourceTree = "<group>"; };
+		6D0931742957345C00AE66EF /* APSPasswordEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APSPasswordEditVC.xib; sourceTree = "<group>"; };
+		6D0931752957345C00AE66EF /* APSPasswordEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APSPasswordEditVC.swift; sourceTree = "<group>"; };
+		6D0931762957345C00AE66EF /* APSPasswordSettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APSPasswordSettingVC.xib; sourceTree = "<group>"; };
+		6D09317B295735D100AE66EF /* ipa_metadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ipa_metadata.xml; sourceTree = "<group>"; };
 		6D36DE4427DAFACD00BBC931 /* AppleParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D36DE4727DAFACD00BBC931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D36DE4B27DAFACE00BBC931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,16 +169,12 @@
 		6D3ECCDD27F1D027005E4597 /* XMLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLModel.swift; sourceTree = "<group>"; };
 		6D3ECCDF27F1D2A0005E4597 /* APDebugVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = APDebugVC.storyboard; sourceTree = "<group>"; };
 		6D3ECCE127F1D322005E4597 /* APDebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APDebugVC.swift; sourceTree = "<group>"; };
-		6D3ECCE327F1D51F005E4597 /* APPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPasswordVC.swift; sourceTree = "<group>"; };
-		6D3ECCE527F1D531005E4597 /* APPasswordVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = APPasswordVC.storyboard; sourceTree = "<group>"; };
 		6D3ECCE727F1D6BB005E4597 /* IAPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPModel.swift; sourceTree = "<group>"; };
 		6D3ECCE927F1D6C6005E4597 /* IAPCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCharge.swift; sourceTree = "<group>"; };
 		6D3ECCEB27F1E97F005E4597 /* APInAppPurchseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APInAppPurchseVC.swift; sourceTree = "<group>"; };
 		6D3ECCED27F1E989005E4597 /* APInAppPurchseVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = APInAppPurchseVC.storyboard; sourceTree = "<group>"; };
 		6D3ECCF027F1ECE2005E4597 /* iap_metadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iap_metadata.xml; sourceTree = "<group>"; };
 		6D3ECCF227F1ECF8005E4597 /* shot_metadata.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = shot_metadata.xml; sourceTree = "<group>"; };
-		6D3ECCF327F1ED0A005E4597 /* sample.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.xlsx; sourceTree = "<group>"; };
-		6D3ECCF527F1ED2A005E4597 /* TierStem.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TierStem.txt; sourceTree = "<group>"; };
 		6D584B5527F20A4D00924BFE /* APInappPurchseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APInappPurchseCell.xib; sourceTree = "<group>"; };
 		6D584B5727F20A8000924BFE /* APInAppPurchseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APInAppPurchseCell.swift; sourceTree = "<group>"; };
 		6D59A20C27F29E8B00C7D8F5 /* EmailTool.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmailTool.storyboard; sourceTree = "<group>"; };
@@ -158,11 +182,9 @@
 		6D59A20E27F29E8B00C7D8F5 /* DropZoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropZoneView.swift; sourceTree = "<group>"; };
 		6D59A21227F29F4C00C7D8F5 /* EmailUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailUtils.swift; sourceTree = "<group>"; };
 		6D59A21427F2C46100C7D8F5 /* InAppPurchseView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InAppPurchseView.storyboard; sourceTree = "<group>"; };
-		6D59A21627F2CF7F00C7D8F5 /* InputExcelListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputExcelListVC.swift; sourceTree = "<group>"; };
 		6D59A21827F2D3C600C7D8F5 /* IAPUploadImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPUploadImageVC.swift; sourceTree = "<group>"; };
 		6D59A21A27F2D49000C7D8F5 /* DragView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
 		6D59A21C27F2D77700C7D8F5 /* OutputExcelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputExcelVC.swift; sourceTree = "<group>"; };
-		6D59A21E27F2F6B600C7D8F5 /* screenshot-default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "screenshot-default.jpg"; sourceTree = "<group>"; };
 		6D59A22027F3055300C7D8F5 /* APQRcodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APQRcodeVC.swift; sourceTree = "<group>"; };
 		6D59A22227F3056B00C7D8F5 /* APQRcode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = APQRcode.storyboard; sourceTree = "<group>"; };
 		6D59A22427F306A900C7D8F5 /* QrcodeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrcodeUtil.h; sourceTree = "<group>"; };
@@ -219,6 +241,7 @@
 			files = (
 				6D59A20B27F29DB600C7D8F5 /* SwiftSMTP in Frameworks */,
 				BA7B4461DBCFDE92C6C0DDA8 /* Pods_AppleParty.framework in Frameworks */,
+				6D09317F295736D000AE66EF /* AppStoreConnect-Swift-SDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +275,24 @@
 				45F1FE2A4C13D7D378FD2C07 /* Pods-ApplePartyTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6D093169295731D000AE66EF /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				6D09316A295731D000AE66EF /* AppStorePricingMatrix.json */,
+				6D09316B295731D000AE66EF /* example.xlsx */,
+			);
+			path = InAppPurchase;
+			sourceTree = "<group>";
+		};
+		6D09316E295732D100AE66EF /* IPAUpload */ = {
+			isa = PBXGroup;
+			children = (
+				6D093170295732E000AE66EF /* APIPAUploadVC.swift */,
+				6D09316F295732E000AE66EF /* IPAUpload.storyboard */,
+			);
+			path = IPAUpload;
 			sourceTree = "<group>";
 		};
 		6D36DE3B27DAFACD00BBC931 = {
@@ -290,6 +331,7 @@
 				6D36DE7527DAFCD900BBC931 /* LoginView */,
 				6D8F182B27F07E97001A30BF /* AppListView */,
 				6D8F183027F07E97001A30BF /* EmailToolView */,
+				6D09316E295732D100AE66EF /* IPAUpload */,
 				6D8F183427F07E97001A30BF /* QRcodeView */,
 				6D8F183127F07E97001A30BF /* AppSettingView */,
 				6D8F184227F07E97001A30BF /* Shared */,
@@ -333,8 +375,9 @@
 		6D36DE7627DAFCFD00BBC931 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6D3ECCEF27F1ECD3005E4597 /* Transporter */,
 				6D36DE4B27DAFACE00BBC931 /* Assets.xcassets */,
+				6D093169295731D000AE66EF /* InAppPurchase */,
+				6D3ECCEF27F1ECD3005E4597 /* Transporter */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -359,6 +402,8 @@
 				6D3ECCDD27F1D027005E4597 /* XMLModel.swift */,
 				6D8F187D27F0AC83001A30BF /* TierStemParser.swift */,
 				6D8F187E27F0AC83001A30BF /* XLSXParser.swift */,
+				6D0931582957154B00AE66EF /* IAPExcelParser.swift */,
+				6D0931572957154B00AE66EF /* PriceTierParser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,11 +411,9 @@
 		6D3ECCEF27F1ECD3005E4597 /* Transporter */ = {
 			isa = PBXGroup;
 			children = (
-				6D59A21E27F2F6B600C7D8F5 /* screenshot-default.jpg */,
-				6D3ECCF327F1ED0A005E4597 /* sample.xlsx */,
-				6D3ECCF527F1ED2A005E4597 /* TierStem.txt */,
 				6D3ECCF227F1ECF8005E4597 /* shot_metadata.xml */,
 				6D3ECCF027F1ECE2005E4597 /* iap_metadata.xml */,
+				6D09317B295735D100AE66EF /* ipa_metadata.xml */,
 			);
 			path = Transporter;
 			sourceTree = "<group>";
@@ -403,7 +446,6 @@
 			children = (
 				6D59A20D27F29E8B00C7D8F5 /* EmailToolVC.swift */,
 				6D59A20C27F29E8B00C7D8F5 /* EmailTool.storyboard */,
-				6D59A20E27F29E8B00C7D8F5 /* DropZoneView.swift */,
 				6D59A23827F3395900C7D8F5 /* EmailSettingVC.swift */,
 				6D59A23927F3395900C7D8F5 /* EmailSettingVC.xib */,
 			);
@@ -424,7 +466,7 @@
 			children = (
 				6D3ECCEB27F1E97F005E4597 /* APInAppPurchseVC.swift */,
 				6D3ECCED27F1E989005E4597 /* APInAppPurchseVC.storyboard */,
-				6D59A21627F2CF7F00C7D8F5 /* InputExcelListVC.swift */,
+				6D09315D295715DD00AE66EF /* APUploadIAPListVC.swift */,
 				6D59A21827F2D3C600C7D8F5 /* IAPUploadImageVC.swift */,
 				6D59A21C27F2D77700C7D8F5 /* OutputExcelVC.swift */,
 				6D59A21427F2C46100C7D8F5 /* InAppPurchseView.storyboard */,
@@ -484,12 +526,19 @@
 		6D8F184327F07E97001A30BF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6D59A20E27F29E8B00C7D8F5 /* DropZoneView.swift */,
 				6D8F184427F07E97001A30BF /* UIExtension.swift */,
 				6D8F184527F07E97001A30BF /* APCollectionView.swift */,
 				6D3ECCE127F1D322005E4597 /* APDebugVC.swift */,
 				6D3ECCDF27F1D2A0005E4597 /* APDebugVC.storyboard */,
-				6D3ECCE327F1D51F005E4597 /* APPasswordVC.swift */,
-				6D3ECCE527F1D531005E4597 /* APPasswordVC.storyboard */,
+				6D0931752957345C00AE66EF /* APSPasswordEditVC.swift */,
+				6D0931742957345C00AE66EF /* APSPasswordEditVC.xib */,
+				6D0931732957345C00AE66EF /* APSPasswordSettingVC.swift */,
+				6D0931762957345C00AE66EF /* APSPasswordSettingVC.xib */,
+				6D0931622957312C00AE66EF /* APASCKeysEditVC.swift */,
+				6D0931612957312C00AE66EF /* APASCKeysEditVC.xib */,
+				6D0931642957312C00AE66EF /* APASCKeysSettingVC.swift */,
+				6D0931632957312C00AE66EF /* APASCKeysSettingVC.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -497,6 +546,7 @@
 		6D8F184627F07E97001A30BF /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6D09315F2957160B00AE66EF /* AppStoreConnectAPI.swift */,
 				6D8F188D27F0C121001A30BF /* APClient.swift */,
 			);
 			path = Network;
@@ -574,6 +624,7 @@
 			name = AppleParty;
 			packageProductDependencies = (
 				6D59A20A27F29DB600C7D8F5 /* SwiftSMTP */,
+				6D09317E295736D000AE66EF /* AppStoreConnect-Swift-SDK */,
 			);
 			productName = AppleParty;
 			productReference = 6D36DE4427DAFACD00BBC931 /* AppleParty.app */;
@@ -656,6 +707,7 @@
 			mainGroup = 6D36DE3B27DAFACD00BBC931;
 			packageReferences = (
 				6D59A20927F29DB600C7D8F5 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
+				6D09317D295736D000AE66EF /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */,
 			);
 			productRefGroup = 6D36DE4527DAFACD00BBC931 /* Products */;
 			projectDirPath = "";
@@ -673,14 +725,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D09317A2957345C00AE66EF /* APSPasswordSettingVC.xib in Resources */,
 				6D59A21527F2C46100C7D8F5 /* InAppPurchseView.storyboard in Resources */,
-				6D3ECCF627F1ED2A005E4597 /* TierStem.txt in Resources */,
 				6D8F185C27F08161001A30BF /* AppList.storyboard in Resources */,
 				6D8F187027F08F65001A30BF /* APLoginVC.xib in Resources */,
 				6D3ECCEE27F1E989005E4597 /* APInAppPurchseVC.storyboard in Resources */,
 				6D59A23027F31E7000C7D8F5 /* APSettingVC.xib in Resources */,
 				6D8F186427F081D3001A30BF /* APAppListCell.xib in Resources */,
 				6D8F187927F0A2DD001A30BF /* APLogin2FAVC.xib in Resources */,
+				6D0931652957312C00AE66EF /* APASCKeysEditVC.xib in Resources */,
+				6D0931782957345C00AE66EF /* APSPasswordEditVC.xib in Resources */,
 				6D8F185027F07E97001A30BF /* APRootCollectionCell.xib in Resources */,
 				6D3ECCD927F1CAD6005E4597 /* ScreenShotUpload.storyboard in Resources */,
 				6D3ECCE027F1D2A0005E4597 /* APDebugVC.storyboard in Resources */,
@@ -688,10 +742,11 @@
 				6D36DE4C27DAFACE00BBC931 /* Assets.xcassets in Resources */,
 				6D59A20F27F29E8B00C7D8F5 /* EmailTool.storyboard in Resources */,
 				6D59A22327F3056B00C7D8F5 /* APQRcode.storyboard in Resources */,
+				6D09316C295731D000AE66EF /* AppStorePricingMatrix.json in Resources */,
+				6D09316D295731D000AE66EF /* example.xlsx in Resources */,
 				6D8F185927F07F4B001A30BF /* Main.storyboard in Resources */,
-				6D3ECCF427F1ED0A005E4597 /* sample.xlsx in Resources */,
-				6D3ECCE627F1D531005E4597 /* APPasswordVC.storyboard in Resources */,
-				6D59A21F27F2F6B600C7D8F5 /* screenshot-default.jpg in Resources */,
+				6D0931672957312C00AE66EF /* APASCKeysSettingVC.xib in Resources */,
+				6D093171295732E000AE66EF /* IPAUpload.storyboard in Resources */,
 				6D59A23B27F3395A00C7D8F5 /* EmailSettingVC.xib in Resources */,
 				6D3ECCD027F1A9FE005E4597 /* APSwichAccountPopover.xib in Resources */,
 				6D36DE8527DB77C600BBC931 /* Localizable.strings in Resources */,
@@ -828,7 +883,6 @@
 				6D8F186327F081D3001A30BF /* APAppListCell.swift in Sources */,
 				6D3ECCC927F16145005E4597 /* APHUD.swift in Sources */,
 				6D59A22F27F31E7000C7D8F5 /* APSettingVC.swift in Sources */,
-				6D3ECCE427F1D51F005E4597 /* APPasswordVC.swift in Sources */,
 				6D8F187327F0A070001A30BF /* UserCenter.swift in Sources */,
 				6D3ECCEC27F1E97F005E4597 /* APInAppPurchseVC.swift in Sources */,
 				6D59A22127F3055300C7D8F5 /* APQRcodeVC.swift in Sources */,
@@ -836,31 +890,38 @@
 				6D8F185527F07E97001A30BF /* APCollectionView.swift in Sources */,
 				6D8F185227F07E97001A30BF /* APRootCollectionModel.swift in Sources */,
 				6D59A21127F29E8B00C7D8F5 /* DropZoneView.swift in Sources */,
-				6D59A21727F2CF7F00C7D8F5 /* InputExcelListVC.swift in Sources */,
 				6D8F185627F07E97001A30BF /* APUtil.swift in Sources */,
+				6D09315E295715DD00AE66EF /* APUploadIAPListVC.swift in Sources */,
 				6D3ECCD727F1CAD6005E4597 /* ScreenShotHelpPopoverVC.swift in Sources */,
 				6D8F188427F0AC83001A30BF /* XMLManager.swift in Sources */,
 				6D8F186627F081ED001A30BF /* APAppListAdapter.swift in Sources */,
+				6D0931792957345C00AE66EF /* APSPasswordEditVC.swift in Sources */,
 				6D584B5827F20A8000924BFE /* APInAppPurchseCell.swift in Sources */,
 				6D3ECCDA27F1CAD6005E4597 /* ScreenShotUploadVC.swift in Sources */,
 				6D59A24727FE833800C7D8F5 /* APConstants.swift in Sources */,
 				6D59A21327F29F4C00C7D8F5 /* EmailUtils.swift in Sources */,
+				6D0931602957160B00AE66EF /* AppStoreConnectAPI.swift in Sources */,
 				6D3ECCCF27F1A9FE005E4597 /* APSwichAccountPopover.swift in Sources */,
 				6D8F188827F0ACA5001A30BF /* GDataXMLNode.m in Sources */,
 				6D8F189027F0C3CB001A30BF /* ARLogs.swift in Sources */,
+				6D0931592957154B00AE66EF /* PriceTierParser.swift in Sources */,
 				6D59A21B27F2D49000C7D8F5 /* DragView.swift in Sources */,
 				6D3ECCE227F1D322005E4597 /* APDebugVC.swift in Sources */,
 				6D3ECCDB27F1CAD6005E4597 /* ScreenShotUploadCell.swift in Sources */,
 				6D8F185427F07E97001A30BF /* UIExtension.swift in Sources */,
 				6D59A23A27F3395900C7D8F5 /* EmailSettingVC.swift in Sources */,
 				6D8F187527F0A0B3001A30BF /* InfoCenter.swift in Sources */,
+				6D0931772957345C00AE66EF /* APSPasswordSettingVC.swift in Sources */,
 				6D8F186F27F08F65001A30BF /* APLoginVC.swift in Sources */,
 				6D36DE4827DAFACD00BBC931 /* AppDelegate.swift in Sources */,
+				6D093172295732E000AE66EF /* APIPAUploadVC.swift in Sources */,
 				6D59A21D27F2D77700C7D8F5 /* OutputExcelVC.swift in Sources */,
 				6D3ECCDE27F1D027005E4597 /* XMLModel.swift in Sources */,
 				6D8F188227F0AC83001A30BF /* XLSXParser.swift in Sources */,
 				6D8F184D27F07E97001A30BF /* APRootVC.swift in Sources */,
 				6D3ECCE827F1D6BB005E4597 /* IAPModel.swift in Sources */,
+				6D09315A2957154B00AE66EF /* IAPExcelParser.swift in Sources */,
+				6D0931682957312C00AE66EF /* APASCKeysSettingVC.swift in Sources */,
 				6D8F185127F07E97001A30BF /* APRootCollectionCell.swift in Sources */,
 				6D3ECCCC27F193AF005E4597 /* PhoneNumbers.swift in Sources */,
 				6D8F188E27F0C121001A30BF /* APClient.swift in Sources */,
@@ -870,6 +931,7 @@
 				6D8F184F27F07E97001A30BF /* APRootWC.swift in Sources */,
 				6D8F184A27F07E97001A30BF /* APAppListVC.swift in Sources */,
 				6D8F188A27F0ADC2001A30BF /* FoundationUtil.swift in Sources */,
+				6D0931662957312C00AE66EF /* APASCKeysEditVC.swift in Sources */,
 				6D59A22627F306A900C7D8F5 /* QrcodeUtil.m in Sources */,
 				6D3ECCEA27F1D6C6005E4597 /* IAPCharge.swift in Sources */,
 				6D8F185327F07E97001A30BF /* APRootCollectionAdapter.swift in Sources */,
@@ -1002,7 +1064,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1058,7 +1120,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -1089,7 +1151,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1123,7 +1185,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 2.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.37iOS.AppleParty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1248,6 +1310,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6D09317D295736D000AE66EF /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AvdLee/appstoreconnect-swift-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		6D59A20927F29DB600C7D8F5 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kitura/Swift-SMTP";
@@ -1259,6 +1329,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6D09317E295736D000AE66EF /* AppStoreConnect-Swift-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D09317D295736D000AE66EF /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */;
+			productName = "AppStoreConnect-Swift-SDK";
+		};
 		6D59A20A27F29DB600C7D8F5 /* SwiftSMTP */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6D59A20927F29DB600C7D8F5 /* XCRemoteSwiftPackageReference "Swift-SMTP" */;

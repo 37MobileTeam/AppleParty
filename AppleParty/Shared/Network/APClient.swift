@@ -77,10 +77,12 @@ enum APClient {
     case appVersion(appid: String)
     // 内购列表-新
     case inAppPurchase(appid: String, type: IAPSearchType)
+    // 内购详情-新
+    case inAppPurchaseDetail(iapid: String)
+    // 内购商品的价格档位
+    case inAppPurchasePrices(iapid: String)
     // 内购列表-旧
     case iaps(appid: String)
-    // 内购详情
-    case iapDetail(appid: String, iapid: String)
     // 开发者信息
     case ascProvider
     case ascProviders
@@ -136,7 +138,7 @@ extension APClient {
         switch self {
         case .signIn, .submitSecurityCode, .appAnalytics, .appSalestrends, .initCSRF, .switchProvider:
             return .post
-        case .signInSession, .inAppPurchase, .iaps, .iapDetail, .ascProvider, .ascProviders, .appInfo, .trusDevice, .providerNews, .providerContractMessage, .validateSession, .sapVendorNumbers, .summaryFinancialReport, .paymentConsolidation, .generateFinancialReport, .generateFinancialReportStatus, .detailFinancialReport, .appVersion, .bankList, .bankAccountNumber, .userDetail, .appList:
+        case .signInSession, .inAppPurchase, .iaps, .ascProvider, .ascProviders, .appInfo, .trusDevice, .providerNews, .providerContractMessage, .validateSession, .sapVendorNumbers, .summaryFinancialReport, .paymentConsolidation, .generateFinancialReport, .generateFinancialReportStatus, .detailFinancialReport, .appVersion, .bankList, .bankAccountNumber, .userDetail, .appList, .inAppPurchasePrices, .inAppPurchaseDetail:
             return .get
         case .verifySecurityPhone:
             return .put
@@ -198,8 +200,10 @@ extension APClient {
             return "https://appstoreconnect.apple.com/iris/v1/apps/"+appid+"/inAppPurchase?"+filter
         case let .iaps(appid):
             return "https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/apps/"+appid+"/iaps"
-        case let .iapDetail(appid, iapid):
-            return "https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/apps/"+appid+"/iaps/"+iapid
+        case let .inAppPurchaseDetail(iapid):
+            return "https://appstoreconnect.apple.com/iris/v2/inAppPurchases/\(iapid)?include=inAppPurchaseLocalizations,content,promotedPurchase,appStoreReviewScreenshot,inAppPurchaseTaxCategoryInfo&limit[inAppPurchaseLocalizations]=200"
+        case let .inAppPurchasePrices(iapid):
+            return "https://appstoreconnect.apple.com/iris/v2/inAppPurchases/\(iapid)/prices?include=inAppPurchasePricePoint&filter[territory]=USA"
         case .ascProvider:
             return "https://appstoreconnect.apple.com/olympus/v1/actors?include=provider"
         case .ascProviders:

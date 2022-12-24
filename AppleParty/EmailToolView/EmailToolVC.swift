@@ -11,6 +11,31 @@ import Cocoa
 
 class EmailToolVC: NSViewController {
 
+    var emailTitle: String? {
+        didSet {
+            if let text = emailTitle {
+                emailTitleTF.stringValue = text
+            }
+        }
+    }
+    
+    var emailContent: String? {
+        didSet {
+            if let text = emailContent {
+                emailContentTextView.string = text
+            }
+        }
+    }
+    
+    var attachmentFileUrl: URL? {
+        didSet {
+            if let url = attachmentFileUrl {
+                fileURLs?.append(url)
+                fileDropZoneView.setFile(url)
+            }
+        }
+    }
+    
     @IBOutlet weak var emailRecipientTF: NSTextField!
     @IBOutlet weak var rememberEmailButton: NSButton!
     @IBOutlet weak var emailTitleTF: NSTextField!

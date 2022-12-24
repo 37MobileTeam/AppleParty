@@ -35,6 +35,26 @@ extension String {
         }
         return re.firstMatch(in: self, options: [], range: NSMakeRange(0, utf16.count)) != nil
     }
+    
+    func md5() -> String {
+        let cStr = self.cString(using: String.Encoding.utf8)
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
+        CC_MD5(cStr!, (CC_LONG)(strlen(cStr!)), buffer)
+        let md5String = NSMutableString()
+        for i in 0 ..< 16 {
+            md5String.appendFormat("%02x", buffer[i])
+        }
+        free(buffer)
+        return md5String as String
+    }
+    
+    func prettyJSON(_ options: JSONSerialization.WritingOptions = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes, .fragmentsAllowed] ) throws -> String? {
+        let data = self.data(using: .utf8)!
+        let obj = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
+        let jsonData = try JSONSerialization.data(withJSONObject: obj, options: options)
+        let pretty = String(data: jsonData, encoding: .utf8)
+        return pretty
+    }
 }
 
 extension Data {
@@ -66,11 +86,11 @@ extension Dictionary {
 }
 
 extension String {
-    var unicodeDescription : String{
+    var unicodeDescription : String {
         return self.stringByReplaceUnicode
     }
     
-    var stringByReplaceUnicode : String{
+    var stringByReplaceUnicode : String {
         let tempStr1 = self.replacingOccurrences(of: "\\u", with: "\\U")
         let tempStr2 = tempStr1.replacingOccurrences(of: "\"", with: "\\\"")
         let tempStr3 = "\"".appending(tempStr2).appending("\"")
@@ -82,6 +102,25 @@ extension String {
             print(error)
         }
         return returnStr.replacingOccurrences(of: "\\n", with: "\n")
+    }
+    
+    var createFilePath: URL {
+        var documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        documentsURL.appendPathComponent(self)
+        // createFileDirectory
+        let fm = FileManager.default
+        let directory = documentsURL.deletingLastPathComponent()
+        var isDirectory: ObjCBool = false
+        // 保证目录存在，不存在就创建目录
+        if !(fm.fileExists(atPath: directory.path, isDirectory: &isDirectory) && isDirectory.boolValue) {
+            do {
+                try fm.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("‼️ create Directory file error:\(error)")
+            }
+        }
+        return documentsURL
+        
     }
 }
 
@@ -128,6 +167,12 @@ extension URL {
         return "0"
     }
     
+    func fileSizeInt() -> Int {
+        if let fileData: Data = try? Data.init(contentsOf: self) {
+            return fileData.count
+        }
+        return 0
+    }
     
 }
 
@@ -213,4 +258,10 @@ func currentView() -> NSView {
 
     debugPrint("Fatal error: window or keyWindow is nil")
     return NSView()
+}
+
+func debugLog(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+    #if DEBUG
+    debugPrint(items, separator: separator, terminator: terminator)
+    #endif
 }

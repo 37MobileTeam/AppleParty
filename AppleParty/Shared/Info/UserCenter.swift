@@ -19,10 +19,26 @@ struct Provider {
     var providerId: String
 }
 
+/// 专用密码模型
+struct SPassword: Codable {
+    var account: String
+    var password: String
+    var isused: Bool
+    
+    mutating func model(_ sp: SPassword, _ isused: Bool) -> SPassword {
+        SPassword(account: sp.account, password: sp.password, isused: isused)
+    }
+}
+
+struct SPasswordModel: Codable {
+    /// 数据存储
+    var list: [SPassword]
+}
+
 private let UserCenterKey_HistoryUser_Key = "UserCenterKey_HistoryUser_Key"
 private let UserCenterKey_Developer_Key = "UserCenterKey_Developer_Key"
 private let UserCenterKey_AutoLogin_Key = "UserCenterKey_AutoLogin_Key"
-private let UserCenterKey_LastGameID_Key = "UserCenterKey_LastGameID_Key"
+private let UserCenterKey_AppStoreConnect_Key = "UserCenterKey_AppStoreConnect_Key"
 
 struct UserCenter {
     static var shared = UserCenter()
@@ -70,13 +86,30 @@ struct UserCenter {
     var developerName = ""
     /// 开发者团队 id
     var developerTeamId = ""
-    /// 苹果账号特殊密码
-    var developerKey: String {
+    /// 苹果账号专用密码
+    var currentSPassword: SPassword? {
         get {
-            return (try? APUtil.keychain.getString(accountPrsId + "_" + UserCenterKey_Developer_Key)) ?? ""
+            let accounts = self.secondaryPasswordList
+            let models = accounts.filter({ $0.isused == true })
+            return models.first
         }
+    }
+    // 所有的专用密码
+    var secondaryPasswordList: [SPassword] {
         set {
-            try? APUtil.keychain.set(newValue, key: accountPrsId + "_" + UserCenterKey_Developer_Key)
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            if let data = try? encoder.encode(SPasswordModel(list: newValue)) {
+                try? APUtil.keychain.set(data, key: UserCenterKey_Developer_Key)
+            }
+        }
+        get {
+            if let listData = try? APUtil.keychain.getData(UserCenterKey_Developer_Key),
+               let model = try? JSONDecoder().decode(SPasswordModel.self, from: listData) {
+                return model.list
+            } else {
+                return []
+            }
         }
     }
     

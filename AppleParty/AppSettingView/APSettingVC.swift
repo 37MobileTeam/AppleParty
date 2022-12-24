@@ -27,12 +27,8 @@ class APSettingVC: NSViewController {
     }
     
     @IBAction func clickedSPasswordBtn(_ sender: Any) {
-        let sb = NSStoryboard(name: "APPasswordVC", bundle: Bundle(for: self.classForCoder))
-        let pwdVC = sb.instantiateController(withIdentifier: "APPasswordVC") as? APPasswordVC
-        pwdVC?.callBackFunc = { pwd in
-            UserCenter.shared.developerKey = pwd
-        }
-        presentAsSheet(pwdVC!)
+        let vc = APSPasswordSettingVC()
+        presentAsSheet(vc)
     }
     
     

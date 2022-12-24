@@ -11,18 +11,24 @@ class XMLManager {
     
     static let appPtah = "/AppleParty/InAppPurches/"
     static let shotPtah = "/AppleParty/ScreenShots/"
+    static let ipaPtah = "/AppleParty/UploadIpa/"
     
     static func getITMSPath(_ appid: String) -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        let filePath = documentsDirectory + appPtah + appid + ".itmsp"
-        return filePath
+        return getFilePath(appid, filePath: appPtah)
     }
     
     static func getShotsPath(_ appid: String) -> String {
+        return getFilePath(appid, filePath: shotPtah)
+    }
+    
+    static func getIpaPath(_ appid: String) -> String {
+        return getFilePath(appid, filePath: ipaPtah)
+    }
+    
+    static func getFilePath(_ appid: String, filePath: String) -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        let filePath = documentsDirectory + shotPtah + appid + ".itmsp"
+        let filePath = documentsDirectory + filePath + appid + ".itmsp"
         return filePath
     }
     
@@ -56,7 +62,7 @@ class XMLManager {
     }
     
     static func copySimpleExel() {
-        if let xlsxPath = Bundle.main.path(forResource: "sample", ofType: "xlsx") {
+        if let xlsxPath = Bundle.main.path(forResource: "example", ofType: "xlsx") {
             let dateFormatter : DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyyMMdd_HHmmss"
             let currentDate = dateFormatter.string(from: Date())

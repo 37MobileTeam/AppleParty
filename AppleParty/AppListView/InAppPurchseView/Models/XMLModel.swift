@@ -52,6 +52,13 @@ struct XMLModel {
     var shots: [String: [Screen_Shot]] = [:]
     var videos: [String: [Screen_Shot]] = [:]
     
+    // 上传ipa文件
+    var apple_id = "" // apple id
+    var archive_type = "bundle" //上传文件类型
+    var ipa_name = "ipa.ipa" //默认包名
+    var ipa_size = ""
+    var ipa_md5 = ""
+    
     // 需要复制的文件 [fileName: fileURL]
     var filePaths: [String: String] = [:]
     
@@ -289,5 +296,71 @@ struct XMLModel {
             let path = filePaths[name] ?? ""
             try? FileManager.default.copyItem(atPath: path, toPath: directoryPath + "/" + name)
         }
+    }
+    
+    
+    func createIpaFile(directoryPath: String) {
+        // 根标签
+        let root = GDataXMLNode.element(withName: "package")
+        // package属性
+        let version = GDataXMLNode.attribute(withName: "version", stringValue: "software5.11") as? GDataXMLNode
+        let xmlns = GDataXMLNode.attribute(withName: "xmlns", stringValue: "http://apple.com/itunes/importer") as? GDataXMLNode
+        root?.addAttribute(version)
+        root?.addAttribute(xmlns)
+        // software_assets
+        let software_assets = GDataXMLNode.element(withName: "software_assets")
+        let apple_id = GDataXMLNode.attribute(withName: "apple_id", stringValue: apple_id) as? GDataXMLNode
+        let app_platform = GDataXMLNode.attribute(withName: "app_platform", stringValue: app_platform) as? GDataXMLNode
+        software_assets?.addAttribute(apple_id)
+        software_assets?.addAttribute(app_platform)
+        // asset
+        let asset = GDataXMLNode.element(withName: "asset")
+        let asset_type = GDataXMLNode.attribute(withName: "type", stringValue: archive_type) as? GDataXMLNode
+        asset?.addAttribute(asset_type)
+        //data_file
+        let data_file = GDataXMLNode.element(withName: "data_file")
+        let size = GDataXMLNode.element(withName: "size", stringValue: ipa_size)
+        let file_name = GDataXMLNode.element(withName: "file_name", stringValue: ipa_name)
+        let checksum = GDataXMLNode.element(withName: "checksum", stringValue: ipa_md5)
+        let checksum_type = GDataXMLNode.attribute(withName: "type", stringValue: "md5") as? GDataXMLNode
+        checksum?.addAttribute(checksum_type)
+        // 逆序添加
+        data_file?.addChild(size)
+        data_file?.addChild(file_name)
+        data_file?.addChild(checksum)
+        asset?.addChild(data_file)
+        software_assets?.addChild(asset)
+        root?.addChild(software_assets)
+        
+        // 生成xml文件
+        let xmlDoc = GDataXMLDocument(rootElement: root)
+        let data = xmlDoc?.xmlData()
+        let xmlString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+        print(xmlString as Any)
+        // 创建文件夹
+        if !FileManager.default.fileExists(atPath: directoryPath) {
+            do {
+                try FileManager.default.createDirectory(atPath: directoryPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error.localizedDescription);
+            }
+        }
+        
+        // 创建文件
+        let filePath = directoryPath + "/metadata.xml"
+        debugPrint(filePath)
+        if !FileManager.default.fileExists(atPath: filePath) {
+            FileManager.default.createFile(atPath: filePath, contents: data, attributes: nil)
+        }else {
+            try? FileManager.default.removeItem(atPath: filePath)
+            FileManager.default.createFile(atPath: filePath, contents: data, attributes: nil)
+        }
+        
+        // 文件复制
+        for name in filePaths.keys {
+            let path = filePaths[name] ?? ""
+            try? FileManager.default.copyItem(atPath: path, toPath: directoryPath + "/" + name)
+        }
+        
     }
 }

@@ -29,6 +29,13 @@ public struct APKeychain {
         try APKeychain.keychain.set(value, key: key)
     }
     
+    public func getData(_ key: String) throws -> Data? {
+        try APKeychain.keychain.getData(key)
+    }
+
+    public func set(_ value: Data, key: String) throws {
+        try APKeychain.keychain.set(value, key: key)
+    }
     
     public func getDict(_ key: String) throws -> [String: String]? {
         if let data = try APKeychain.keychain.getData(key) {
