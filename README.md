@@ -9,8 +9,9 @@
 AppleParty 是三七互娱旗下37手游 iOS 团队研发，实现快速操作 App Store Connect 后台的自动化 macOS 工具。
 
 
-- 使用和原理介绍：[开源一款苹果 macOS 工具 - AppleParty（苹果派）](https://juejin.cn/post/7081069026515877919)
-
+**使用和原理介绍：**
+- [开源一款苹果 macOS 工具 - AppleParty（苹果派）](https://juejin.cn/post/7081069026515877919)
+- [使用 App Store Connect API 批量创建内购商品 ](https://juejin.cn/post/7181099247956131896)
 
 **支持功能**
 
@@ -18,6 +19,7 @@ AppleParty 是三七互娱旗下37手游 iOS 团队研发，实现快速操作 A
 - 批量商店图和预览视频上传和更新；
 - 邮件发送工具；
 - 二维码扫描和生成工具；
+- 上传 iap 文件；
 
 > 注：内购买项目和商店素材上传，暂时只支持 iOS app，未来会考虑支持 macOS app、tvOS app。
 
@@ -125,5 +127,6 @@ pod install
 - [Yueoaix/SymbolicatorX](https://github.com/Yueoaix/SymbolicatorX)
 - [fpotter/ExpandingDatePicker](https://github.com/fpotter/ExpandingDatePicker)
 - [kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)
+- [AvdLee/appstoreconnect-swift-sdk](https://github.com/AvdLee/appstoreconnect-swift-sdk)
   
 
