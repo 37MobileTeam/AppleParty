@@ -4,3 +4,4 @@
 
 #import "GDataXMLNode.h"
 #import "QrcodeUtil.h"
+#import "MBProgressHUD.h"

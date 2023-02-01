@@ -14,7 +14,6 @@ target 'AppleParty' do
   pod 'CoreXLSX', '~> 0.14'
   pod 'ExpandingDatePicker', '~> 1.0'
   pod 'KeychainAccess', '~> 4.2'
-  pod 'MBProgressHUD-OSX'
   
   target 'ApplePartyTests' do
     inherit! :search_paths
