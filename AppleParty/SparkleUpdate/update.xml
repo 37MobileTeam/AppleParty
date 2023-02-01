@@ -9,7 +9,7 @@
             <sparkle:releaseNotesLink>https://37iOS.GitHub.io/Sparkle/AppleParty-release.html</sparkle:releaseNotesLink>
             <pubDate>2023-02-01</pubDate>
             <enclosure
-                url="https://github.com/37iOS/AppleParty/releases/download/2.1.0/AppleParty-v2.1.1.zip"
+                url="https://github.com/37iOS/AppleParty/releases/download/2.1.1/AppleParty-v2.1.1.zip"
                 sparkle:shortVersionString="2.1.1"
                 sparkle:version="2023.02.01"
                 type="application/octet-stream"
