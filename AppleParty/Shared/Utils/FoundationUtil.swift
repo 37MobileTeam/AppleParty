@@ -55,6 +55,42 @@ extension String {
         let pretty = String(data: jsonData, encoding: .utf8)
         return pretty
     }
+    
+    // MARK: - 价格格式调整
+    
+    /// 返回保留2位小数的价格格式
+    /// 因为苹果接口返回的价格可能是 "3"，"3.0" 或 "3.00"
+    /// - Parameter price: 原价格
+    /// - Returns: 保留2位小数的价格字符串
+    func normalizePrice() -> String {
+        let price = self
+        let components = price.split(separator: ".")
+        if components.count == 1 {
+            return price + ".00"
+        } else if components.count == 2 {
+            let decimalPart = components[1]
+            if decimalPart.count == 1 {
+                return "\(components[0]).\(decimalPart)0"
+            } else if decimalPart.count >= 2 {
+                return "\(components[0]).\(decimalPart.prefix(2))"
+            }
+        }
+        return price
+    }
+    
+    /// 返回最多保留2位小数的价格格式
+    /// 例如： "74.989999999999995 转换为 "74.99"
+    /// - Returns: 超过2个小数位的会四舍五入，最终的价格格式可能示例： "3"，"3.0" 或 "3.00"
+    func twoDecimalPrice() -> String {
+        let input = self
+        let parts = input.split(separator: ".")
+        if parts.count == 2, parts[1].count > 2, let value = Double(input) {
+            let roundedValue = round(value * 100) / 100
+            return String(format: "%.2f", roundedValue)
+        }
+        
+        return input
+    }
 }
 
 extension Data {

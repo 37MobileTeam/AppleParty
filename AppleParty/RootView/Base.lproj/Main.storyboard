@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -704,8 +704,7 @@
                 <windowController id="B8D-0N-5wS" customClass="APRootWC" customModule="AppleParty" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="AppleParty" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="600" height="450"/>
+                        <rect key="contentRect" x="448" y="353" width="600" height="450"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1800" height="1125"/>
                         <value key="minSize" type="size" width="600" height="450"/>
                         <toolbar key="toolbar" implicitIdentifier="B79F6F2E-829C-4345-BF5B-03BE29846935" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="SrU-fY-xGq">
@@ -783,9 +782,9 @@
     <resources>
         <image name="37M-logo" width="749.5" height="190.5"/>
         <image name="37iOSTeam-Round" width="512" height="512"/>
-        <image name="NSHomeTemplate" width="20" height="16"/>
+        <image name="NSHomeTemplate" width="24" height="21"/>
         <image name="NSSmartBadgeTemplate" width="14" height="14"/>
-        <image name="NSTouchBarMailTemplate" width="19" height="13"/>
-        <image name="NSTouchBarUserTemplate" width="15" height="14"/>
+        <image name="NSTouchBarMailTemplate" width="22" height="17"/>
+        <image name="NSTouchBarUserTemplate" width="18" height="18"/>
     </resources>
 </document>

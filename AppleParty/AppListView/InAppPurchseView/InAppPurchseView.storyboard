@@ -36,18 +36,18 @@
         <scene sceneID="biu-hN-rXF">
             <objects>
                 <viewController title="批量内购买项目上传" id="HcW-sO-g2Q" customClass="APUploadIAPListVC" customModule="AppleParty" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="K0H-Tj-XIL">
-                        <rect key="frame" x="0.0" y="0.0" width="856" height="363"/>
+                    <view key="view" misplaced="YES" id="K0H-Tj-XIL">
+                        <rect key="frame" x="0.0" y="0.0" width="816" height="363"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="40" horizontalPageScroll="10" verticalLineScroll="40" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iO-iU-0Fy">
-                                <rect key="frame" x="0.0" y="100" width="856" height="263"/>
+                                <rect key="frame" x="0.0" y="100" width="796" height="263"/>
                                 <clipView key="contentView" ambiguous="YES" id="TPK-e2-6v9">
-                                    <rect key="frame" x="1" y="1" width="854" height="261"/>
+                                    <rect key="frame" x="1" y="1" width="794" height="261"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" headerView="5s8-Sc-F8G" viewBased="YES" id="FfT-VW-kGY">
-                                            <rect key="frame" x="0.0" y="0.0" width="854" height="236"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="794" height="236"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
@@ -66,7 +66,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="idCell" id="ANH-fd-8Ev">
-                                                            <rect key="frame" x="10" y="0.0" width="36" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-S3-Fa5">
@@ -98,7 +98,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="screenshotCell" id="aFa-Mz-jnj" customClass="ImageViewCell" customModule="AppleParty" customModuleProvider="target">
-                                                            <rect key="frame" x="46" y="0.0" width="75" height="40"/>
+                                                            <rect key="frame" x="36" y="0.0" width="75" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hys-p0-19y">
@@ -118,7 +118,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="productIDColumn" width="118" minWidth="40" maxWidth="1000" id="AaY-pT-reC">
+                                                <tableColumn identifier="productIDColumn" width="118" minWidth="40" maxWidth="150" id="AaY-pT-reC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Product ID">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -131,7 +131,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="productIDCell" id="3o0-NI-ewo">
-                                                            <rect key="frame" x="121" y="0.0" width="118" height="40"/>
+                                                            <rect key="frame" x="111" y="0.0" width="118" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8C-RK-lNM">
@@ -163,7 +163,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="stateCell" id="hKB-hg-TrY">
-                                                            <rect key="frame" x="239" y="0.0" width="60" height="40"/>
+                                                            <rect key="frame" x="229" y="0.0" width="60" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1n-4P-b0Q">
@@ -195,7 +195,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="productNameCell" id="Wp7-Z8-fyG">
-                                                            <rect key="frame" x="299" y="0.0" width="102" height="40"/>
+                                                            <rect key="frame" x="289" y="0.0" width="102" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V05-T9-An4">
@@ -214,8 +214,8 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="priceColumn" width="50" minWidth="40" maxWidth="100" id="dHE-xa-6WE">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="金额">
+                                                <tableColumn identifier="priceColumn" width="112" minWidth="40" maxWidth="400" id="dHE-xa-6WE">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="销售范围">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -227,16 +227,19 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="priceCell" id="M23-59-mE6">
-                                                            <rect key="frame" x="401" y="0.0" width="50" height="40"/>
+                                                            <rect key="frame" x="391" y="0.0" width="112" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdV-Er-PG6">
-                                                                    <rect key="frame" x="0.0" y="12" width="50" height="16"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1" id="k5H-G7-RvE">
+                                                                    <rect key="frame" x="0.0" y="12" width="112" height="16"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="k5H-G7-RvE">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                        <allowedInputSourceLocales>
+                                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                                        </allowedInputSourceLocales>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
@@ -246,8 +249,8 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="levelColumn" width="60" minWidth="40" maxWidth="60" id="RAv-kj-cld">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="价格等级">
+                                                <tableColumn identifier="levelColumn" width="102" minWidth="40" maxWidth="400" id="RAv-kj-cld">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="价格机制">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -259,16 +262,19 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="levelCell" id="Pz4-4W-nO5">
-                                                            <rect key="frame" x="451" y="0.0" width="60" height="40"/>
+                                                            <rect key="frame" x="503" y="0.0" width="102" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8p-aX-EOQ">
-                                                                    <rect key="frame" x="0.0" y="12" width="60" height="16"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1" id="txV-L7-8pc">
+                                                                    <rect key="frame" x="0.0" y="12" width="102" height="16"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="txV-L7-8pc">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                        <allowedInputSourceLocales>
+                                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                                        </allowedInputSourceLocales>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
@@ -278,7 +284,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="languageColumn" width="266" minWidth="40" maxWidth="1000" id="cPw-xm-W9c">
+                                                <tableColumn identifier="languageColumn" width="100" minWidth="40" maxWidth="550" id="cPw-xm-W9c">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="本地化语言">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -291,11 +297,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="languageCell" id="qG2-Ag-GoS">
-                                                            <rect key="frame" x="511" y="0.0" width="266" height="40"/>
+                                                            <rect key="frame" x="605" y="0.0" width="100" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-S3-VJ2">
-                                                                    <rect key="frame" x="0.0" y="3" width="266" height="34"/>
+                                                                    <rect key="frame" x="0.0" y="3" width="100" height="34"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="cgN-Ef-H9K">
                                                                         <font key="font" metaFont="system"/>
@@ -313,7 +319,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="productPdsColumn" width="45" minWidth="30" maxWidth="150" id="Lic-uH-erC">
+                                                <tableColumn identifier="productPdsColumn" width="38" minWidth="30" maxWidth="150" id="Lic-uH-erC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="审核备注(可选)">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -326,11 +332,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="productPdsCell" id="tSv-x2-iSQ">
-                                                            <rect key="frame" x="777" y="0.0" width="51" height="40"/>
+                                                            <rect key="frame" x="705" y="0.0" width="44" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcF-6d-Y0Y">
-                                                                    <rect key="frame" x="0.0" y="12" width="51" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="12" width="44" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="RdH-e2-lmI">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -357,7 +363,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="88B-Ob-G5p"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="KNl-rP-gjC">
-                                    <rect key="frame" x="1" y="246" width="854" height="16"/>
+                                    <rect key="frame" x="1" y="246" width="794" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="z1V-UM-aHa">
@@ -365,18 +371,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" identifier="languageColumn" wantsLayer="YES" id="5s8-Sc-F8G">
-                                    <rect key="frame" x="0.0" y="0.0" width="854" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="794" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
                             <box boxType="custom" cornerRadius="4" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-Sf-hCb">
-                                <rect key="frame" x="0.0" y="0.0" width="856" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="796" height="100"/>
                                 <view key="contentView" id="6rW-KE-ixB">
-                                    <rect key="frame" x="1" y="1" width="854" height="98"/>
+                                    <rect key="frame" x="1" y="1" width="794" height="98"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yl7-CE-urn">
-                                            <rect key="frame" x="370" y="25" width="114" height="47"/>
+                                            <rect key="frame" x="340" y="25" width="114" height="47"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="L7q-rE-qUa"/>
                                                 <constraint firstAttribute="width" constant="100" id="luq-WV-0zV"/>
@@ -394,7 +400,7 @@ DQ
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wiy-jc-2Pw">
-                                            <rect key="frame" x="758" y="13" width="88" height="32"/>
+                                            <rect key="frame" x="698" y="13" width="88" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="Sbb-sq-gsR"/>
                                                 <constraint firstAttribute="height" constant="20" id="gLt-9i-Kpk"/>
@@ -408,7 +414,7 @@ DQ
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-GP-uQf">
-                                            <rect key="frame" x="207" y="8" width="440" height="16"/>
+                                            <rect key="frame" x="177" y="8" width="440" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="注：请检查数据与表格是否一致，提交成功后，商品id和类型不能再更改！" id="04V-rH-2el">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
@@ -416,7 +422,7 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sv7-52-2Cw">
-                                            <rect key="frame" x="758" y="45" width="88" height="32"/>
+                                            <rect key="frame" x="698" y="45" width="88" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="Os2-cR-YSb"/>
                                             </constraints>
@@ -428,59 +434,16 @@ DQ
                                                 <action selector="clickedUploadShotBtn:" target="HcW-sO-g2Q" id="pfM-0y-Fwy"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="slN-G5-aQW">
-                                            <rect key="frame" x="18" y="57" width="94" height="16"/>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-IS-Cxn">
+                                            <rect key="frame" x="18" y="56" width="199" height="18"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="Ck9-a5-qbd"/>
-                                                <constraint firstAttribute="width" constant="90" id="pyO-IH-ypx"/>
+                                                <constraint firstAttribute="height" constant="16" id="jCn-pM-TqY"/>
                                             </constraints>
-                                            <textFieldCell key="cell" title="金额检查地区：" id="eYj-4W-fv2">
+                                            <buttonCell key="cell" type="check" title="保留自动续期订阅者现有定价" bezelStyle="regularSquare" imagePosition="left" inset="2" id="rcb-F8-Wjv">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fVD-St-dKf">
-                                            <rect key="frame" x="115" y="51" width="66" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="Xrg-sQ-VTc"/>
-                                            </constraints>
-                                            <popUpButtonCell key="cell" type="push" title="中国" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="NEr-kk-fdu" id="qS4-SR-clf">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
-                                                <menu key="menu" title="分辨率" id="c3e-NY-w96">
-                                                    <items>
-                                                        <menuItem title="中国" state="on" tag="1" id="NEr-kk-fdu">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="美国" tag="2" id="Sfo-WW-s4j">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="韩国" tag="3" id="jhH-G2-Eff">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="日本" tag="4" id="jUi-5A-L0n">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="香港" tag="5" id="HIp-Xl-grG">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="台湾" tag="6" id="uZQ-CQ-QtD">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="英国" tag="7" id="BcU-ut-6x6">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                        <menuItem title="德国" tag="8" id="enD-eQ-AQa">
-                                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                                        </menuItem>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                            <connections>
-                                                <action selector="clickedPriceSelectPopupBtn:" target="HcW-sO-g2Q" id="0zd-Zu-XrL"/>
-                                            </connections>
-                                        </popUpButton>
+                                            </buttonCell>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="gwi-GP-uQf" secondAttribute="bottom" constant="8" id="446-fY-M9B"/>
@@ -488,13 +451,11 @@ DQ
                                         <constraint firstItem="yl7-CE-urn" firstAttribute="centerY" secondItem="6rW-KE-ixB" secondAttribute="centerY" id="ITd-YX-Trm"/>
                                         <constraint firstAttribute="trailing" secondItem="sv7-52-2Cw" secondAttribute="trailing" constant="15" id="QUP-CD-c2a"/>
                                         <constraint firstItem="Wiy-jc-2Pw" firstAttribute="top" secondItem="sv7-52-2Cw" secondAttribute="bottom" constant="12" id="Rp0-lh-D4G"/>
-                                        <constraint firstItem="fVD-St-dKf" firstAttribute="leading" secondItem="slN-G5-aQW" secondAttribute="trailing" constant="8" symbolic="YES" id="YuD-MB-M66"/>
-                                        <constraint firstItem="fVD-St-dKf" firstAttribute="centerY" secondItem="slN-G5-aQW" secondAttribute="centerY" id="Zs7-tz-iAO"/>
                                         <constraint firstItem="Wiy-jc-2Pw" firstAttribute="trailing" secondItem="sv7-52-2Cw" secondAttribute="trailing" id="a9w-yY-EWd"/>
                                         <constraint firstItem="yl7-CE-urn" firstAttribute="centerX" secondItem="6rW-KE-ixB" secondAttribute="centerX" id="efU-0I-QhV"/>
-                                        <constraint firstItem="slN-G5-aQW" firstAttribute="leading" secondItem="6rW-KE-ixB" secondAttribute="leading" constant="20" symbolic="YES" id="gAe-l7-WZW"/>
-                                        <constraint firstItem="slN-G5-aQW" firstAttribute="top" secondItem="6rW-KE-ixB" secondAttribute="top" constant="25" id="nhO-fy-2o7"/>
+                                        <constraint firstItem="mWR-IS-Cxn" firstAttribute="leading" secondItem="6rW-KE-ixB" secondAttribute="leading" constant="20" symbolic="YES" id="hjT-ey-2ZV"/>
                                         <constraint firstItem="gwi-GP-uQf" firstAttribute="centerX" secondItem="6rW-KE-ixB" secondAttribute="centerX" id="o1O-9Y-VOc"/>
+                                        <constraint firstItem="mWR-IS-Cxn" firstAttribute="top" secondItem="6rW-KE-ixB" secondAttribute="top" constant="25" id="yx3-wU-dQT"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -515,7 +476,7 @@ DQ
                     </view>
                     <connections>
                         <outlet property="enterBtn" destination="yl7-CE-urn" id="fxo-dC-Eo4"/>
-                        <outlet property="priceSelectPopupBtn" destination="fVD-St-dKf" id="TcZ-7C-fkp"/>
+                        <outlet property="preserveCurrentPriceBtn" destination="mWR-IS-Cxn" id="kC5-n4-ddM"/>
                         <outlet property="tableView" destination="FfT-VW-kGY" id="eo0-Hf-anq"/>
                     </connections>
                 </viewController>
@@ -585,7 +546,7 @@ DQ
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView identifier="picnameCell" id="nHX-Ef-hlo">
-                                                                        <rect key="frame" x="11" y="1" width="156" height="17"/>
+                                                                        <rect key="frame" x="1" y="1" width="156" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-mk-1ol">
@@ -624,7 +585,7 @@ DQ
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView identifier="uploadCell" id="kSW-b0-iBl" customClass="UploadCell" customModule="AppleParty" customModuleProvider="target">
-                                                                        <rect key="frame" x="170" y="1" width="224" height="100"/>
+                                                                        <rect key="frame" x="160" y="1" width="224" height="100"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fOf-F6-66M">
@@ -645,7 +606,7 @@ DQ
                                                                                         <color key="fillColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                     </box>
                                                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8nS-Sr-Tez">
-                                                                                        <rect key="frame" x="45" y="17" width="32" height="39"/>
+                                                                                        <rect key="frame" x="45" y="16.5" width="32.5" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="32" id="8ms-3v-6Vf"/>
                                                                                             <constraint firstAttribute="height" constant="32" id="oxZ-DL-wE0"/>
@@ -1011,7 +972,7 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="NSAddTemplate" width="18" height="16"/>
+        <image name="NSAddTemplate" width="18" height="17"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

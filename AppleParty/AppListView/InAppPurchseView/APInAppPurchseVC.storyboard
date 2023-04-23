@@ -162,8 +162,8 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="priceLevelColumn" width="53" minWidth="40" maxWidth="100" id="QvX-dg-tZC">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="价格等级">
+                                                <tableColumn identifier="priceLevelColumn" width="55" minWidth="40" maxWidth="100" id="QvX-dg-tZC">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="销售范围">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -180,11 +180,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="priceLevelCell" id="Ixq-9W-hrr">
-                                                            <rect key="frame" x="327" y="1" width="53" height="50"/>
+                                                            <rect key="frame" x="327" y="1" width="55" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nh9-yz-azS">
-                                                                    <rect key="frame" x="0.0" y="17" width="53" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="17" width="55" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="CfZ-Ol-bRD">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -199,8 +199,8 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="priceColumn" width="76" minWidth="60" maxWidth="100" id="vDg-bl-irs">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="本地化价格">
+                                                <tableColumn identifier="priceColumn" width="78" minWidth="60" maxWidth="100" id="vDg-bl-irs">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="价格机制">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -217,11 +217,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="priceCell" id="fHK-u3-suB">
-                                                            <rect key="frame" x="383" y="1" width="76" height="50"/>
+                                                            <rect key="frame" x="385" y="1" width="78" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-Bq-gso">
-                                                                    <rect key="frame" x="0.0" y="17" width="76" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="17" width="78" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="XMd-gw-vxG">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -254,7 +254,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="appleidCell" id="2r2-YN-gxc">
-                                                            <rect key="frame" x="462" y="1" width="120" height="50"/>
+                                                            <rect key="frame" x="466" y="1" width="120" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zr2-bI-CNv">
@@ -286,7 +286,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="typeCell" id="Lym-V5-iX8">
-                                                            <rect key="frame" x="585" y="1" width="100" height="50"/>
+                                                            <rect key="frame" x="589" y="1" width="100" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KmJ-Eh-Ikj">
@@ -318,7 +318,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="stateCell" id="JqD-IF-M9E">
-                                                            <rect key="frame" x="688" y="1" width="63" height="50"/>
+                                                            <rect key="frame" x="692" y="1" width="63" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bt8-9h-N0G">
@@ -438,47 +438,6 @@
                                     <action selector="outputProductID:" target="WHe-rZ-F7O" id="JyB-hQ-Tn0"/>
                                 </connections>
                             </button>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0I7-bu-Kp4">
-                                <rect key="frame" x="183" y="183" width="66" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="wM0-qr-NO7"/>
-                                </constraints>
-                                <popUpButtonCell key="cell" type="push" title="中国" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="tpg-Tx-nMR" id="7OC-Wd-b4i">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" title="分辨率" id="cio-39-Pwp">
-                                        <items>
-                                            <menuItem title="中国" state="on" tag="1" id="tpg-Tx-nMR">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="美国" tag="2" id="NmB-Lk-syI">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="韩国" tag="3" id="D4b-wQ-Nyd">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="日本" tag="4" id="6VQ-x1-Zbg">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="香港" tag="5" id="kq7-p8-NX7">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="台湾" tag="6" id="whE-Me-8fW">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="英国" tag="7" id="jIf-Ju-h4x">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                            <menuItem title="德国" tag="8" id="Evk-YA-GZK">
-                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                            </menuItem>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="clickedPriceSelectPopupBtn:" target="WHe-rZ-F7O" id="S2s-wO-7ot"/>
-                                </connections>
-                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="V54-fz-e6e" firstAttribute="top" secondItem="g4b-K9-FLu" secondAttribute="bottom" constant="15" id="3V5-A4-VMG"/>
@@ -493,19 +452,16 @@
                             <constraint firstItem="V54-fz-e6e" firstAttribute="leading" secondItem="9ub-G9-EoX" secondAttribute="leading" id="RJg-65-WD6"/>
                             <constraint firstItem="g1s-qC-zZv" firstAttribute="top" secondItem="9ub-G9-EoX" secondAttribute="top" constant="10" id="TmA-QA-knT"/>
                             <constraint firstItem="pDs-nU-YDZ" firstAttribute="leading" secondItem="fCY-Bo-Sre" secondAttribute="trailing" constant="10" id="al9-zg-mfC"/>
-                            <constraint firstItem="0I7-bu-Kp4" firstAttribute="centerY" secondItem="g1s-qC-zZv" secondAttribute="centerY" id="dXW-2L-MN4"/>
                             <constraint firstAttribute="trailing" secondItem="pDs-nU-YDZ" secondAttribute="trailing" constant="15" id="ems-r3-Hzs"/>
                             <constraint firstItem="pDs-nU-YDZ" firstAttribute="centerY" secondItem="g1s-qC-zZv" secondAttribute="centerY" id="f8v-tI-hgZ"/>
                             <constraint firstAttribute="trailing" secondItem="V54-fz-e6e" secondAttribute="trailing" id="gDP-cl-PDs"/>
                             <constraint firstItem="DoY-Xj-sox" firstAttribute="leading" secondItem="g4b-K9-FLu" secondAttribute="trailing" constant="10" id="oVv-xx-EqB"/>
-                            <constraint firstItem="g1s-qC-zZv" firstAttribute="leading" secondItem="0I7-bu-Kp4" secondAttribute="trailing" constant="10" id="p8e-N5-jFe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appNameView" destination="RWS-I4-Hj5" id="B2s-1y-ClK"/>
                         <outlet property="outlineView" destination="Yd4-ve-MqM" id="gzd-Pc-XWm"/>
                         <outlet property="outputIAPListBtn" destination="DoY-Xj-sox" id="Age-qN-Qlj"/>
-                        <outlet property="pricePopupBtn" destination="0I7-bu-Kp4" id="CBR-R7-MVl"/>
                     </connections>
                 </viewController>
                 <customObject id="LWD-js-20w" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

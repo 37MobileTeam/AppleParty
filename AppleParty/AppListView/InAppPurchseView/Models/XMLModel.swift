@@ -9,8 +9,6 @@ import Foundation
 import SWXMLHash
 
 
-let default_screenshot_file_name = "screenshot-default.jpg"
-
 struct In_App_Purchase {
     
     var product_id = ""             // 商品id

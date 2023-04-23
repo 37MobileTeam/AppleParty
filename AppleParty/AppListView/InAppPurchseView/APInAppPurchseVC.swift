@@ -21,14 +21,12 @@ class APInAppPurchseVC: NSViewController {
     private var countryCode = ""
     private var checkPrice = [String: String]()
     
-    @IBOutlet weak var pricePopupBtn: NSPopUpButton!
     @IBOutlet weak var outputIAPListBtn: NSButton!
     @IBOutlet weak var appNameView: NSTextField!
     @IBOutlet weak var outlineView: NSOutlineView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        clickedPriceSelectPopupBtn(pricePopupBtn)
         self.outlineView.delegate = self
         self.outlineView.dataSource = self
         self.outlineView.columnAutoresizingStyle = .uniformColumnAutoresizingStyle
@@ -92,33 +90,6 @@ class APInAppPurchseVC: NSViewController {
     }
     
     
-    @IBAction func clickedPriceSelectPopupBtn(_ sender: NSPopUpButton) {
-        
-        var countryCode = "CN"
-        switch sender.selectedTag() {
-        case 1:
-            countryCode = "CN"
-        case 2:
-            countryCode = "US"
-        case 3:
-            countryCode = "KR"
-        case 4:
-            countryCode = "JP"
-        case 5:
-            countryCode = "HK"
-        case 6:
-            countryCode = "TW"
-        case 7:
-            countryCode = "GB"
-        case 8:
-            countryCode = "DE"
-        default: break
-        }
-        self.countryCode = countryCode
-        self.checkPrice = PriceTierParser.priceTiers(countryCode)
-        self.outlineView.reloadData()
-    }
-    
     @IBAction func outputProductID(_ sender: Any) {
         let mainStoryboard = NSStoryboard(name: "InAppPurchseView", bundle: Bundle(for: self.classForCoder))
         let outputVC = mainStoryboard.instantiateController(withIdentifier: "OutputExcelVCID") as? OutputExcelVC
@@ -151,6 +122,9 @@ extension APInAppPurchseVC {
     }
     
     func updateRowInfo() {
+        // TODO: 接口请求失败
+        return;
+        
         guard self.iapList.count > 0 else {
             return
         }
@@ -211,6 +185,13 @@ extension APInAppPurchseVC {
             if warns.isNotEmpty {
                 NSAlert.show("‼️警告：已经存在相同商品id的品项！请检查：\(warns)。\n⚠️提示：如果继续上传，将会覆盖已有品项的信息！")
             }
+        }
+        
+        // 检查商品同名，苹果后台不允许存在同名
+        let iapNames = iaps.map { $0.name }
+        let iapUniNames = Array(Set(iapNames))
+        if iapNames.isNotEmpty, iapNames.count != iapUniNames.count {
+            NSAlert.show("‼️警告：存在相同参考名字的商品！请检查~\n⚠️提示：如果继续上传，同名的商品只会有一个能创建成功！")
         }
         
         let sb = NSStoryboard(name: "InAppPurchseView", bundle: Bundle(for: self.classForCoder))

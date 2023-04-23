@@ -11,7 +11,7 @@ class APUploadIAPListVC: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var enterBtn: NSButton!
-    @IBOutlet weak var priceSelectPopupBtn: NSPopUpButton!
+    @IBOutlet weak var preserveCurrentPriceBtn: NSButton!
     
     public var currentApp: App? {
         didSet {
@@ -24,8 +24,6 @@ class APUploadIAPListVC: NSViewController {
         }
     }
     
-    private var checkPrice = [String: String]()
-    private var checkPris = [String]()
     private var screenshotPaths = [String: String]()
     
     override func viewDidLoad() {
@@ -34,8 +32,6 @@ class APUploadIAPListVC: NSViewController {
         self.tableView.columnAutoresizingStyle = .uniformColumnAutoresizingStyle
         self.tableView.selectionHighlightStyle = .none
         self.tableView.sizeToFit()
-        
-        clickedPriceSelectPopupBtn(priceSelectPopupBtn)
     }
     
     func setupUI() {
@@ -60,36 +56,6 @@ class APUploadIAPListVC: NSViewController {
             }
             self.presentAsSheet(upVC!)
         }
-    }
-    
-    @IBAction func clickedPriceSelectPopupBtn(_ sender: NSPopUpButton) {
-        updateCheckPrice(index: sender.selectedTag())
-    }
-    
-    func updateCheckPrice(index: Int) {
-        var countryCode = "CN"
-        switch index {
-        case 1:
-            countryCode = "CN"
-        case 2:
-            countryCode = "US"
-        case 3:
-            countryCode = "KR"
-        case 4:
-            countryCode = "JP"
-        case 5:
-            countryCode = "HK"
-        case 6:
-            countryCode = "TW"
-        case 7:
-            countryCode = "GB"
-        case 8:
-            countryCode = "DE"
-        default: break
-        }
-        
-        self.checkPrice = PriceTierParser.priceTiers(countryCode)
-        self.tableView.reloadData()
     }
     
     @IBAction func clickedUploadShotBtn(_ sender: Any) {
@@ -144,9 +110,13 @@ extension APUploadIAPListVC {
         let ascAPI = APASCAPI.init(issuerID: ascKey.issuerID,
                                privateKeyID: ascKey.privateKeyID,
                                  privateKey: ascKey.privateKey)
+        ascAPI.addMessage("密钥信息：\(ascKey.issuerID), \(ascKey.privateKeyID), \(ascKey.privateKey)")
+        
         Task {
             // 1、获取当前账号下 app，判断是否包含当前 提交商品的 app
             guard let apps = await ascAPI.apps() else {
+                self.enterBtn.isEnabled = true
+                APHUD.hide()
                 APHUD.hide(message: "当前请求异常，请检查密钥是否正确~", delayTime: 2)
                 return
             }
@@ -193,7 +163,7 @@ extension APUploadIAPListVC {
     
     /// 创建内购商品
     func createInAppPurchase(appId: String, product: IAPProduct, oldIAPs: [ASCInAppPurchaseV2], ascAPI: APASCAPI) async {
-        ascAPI.addMessage("开始上传内购商品：\(product.productId)，\(product.priceTier)，\(product.name) ")
+        ascAPI.addMessage("开始上传内购商品：\(product.productId)，\(product.name) ")
         // 检查是否已经存在此商品，如果存在就修改信息，如果不存在就创建
         let iaps = oldIAPs.filter({ $0.attributes?.productID == product.productId })
         if let iap = iaps.first {
@@ -231,6 +201,9 @@ extension APUploadIAPListVC {
             // 4. 商品截图
             await createIAPScreenshot(iapId: iap.id, product: product, ascAPI: ascAPI)
             
+            // 5. 销售国家或地区
+            await updateIAPAvailableTerritories(iapId: iap.id, product: product, ascAPI: ascAPI)
+            
         } else {
             // 1. 创建新的商品
             guard let iap = await ascAPI.createInAppPurchases(appId: appId, product: product) else {
@@ -248,27 +221,61 @@ extension APUploadIAPListVC {
             
             // 4. 商品截图
             await createIAPScreenshot(iapId: iap.id, product: product, ascAPI: ascAPI)
+            
+            // 5. 销售国家或地区
+            await updateIAPAvailableTerritories(iapId: iap.id, product: product, ascAPI: ascAPI)
         }
         
-        ascAPI.addMessage("内购商品：\(product.productId)，\(product.priceTier)，\(product.name) ，上传完成！")
+        ascAPI.addMessage("内购商品：\(product.productId)，\(product.name) ，上传完成！\n")
     }
     
     /// 创建内购商品价格档位
     func updateIAPPricePoint(iapId: String, product: IAPProduct, ascAPI: APASCAPI) async {
-        ascAPI.addMessage("开始更新价格档位：\(product.productId)，\(product.priceTier)")
-        let priceTier = product.priceTier
-        let points = await ascAPI.fetchPricePoints(iapId: iapId, territory: ["USA"])
-        if let point = points.filter({ $0.attributes?.priceTier == priceTier }).first {
-            if (await ascAPI.updateInAppPurchasePricePoint(iapId: iapId, priceTierId: priceTier, pricePointId: point.id)) != nil {
+        guard let schedule = product.priceSchedules else {
+            ascAPI.addMessage("无价格计划表：\(product.productId) ，请确认！❌ ")
+            return
+        }
+        
+        let baseTerritory = schedule.baseTerritory
+        let baseCustomerPrice = schedule.baseCustomerPrice.normalizePrice()
+        
+        ascAPI.addMessage("开始更新价格计划表：\(product.productId)，\(baseTerritory)，\(baseCustomerPrice) \n")
+        
+        let points = await ascAPI.fetchPricePoints(iapId: iapId, territory: [baseTerritory])
+        if let point = points.filter({ $0.attributes?.customerPrice!.normalizePrice() == baseCustomerPrice }).first {
+            var manualPrices: [Any] = []
+            var included: [Any] = []
+            
+            ascAPI.addMessage("开始构建基准国家和自定价格：")
+            // base Territory
+            manualPrices.append(["id": baseTerritory, "type": "inAppPurchasePrices"])
+            included.append(ascAPI.fetchInAppPurchasePriceSchedule(scheduleId: baseTerritory, pricePointId: point.id, iapId: iapId))
+            
+            // customerPrice
+            for pricePoint in schedule.manualPrices {
+                let territory = pricePoint.territory
+                let customerPrice = pricePoint.customerPrice.normalizePrice()
+                let points = await ascAPI.fetchPricePoints(iapId: iapId, territory: [territory])
+                if let point = points.filter({ $0.attributes?.customerPrice!.normalizePrice() == customerPrice }).first {
+                    manualPrices.append(["id": territory, "type": "inAppPurchasePrices"])
+                    included.append(ascAPI.fetchInAppPurchasePriceSchedule(scheduleId: territory, pricePointId: point.id, iapId: iapId))
+                } else {
+                    ascAPI.addMessage("自定价格的内购价格点：\(territory)，\(customerPrice) ，未找到此档位！❌ ")
+                }
+            }
+            
+            ascAPI.saveLogs(log: "内购的基准国家和自定价格：\(manualPrices)，\(included)")
+            
+            if (await ascAPI.updateInAppPurchasePricePoint(iapId: iapId, baseTerritoryId: baseTerritory, manualPrices: manualPrices, included: included)) != nil {
                 // 价格档位配置成功
-                ascAPI.addMessage("内购价格档位：\(priceTier) ，更新价格成功！✅ ")
+                ascAPI.addMessage("内购价格点：\(baseTerritory)，\(baseCustomerPrice) ，更新价格成功！✅ ")
             } else {
                 // 价格档位配置失败
-                ascAPI.addMessage("内购价格档位：\(priceTier) ，更新价格失败！❌ ")
+                ascAPI.addMessage("内购价格点：\(baseTerritory)，\(baseCustomerPrice) ，更新价格失败！❌ ")
             }
         } else {
             // 找不到价格档位
-            ascAPI.addMessage("内购价格档位：\(priceTier) ，无找到此档位！❌ ")
+            ascAPI.addMessage("基准国家的内购价格点：\(baseTerritory)，\(baseCustomerPrice) ，未找到此档位！❌ ")
         }
     }
     
@@ -354,6 +361,36 @@ extension APUploadIAPListVC {
         }
     }
     
+    /// 销售国家或地区
+    func updateIAPAvailableTerritories(iapId: String, product: IAPProduct, ascAPI: APASCAPI) async {
+        let inAll = product.territories.availableInAllTerritories
+        let summary = territoryInfo(product: product)
+        ascAPI.addMessage("开始更新内购商品的销售国家/地区：\(summary)")
+        
+        guard !inAll else {
+            ascAPI.addMessage("选择所有国家/地区销售，将来新国家/地区自动提供，更新成功！✅ ")
+            return
+        }
+        
+        /// 选择销售的国家或地区
+        var territories: [[String: String]] = []
+        product.territories.territories?.forEach({ territory in
+            territories.append([
+                "type": "territories",
+                "id": territory.id
+            ])
+        })
+        
+        let inNew = product.territories.availableInNewTerritories
+        let customerTerritory = product.territories.territories?.map({ $0.id }).joined(separator: ",") ?? "无"
+        if (await ascAPI.updateInAppPurchasesAvailabilityTerritories(iapId: iapId, availableTerritories: territories, availableInNewTerritories: inNew)) != nil {
+            ascAPI.addMessage("内购商品的销售国家/地区：\(customerTerritory) ，更新成功！✅ ")
+        } else {
+            ascAPI.addMessage("内购商品的销售国家/地区：\(customerTerritory) ，更新失败！❌ ")
+        }
+    }
+    
+    
     // MARK: - 上传订阅商品
     
     /// 订阅商品创建或更新
@@ -412,6 +449,9 @@ extension APUploadIAPListVC {
             // 4. 商品截图
             await createSubscriptionScreenshot(iapId: iap.id, product: product, ascAPI: ascAPI)
             
+            // 5. 销售国家或地区
+            await updateSubscriptionAvailableTerritories(iapId: iap.id, product: product, ascAPI: ascAPI)
+            
         } else {
             // 1. 创建新的商品
             guard let iapGroupId = subGroups.first?.id, let iap = await ascAPI.createSubscription(iapGroupId: iapGroupId, product: product) else {
@@ -430,38 +470,75 @@ extension APUploadIAPListVC {
             
             // 4. 商品截图
             await createSubscriptionScreenshot(iapId: iap.id, product: product, ascAPI: ascAPI)
+            
+            // 5. 销售国家或地区
+            await updateSubscriptionAvailableTerritories(iapId: iap.id, product: product, ascAPI: ascAPI)
         }
         
-        ascAPI.addMessage("订阅商品：\(product.productId)，\(product.priceTier)，\(product.name) ，上传完成！")
+        ascAPI.addMessage("订阅商品：\(product.productId)，\(product.name) ，上传完成！\n")
     }
     
     
     /// 更新订阅商品的价格档位
     func updateSubscriptionPricePoint(iapId: String, product: IAPProduct, ascAPI: APASCAPI) async {
-        ascAPI.addMessage("开始更新订阅商品价格档位：\(product.productId)，\(product.priceTier)")
-        let priceTier = product.priceTier
-        let checkPrice = PriceTierParser.priceTiers("US")
-        guard let price = checkPrice[priceTier] else {
-            ascAPI.addMessage("订阅商品价格档位：\(priceTier) ，无匹配的档位价格！请在苹果后台选择价格~❌ ")
+        guard let schedule = product.priceSchedules else {
+            ascAPI.addMessage("无价格计划表：\(product.productId) ，请确认！❌ ")
             return
         }
-        let points = await ascAPI.fetchSubscriptionPricePoints(iapId: iapId, territory: ["USA"])
-        if let point = points.filter({ $0.attributes?.customerPrice == price }).first {
-            // 获取所有的国家地区的订阅价格点，然后一个一个设置。API不支持全部国家一次配置
+        
+        let baseTerritory = schedule.baseTerritory
+        let baseCustomerPrice = schedule.baseCustomerPrice.normalizePrice()
+        
+        ascAPI.addMessage("开始更新订阅商品价格点，基准国家：\(product.productId)，\(baseTerritory)，\(baseCustomerPrice) \n")
+        
+        let isPreservePrice = preserveCurrentPriceBtn.state.rawValue == 1
+        ascAPI.addMessage("保留自动续期订阅者现有定价：\(isPreservePrice ? "是" : "否")")
+
+        let points = await ascAPI.fetchSubscriptionPricePoints(iapId: iapId, territory: [baseTerritory])
+        if let point = points.filter({ $0.attributes?.customerPrice!.normalizePrice() == baseCustomerPrice }).first {
+            
+            ascAPI.addMessage("开始更新自定价格：")
+            // 自定价格的国家或地区, 基准国家也算是自定价格
+            var customerPriceSchedules = schedule.manualPrices
+            customerPriceSchedules.append(IAPPricePoint(territory: baseTerritory, customerPrice: baseCustomerPrice))
+            let manualPricesTerritory: [String] = customerPriceSchedules.map({ $0.territory })
+            // 设置自定价格
+            for pricePoint in customerPriceSchedules {
+                let territory = pricePoint.territory
+                let customerPrice = pricePoint.customerPrice.normalizePrice()
+                let points = await ascAPI.fetchSubscriptionPricePoints(iapId: iapId, territory: [territory])
+                if let point = points.filter({ $0.attributes?.customerPrice!.normalizePrice() == customerPrice }).first {
+                    if (await ascAPI.updateSubscriptionPricePoint(iapId: iapId, pricePointId: point.id, preserveCurrentPrice: isPreservePrice)) != nil {
+                        ascAPI.addMessage("自定价格的订阅商品的价格点：\(territory)，\(customerPrice) ，更新价格成功！✅ ")
+                    } else {
+                        ascAPI.addMessage("自定价格的订阅商品的价格点：\(territory)，\(customerPrice) ，更新价格失败！❌ ")
+                    }
+                } else {
+                    ascAPI.addMessage("自定价格的订阅商品价格点：\(territory)，\(customerPrice) ，未找到此档位！❌ ")
+                }
+            }
+            
+            ascAPI.addMessage("开始更新全球均衡价格：")
+            // 剩余的所有的国家地区的订阅价格点，然后一个一个设置。API不支持全部国家一次配置
             let allPoints = await ascAPI.fetchSubscriptionPricePointsEqualizations(pointId: point.id, territory: nil)
             for apoint in allPoints {
                 let territory = apoint.relationships?.territory?.data?.id ?? ""
-                if (await ascAPI.updateSubscriptionPricePoint(iapId: iapId, pricePointId: apoint.id)) != nil {
+                // 自定价格的国家跳过
+                if manualPricesTerritory.contains(territory) {
+                    continue
+                }
+                let customerPrice = apoint.attributes?.customerPrice ?? ""
+                if (await ascAPI.updateSubscriptionPricePoint(iapId: iapId, pricePointId: apoint.id, preserveCurrentPrice: isPreservePrice)) != nil {
                     // 价格档位配置成功
-                    ascAPI.addMessage("\(territory) 订阅商品价格档位：\(priceTier) ，更新价格成功！✅ ")
+                    ascAPI.addMessage("全球均衡价格的订阅商品的价格点：\(territory)，\(customerPrice) ，更新价格成功！✅ ")
                 } else {
                     // 价格档位配置失败
-                    ascAPI.addMessage("\(territory) 订阅商品价格档位：\(priceTier) ，更新价格失败！❌ ")
+                    ascAPI.addMessage("全球均衡价格的订阅商品的价格点：\(territory)，\(customerPrice) ，更新价格失败！❌ ")
                 }
             }
         } else {
             // 找不到价格档位
-            ascAPI.addMessage("订阅商品价格档位：\(priceTier) ，无找到此档位！❌ ")
+            ascAPI.addMessage("基准国家的订阅商品价格点：\(baseTerritory)，\(baseCustomerPrice) ，未找到此档位！❌ ")
         }
     }
     
@@ -546,6 +623,49 @@ extension APUploadIAPListVC {
             ascAPI.addMessage("订阅商品：\(product.productId) ，送审截图可能上传失败！ ")
         }
     }
+    
+    /// 销售国家或地区
+    func updateSubscriptionAvailableTerritories(iapId: String, product: IAPProduct, ascAPI: APASCAPI) async {
+        let inAll = product.territories.availableInAllTerritories
+        let summary = territoryInfo(product: product)
+        ascAPI.addMessage("开始更新订阅商品的销售国家/地区：\(summary)")
+        
+        guard !inAll else {
+            ascAPI.addMessage("选择所有国家/地区销售，将来新国家/地区自动提供，更新成功！✅ ")
+            return
+        }
+        
+        /// 选择销售的国家或地区
+        var territories: [[String: String]] = []
+        product.territories.territories?.forEach({ territory in
+            territories.append([
+                "type": "territories",
+                "id": territory.id
+            ])
+        })
+        
+        let inNew = product.territories.availableInNewTerritories
+        let customerTerritory = product.territories.territories?.map({ $0.id }).joined(separator: ",") ?? "无"
+        if (await ascAPI.updateSubscriptionAvailabilityTerritories(iapId: iapId, availableTerritories: territories, availableInNewTerritories: inNew)) != nil {
+            ascAPI.addMessage("订阅商品的销售国家/地区：\(customerTerritory) ，更新成功！✅ ")
+        } else {
+            ascAPI.addMessage("订阅商品的销售国家/地区：\(customerTerritory) ，更新失败！❌ ")
+        }
+    }
+}
+
+// MARK: - Privacy Method
+extension APUploadIAPListVC {
+    
+    func territoryInfo(product: IAPProduct) -> String {
+        let inAll = product.territories.availableInAllTerritories
+        let inNew = product.territories.availableInNewTerritories
+        let customerTerritory = product.territories.territories?.map({ $0.id }).joined(separator: ",") ?? ""
+        let off = !inAll && !inNew && (product.territories.territories?.isEmpty ?? true)
+        let territory = off ? "下架" : (customerTerritory.isEmpty ? (inAll ? "全部" : "当前下架") : customerTerritory)
+        let stringValue = "在所有国家/地区销售：'\(inAll ? "是" : "否")'\n将来新国家/地区自动提供：'\(inNew ? "是" : "否")'\n指定国家/地区销售：\(territory)"
+        return stringValue
+    }
 }
 
 
@@ -572,19 +692,16 @@ extension APUploadIAPListVC: NSTableViewDelegate, NSTableViewDataSource {
             return cell
         case ColumnIdetifier.price.cellValue:
             let cell = tableView.makeView(withIdentifier: ColumnIdetifier.price.cellValue, owner: self) as? NSTableCellView
-            let price = iap.price
-            let retailPrice = checkPrice[iap.priceTier]
-            if let retailPrice = retailPrice, retailPrice != iap.price {
-                cell?.textField?.textColor = NSColor.red
-                cell?.textField?.stringValue = "\(price)->\(String(describing: retailPrice))"
-            } else {
-                cell?.textField?.textColor = NSColor.labelColor
-                cell?.textField?.stringValue = iap.price
-            }
+            cell?.textField?.stringValue = territoryInfo(product: iap)
             return cell
         case ColumnIdetifier.level.cellValue:
             let cell = tableView.makeView(withIdentifier: ColumnIdetifier.level.cellValue, owner: self) as? NSTableCellView
-            cell?.textField?.stringValue = iap.priceTier
+            let territory = iap.priceSchedules?.baseTerritory ?? "-"
+            let price = iap.priceSchedules?.baseCustomerPrice ?? "-"
+            let customerPrice = iap.priceSchedules?.manualPrices.map({ pp in
+                "{'国家:'\(pp.territory)', '自定价格':'\(pp.customerPrice)'}\n"
+            }).joined() ?? "-"
+            cell?.textField?.stringValue = "基准国家：'\(territory)'\n基准价格：'\(price)'\n\(customerPrice)"
             return cell
         case ColumnIdetifier.productPds.cellValue:
             let cell = tableView.makeView(withIdentifier: ColumnIdetifier.productPds.cellValue, owner: self) as? NSTableCellView
@@ -602,7 +719,6 @@ extension APUploadIAPListVC: NSTableViewDelegate, NSTableViewDataSource {
             return cell
         case ColumnIdetifier.language.cellValue:
             let cell = tableView.makeView(withIdentifier: ColumnIdetifier.language.cellValue, owner: self) as? NSTableCellView
-            cell?.textField?.usesSingleLineMode = false
             cell?.textField?.stringValue = iap.localizations.map({ lz in
                 "{'locale:'\(lz.locale)', 'title':'\(lz.name)', 'desc':'\(lz.description)'}\n"
             }).joined()
@@ -613,7 +729,8 @@ extension APUploadIAPListVC: NSTableViewDelegate, NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        let count = iaps[row].localizations.count
-        return count == 0 ?  30 : CGFloat(20 * (count + 1))
+        let prices = iaps[row].priceSchedules?.manualPrices.count ?? 0
+        let count = max(prices + 2, 3)
+        return count > 10 ? CGFloat(20 * count) : CGFloat(25 * count)
     }
 }

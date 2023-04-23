@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,7 +12,6 @@
                 <windowController storyboardIdentifier="EmailTool" id="T4u-uh-EbA" sceneMemberID="viewController">
                     <window key="window" title="邮件助手" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="qJz-u6-Hg1">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="359" y="388" width="600" height="450"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2240" height="1235"/>
                         <view key="contentView" id="mmv-OD-ZTq">
@@ -181,7 +180,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="roundRect" title="邮箱设置" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5t6-n1-Yfi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="12" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="clickedEmailSettingButton:" target="hI8-xu-11y" id="KkT-rB-A5p"/>

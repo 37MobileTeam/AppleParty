@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AvdLee/appstoreconnect-swift-sdk.git",
       "state" : {
-        "revision" : "23d108de618a136e71bd53ad479439b80379e2ae",
-        "version" : "2.3.0"
+        "branch" : "master",
+        "revision" : "1a4bcf2faa99f9f27e19b561b6d2f3dc36bdc5de"
       }
     },
     {
@@ -43,6 +43,15 @@
       "state" : {
         "revision" : "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
         "version" : "1.9.200"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "33a20e650c33f6d72d822d558333f2085effa3dc",
+        "version" : "2.5.0"
       }
     },
     {

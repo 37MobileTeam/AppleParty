@@ -51,7 +51,7 @@ class OutputExcelVC: NSViewController, NSTextViewDelegate {
     func textViewDidChangeSelection(_ notification: Notification) {
         inputs = inputText.string.components(separatedBy: CharacterSet(["\r", "\n"]))
         inputs = inputs.filter { $0.count > 0 }
-        inputCount.stringValue = String(inputs.count)+"/100"        
+        inputCount.stringValue = String(inputs.count)+"/100"
     }
     
     func checkCount() -> Bool {
