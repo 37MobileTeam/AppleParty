@@ -10,6 +10,7 @@ AppleParty 是三七互娱旗下37手游 iOS 团队研发，实现快速操作 A
 
 
 **使用和原理介绍：**
+- [AppleParty（苹果派）v3 支持 App Store 新定价机制 - 批量配置自定价格和销售范围 - 掘金](https://juejin.cn/post/7226327556198744122)
 - [开源一款苹果 macOS 工具 - AppleParty（苹果派）](https://juejin.cn/post/7081069026515877919)
 - [使用 App Store Connect API 批量创建内购商品 ](https://juejin.cn/post/7181099247956131896)
 

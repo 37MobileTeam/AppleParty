@@ -168,6 +168,11 @@ extension APUploadIAPListVC {
         let iaps = oldIAPs.filter({ $0.attributes?.productID == product.productId })
         if let iap = iaps.first {
             ascAPI.addMessage("内购已经存在：\(product.productId) ，开始更新信息中...")
+            // 0. 审核备注如果原来有值，而新字段无值，则使用原值
+            var product = product
+            if let note = iap.attributes?.reviewNote, product.reviewNote.isEmpty {
+                product.reviewNote = note
+            }
             // 1.修改原商品信息
             guard let iap = await ascAPI.updateInAppPurchases(iapId: iap.id, product: product) else {
                 // 修改失败
@@ -415,6 +420,11 @@ extension APUploadIAPListVC {
         let subs = subscriptions.filter({ $0.attributes?.productID == product.productId })
         if let sub = subs.first {
             ascAPI.addMessage("订阅商品已经存在：\(product.productId) ，开始更新信息中...")
+            // 0. 审核备注如果原来有值，而新字段无值，则使用原值
+            var product = product
+            if let note = sub.attributes?.reviewNote, product.reviewNote.isEmpty {
+                product.reviewNote = note
+            }
             // 1.修改原商品信息
             guard let iap = await ascAPI.updateSubscription(iapId: sub.id, product: product) else {
                 // 修改失败

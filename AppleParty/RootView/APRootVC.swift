@@ -50,7 +50,8 @@ class APRootVC: NSViewController {
             APRootCollectionModel(name: "财务报表", icon: "FinancialReports", handler: { handler(false, "") }),
             APRootCollectionModel(name: "邮件工具", icon: "SendEmail", handler: { handler(true, "EmailTool") }),
             APRootCollectionModel(name: "包体工具", icon: "IPAUpload", handler: { handler(true, "IPAUpload")}),
-            APRootCollectionModel(name: "二维码工具", icon: "QRcode", handler: { handler(true, "APQRcode")})
+            APRootCollectionModel(name: "二维码工具", icon: "QRcode", handler: { handler(true, "APQRcode")}),
+            APRootCollectionModel(name: "内购凭证验证", icon: "VerifyReceipt", handler: { handler(true, "APVerifyReceipt")})
         ]
         adapter?.set(items: items)
     }
