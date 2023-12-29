@@ -9,6 +9,7 @@
 
 
 import Foundation
+import Combine
 import AppStoreConnect_Swift_SDK
 
 
@@ -57,11 +58,15 @@ class APASCAPI {
     //private let configuration = APIConfiguration(issuerID: "<YOUR ISSUER ID>", privateKeyID: "<YOUR PRIVATE KEY ID>", privateKey: "<YOUR PRIVATE KEY>")
     //private lazy var provider: APIProvider = APIProvider(configuration: configuration)
     private var provider: APIProvider?
+    private var rateLimitPublisher: AnyCancellable?
     
     init(issuerID: String, privateKeyID: String, privateKey: String) {
         do {
             let configuration = try APIConfiguration(issuerID: issuerID, privateKeyID: privateKeyID, privateKey: privateKey)
             self.provider = APIProvider(configuration: configuration)
+            self.rateLimitPublisher = self.provider?.rateLimitPublisher.sink(receiveValue: { [weak self]  rateLimit in
+                self?.handleError("接口速率限制：\(rateLimit.requestURL?.relativePath ?? ""), \(rateLimit.entries)")
+            })
         } catch {
             handleError("初始化失败: \(error.localizedDescription)")
         }

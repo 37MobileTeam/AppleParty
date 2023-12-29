@@ -10,19 +10,18 @@ AppleParty 是三七互娱旗下37手游 iOS 团队研发，实现快速操作 A
 
 
 **使用和原理介绍：**
-- [AppleParty（苹果派）v3 支持 App Store 新定价机制 - 批量配置自定价格和销售范围 - 掘金](https://juejin.cn/post/7226327556198744122)
+- [AppleParty（苹果派）v3 支持 App Store 新定价机制 - 批量配置自定价格和销售范围](https://juejin.cn/post/7226327556198744122)
 - [开源一款苹果 macOS 工具 - AppleParty（苹果派）](https://juejin.cn/post/7081069026515877919)
 - [使用 App Store Connect API 批量创建内购商品 ](https://juejin.cn/post/7181099247956131896)
 
 **支持功能**
 
 - 内购买项目管理（批量创建和更新）；
-- 批量商店图和预览视频上传和更新；
+- ~~批量商店图和预览视频上传和更新~~(苹果2023年禁止使用 XML feed 上传，ASC API 上传方式敬请期待~)；
 - 邮件发送工具；
 - 二维码扫描和生成工具；
 - 上传 iap 文件；
 
-> 注：内购买项目和商店素材上传，暂时只支持 iOS app，未来会考虑支持 macOS app、tvOS app。
 
 **TODO**
 

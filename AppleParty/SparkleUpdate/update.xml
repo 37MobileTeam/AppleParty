@@ -5,16 +5,16 @@
         <description>Most recent changes with links to updates.</description>
         <language>zh_CN</language>
         <item>
-            <title>Version 3.1.0</title>
-            <sparkle:releaseNotesLink>https://37iOS.GitHub.io/Sparkle/AppleParty-release.html</sparkle:releaseNotesLink>
-            <pubDate>2023-04-28</pubDate>
+            <title>Version 3.2.0</title>
+            <sparkle:releaseNotesLink>https://37mobileteam.github.io/Sparkle/AppleParty-release.html</sparkle:releaseNotesLink>
+            <pubDate>2023-12-29</pubDate>
             <enclosure
-                url="https://github.com/37iOS/AppleParty/releases/download/3.1.0/AppleParty-v3.1.0.zip"
-                sparkle:shortVersionString="3.1.0"
-                sparkle:version="2023.04.28"
+                url="https://github.com/37iOS/AppleParty/releases/download/3.2.0/AppleParty-v3.2.0.zip"
+                sparkle:shortVersionString="3.2.0"
+                sparkle:version="2023.12.29"
                 type="application/octet-stream"
-                sparkle:edSignature="+jRd/44jsAAJN1BlJmkPsa9Vzracjm6Pw6YJ7Td0rAE4nO/REblOD2zL7CYHOk+7LjLFwilduB/qBvNbpng9Bw=="
-                length="19106993"
+                sparkle:edSignature="HQeRcMFvAU3GPysD0SNRSU2BDakAVoQ1e5m2GaeBvXJBLPLFmCDZ+4pk1wRlWivUiYdEZZEmjev6ramgYb6yBQ=="
+                length="21327994"
             />
             <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
         </item>
