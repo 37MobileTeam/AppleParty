@@ -1316,8 +1316,9 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AvdLee/appstoreconnect-swift-sdk.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = versionRange;
+				maximumVersion = 4.0.0;
+				minimumVersion = 3.0.1;
 			};
 		};
 		6D59A20927F29DB600C7D8F5 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
