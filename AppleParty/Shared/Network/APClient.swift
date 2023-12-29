@@ -87,14 +87,14 @@ enum APClient {
     case ascProvider
     case ascProviders
     // 切换账号
-    case switchProvider(providerId: String)
+    case switchProvider(publicProviderId: String)
     // 游戏详细信息
     case appInfo(appid: String)
     // app分析数据
     case appAnalytics(appid: String, measures: String, frequency: String, startTime: String, endTime: String, filters: [String:Any]? = nil, group: String? = nil, csv: Bool = true)
     case initCSRF
     // app销售趋势
-    case appSalestrends(appid: String, measures: String, frequency: String, startTime: String, endTime: String, measuresKey: String, optionKeys: [String:Any]? = nil)
+    case appSalestrends(appid: String, measures: String, frequency: String, startTime: String, endTime: String, measuresKeys: [[String:Any]], groupKey: String? = nil, optionKeys: [[String:Any]]? = nil, vcubes: Int)
     // 根据providerid查询供应商编号
     case sapVendorNumbers(providerId: String)
     // 下载汇总财务报表
@@ -209,7 +209,7 @@ extension APClient {
         case .ascProviders:
             return "https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/users/itc"
         case .switchProvider:
-            return "https://appstoreconnect.apple.com/olympus/v1/session"
+            return "https://appstoreconnect.apple.com/olympus/v1/providerSwitchRequests"
         case let .appInfo(appid):
             return "https://appstoreconnect.apple.com/iris/v1/apps/"+appid+"?include=appStoreVersions&limit[appStoreVersions]=6"
         case .appAnalytics(_, _, _, _, _, _, _, csv: let csv):
@@ -217,8 +217,8 @@ extension APClient {
                 return "https://appstoreconnect.apple.com/analytics/api/v1/data/time-series-csv"
             }
             return "https://appstoreconnect.apple.com/analytics/api/v1/data/time-series"
-        case .appSalestrends:
-            return "https://appstoreconnect.apple.com/trends/gsf/salesTrendsApp/businessareas/InternetServices/subjectareas/iTunes/vcubes/700/timeseries"
+        case .appSalestrends(param: let param):
+            return "https://appstoreconnect.apple.com/trends/gsf/salesTrendsApp/businessareas/InternetServices/subjectareas/iTunes/vcubes/\(param.vcubes)/timeseries"
         case .initCSRF:
             return "https://appstoreconnect.apple.com/trends/gsf/owasp/csrf-guard.js"
         case let .trusDevice(isTrus):
@@ -270,11 +270,18 @@ extension APClient {
                 payload["phoneNumber"] = ["id": phoneNumberId]
                 payload["mode"] = mode //"sms" "voice"
             }
-        case let .switchProvider(providerId):
-            payload = UserCenter.shared.accountProviders
-            var provider = UserCenter.shared.accountProviders["provider"] as! [String: Any]
-            provider["providerId"] = providerId
-            payload["provider"] = provider
+        case let .switchProvider(publicProviderId):
+            payload["data"] = [
+                "type": "providerSwitchRequests",
+                "relationships": [
+                    "provider": [
+                        "data": [
+                            "id": publicProviderId,
+                            "type": "providers"
+                        ]
+                    ]
+                ]
+            ]
         case let .appAnalytics(appid, measures, frequency, startTime, endTime, filters, group, _):
             payload["adamId"] = [appid]
             payload["measures"] = [measures]
@@ -285,20 +292,22 @@ extension APClient {
             if let filter = filters {
                 payload["dimensionFilters"] = [filter]
             }
-        case let .appSalestrends(appid, measures, frequency, startTime, endTime, measuresKey, optionKeys):
+        case let .appSalestrends(appid, measures, frequency, startTime, endTime, measuresKeys, groupKey, optionKeys, _):
+            payload["componentName"] = measures
             payload["group"] = []
-            payload["measures"] = [ ["key": measuresKey] ]
+            if let group = groupKey {
+                payload["group"] = [ group ]
+            }
+            payload["measures"] = measuresKeys
             payload["cubeName"] = "sales"
             payload["cubeApiType"] = "TIMESERIES"
             payload["interval"] = [ "key": frequency, "startDate": startTime, "endDate": endTime]
-            payload["filters"] = [ [ "dimensionKey": "gross_adam_id_piano", "optionKeys": [ appid ] ] ]
+            payload["filters"] = [ [ "dimensionKey": groupKey ?? "gross_adam_id_piano", "optionKeys": [ appid ] ] ]
             if let options = optionKeys {
                 var filter = payload["filters"] as! Array<[String: Any]>
-                filter.append(options)
+                filter.append(contentsOf: options)
                 payload["filters"] = filter
             }
-            payload["componentName"] = measures
-        
         default:
             break
         }
@@ -440,6 +449,7 @@ extension APClient {
                 UserCenter.shared.accountPrsId = string(from: dictionary(json["user"])["prsId"])
                 UserCenter.shared.accountEmail = string(from: dictionary(json["user"])["emailAddress"])
                 UserCenter.shared.developerId = string(from: dictionary(json["provider"])["providerId"])
+                UserCenter.shared.publicDeveloperId = string(from: dictionary(json["provider"])["publicProviderId"])
                 UserCenter.shared.developerName = string(from: dictionary(json["provider"])["name"])
             }
         case .appList:

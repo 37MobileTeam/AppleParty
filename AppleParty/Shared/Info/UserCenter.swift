@@ -17,6 +17,7 @@ struct User {
 struct Provider {
     var name: String
     var providerId: String
+    var publicProviderId: String
 }
 
 /// 专用密码模型
@@ -82,6 +83,8 @@ struct UserCenter {
     // MARK: - 开发者信息
     /// 开发者 id
     var developerId = ""
+    /// 新的开发者id
+    var publicDeveloperId = ""
     /// 开发者名字
     var developerName = ""
     /// 开发者团队 id

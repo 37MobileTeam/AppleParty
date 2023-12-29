@@ -28,10 +28,10 @@ class APRootWC: NSWindowController {
             if let providers = UserCenter.shared.accountProviders["availableProviders"] as? [[String: Any]] {
                 var accountList: [Provider] = []
                 providers.forEach { provider in
-                    accountList.append(Provider(name: provider["name"] as! String, providerId: String(provider["providerId"] as! Int)))
+                    accountList.append(Provider(name: provider["name"] as! String, providerId: String(provider["providerId"] as! Int), publicProviderId: provider["publicProviderId"] as! String))
                 }
                 
-                accountList.append(Provider(name: "账号登出", providerId: ""))
+                accountList.append(Provider(name: "账号登出", providerId: "", publicProviderId: ""))
                 
                 let listVC = APSwichAccountPopover()
                 listVC.accounts = accountList
@@ -39,8 +39,8 @@ class APRootWC: NSWindowController {
                     guard row >= 0, row < accountList.count else {
                         return
                     }
-                    let providerId = accountList[row].providerId
-                    self?.switchAccount(providerId)
+                    let publicProviderId = accountList[row].publicProviderId
+                    self?.switchAccount(publicProviderId)
                 }
                 let pannel = NSPanel(contentViewController: listVC)
                 pannel.setFrame(NSRect(origin: .zero, size: NSSize(width: 300, height: 350)), display: true)
@@ -97,8 +97,8 @@ class APRootWC: NSWindowController {
 
 extension APRootWC {
     
-    func switchAccount(_ providerId: String) {
-        guard providerId.count > 0 else {
+    func switchAccount(_ publicProviderId: String) {
+        guard publicProviderId.count > 0 else {
             UserCenter.shared.isAutoLogin = false
             UserCenter.shared.isAuthorized = false
             // 清掉缓存
@@ -108,7 +108,7 @@ extension APRootWC {
             return
         }
         
-        APClient.switchProvider(providerId: providerId).request(showLoading: true) { [weak self] result, response, error in
+        APClient.switchProvider(publicProviderId: publicProviderId).request(showLoading: true) { [weak self] result, response, error in
             guard let err = error else {
                 self?.validateSession()
                 return
