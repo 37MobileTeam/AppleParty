@@ -369,11 +369,29 @@ extension APUploadIAPListVC {
     /// 销售国家或地区
     func updateIAPAvailableTerritories(iapId: String, product: IAPProduct, ascAPI: APASCAPI) async {
         let inAll = product.territories.availableInAllTerritories
+        let inNew = product.territories.availableInNewTerritories
         let summary = territoryInfo(product: product)
+        let newTerritory = inNew ? "将来新国家(地区)时自动提供！" : "将来新国家(地区)时不自动提供!"
         ascAPI.addMessage("开始更新内购商品的销售国家/地区：\(summary)")
         
         guard !inAll else {
-            ascAPI.addMessage("选择所有国家/地区销售，将来新国家/地区自动提供，更新成功！✅ ")
+            var allTerritories: [[String: String]] = []
+            if let territories = await ascAPI.territories() {
+                territories.forEach { territory in
+                    allTerritories.append([
+                        "type": "territories",
+                        "id": territory.id
+                    ])
+                }
+                // 更新全部国家地区
+                if (await ascAPI.updateInAppPurchasesAvailabilityTerritories(iapId: iapId, availableTerritories: allTerritories, availableInNewTerritories: inNew)) != nil {
+                    ascAPI.addMessage("选择：所有国家(地区)销售，\(newTerritory)，更新成功！✅ ")
+                } else {
+                    ascAPI.addMessage("选择：所有国家(地区)销售，\(newTerritory)，更新失败！❌ ")
+                }
+            } else {
+                ascAPI.addMessage("选择：所有国家(地区)销售，\(newTerritory)，无法设置！获取国家标识码失败！❌ ")
+            }
             return
         }
         
@@ -386,7 +404,6 @@ extension APUploadIAPListVC {
             ])
         })
         
-        let inNew = product.territories.availableInNewTerritories
         let customerTerritory = product.territories.territories?.map({ $0.id }).joined(separator: ",") ?? "无"
         if (await ascAPI.updateInAppPurchasesAvailabilityTerritories(iapId: iapId, availableTerritories: territories, availableInNewTerritories: inNew)) != nil {
             ascAPI.addMessage("内购商品的销售国家/地区：\(customerTerritory) ，更新成功！✅ ")
@@ -637,11 +654,29 @@ extension APUploadIAPListVC {
     /// 销售国家或地区
     func updateSubscriptionAvailableTerritories(iapId: String, product: IAPProduct, ascAPI: APASCAPI) async {
         let inAll = product.territories.availableInAllTerritories
+        let inNew = product.territories.availableInNewTerritories
         let summary = territoryInfo(product: product)
+        let newTerritory = inNew ? "将来新国家(地区)时自动提供！" : "将来新国家(地区)时不自动提供!"
         ascAPI.addMessage("开始更新订阅商品的销售国家/地区：\(summary)")
         
         guard !inAll else {
-            ascAPI.addMessage("选择所有国家/地区销售，将来新国家/地区自动提供，更新成功！✅ ")
+            var allTerritories: [[String: String]] = []
+            if let territories = await ascAPI.territories() {
+                territories.forEach { territory in
+                    allTerritories.append([
+                        "type": "territories",
+                        "id": territory.id
+                    ])
+                }
+                // 更新全部国家地区
+                if (await ascAPI.updateSubscriptionAvailabilityTerritories(iapId: iapId, availableTerritories: allTerritories, availableInNewTerritories: inNew)) != nil {
+                    ascAPI.addMessage("选择：所有国家(地区)销售，\(newTerritory)，更新成功！✅ ")
+                } else {
+                    ascAPI.addMessage("选择：所有国家(地区)销售，\(newTerritory)，更新失败！❌ ")
+                }
+            } else {
+                ascAPI.addMessage("选择：所有国家(地区)销售，\(newTerritory)，无法设置！获取国家标识码失败！❌ ")
+            }
             return
         }
         
@@ -654,7 +689,6 @@ extension APUploadIAPListVC {
             ])
         })
         
-        let inNew = product.territories.availableInNewTerritories
         let customerTerritory = product.territories.territories?.map({ $0.id }).joined(separator: ",") ?? "无"
         if (await ascAPI.updateSubscriptionAvailabilityTerritories(iapId: iapId, availableTerritories: territories, availableInNewTerritories: inNew)) != nil {
             ascAPI.addMessage("订阅商品的销售国家/地区：\(customerTerritory) ，更新成功！✅ ")

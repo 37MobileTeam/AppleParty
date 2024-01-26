@@ -98,7 +98,7 @@ class APASCAPI {
     
     /// 获取所有 App Store 支持的国家或地区
     /// - Returns: apps
-    func territorie() async -> [ASCTerritory]? {
+    func territories() async -> [ASCTerritory]? {
         let request = APIEndpoint.v1.territories
             .get(limit: 200)
         do {
@@ -151,7 +151,7 @@ class APASCAPI {
         let body = [
             "data": [
                 "attributes": [
-                    "availableInAllTerritories": product.territories.availableInAllTerritories,
+                    //"availableInAllTerritories": product.territories.availableInAllTerritories,
                     "familySharable": product.familySharable,
                     // CONSUMABLE、NON_CONSUMABLE、NON_RENEWING_SUBSCRIPTION
                     "inAppPurchaseType": product.inAppPurchaseType.rawValue,
@@ -198,7 +198,7 @@ class APASCAPI {
         let body = [
             "data": [
                     "attributes": [
-                        "availableInAllTerritories": product.territories.availableInAllTerritories,
+                        //"availableInAllTerritories": product.territories.availableInAllTerritories,
                         "familySharable": product.familySharable,
                         "name": product.name,
                         "reviewNote": product.reviewNote,
@@ -858,7 +858,7 @@ class APASCAPI {
                     "familySharable": product.familySharable,
                     "reviewNote": product.reviewNote,
                     "groupLevel": product.subscriptions?.groupLevel ?? 1,
-                    "availableInAllTerritories": product.territories.availableInAllTerritories
+                    //"availableInAllTerritories": product.territories.availableInAllTerritories
                 ],
                 "relationships": [
                     "group": [
@@ -899,7 +899,7 @@ class APASCAPI {
                     "familySharable": product.familySharable,
                     "reviewNote": product.reviewNote,
                     "groupLevel": product.subscriptions?.groupLevel ?? 1,
-                    "availableInAllTerritories": product.territories.availableInAllTerritories
+                    //"availableInAllTerritories": product.territories.availableInAllTerritories
                 ],
                 "id": iapId,
                 "type": "subscriptions"
