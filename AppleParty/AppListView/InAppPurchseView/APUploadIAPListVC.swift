@@ -12,6 +12,7 @@ class APUploadIAPListVC: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var enterBtn: NSButton!
     @IBOutlet weak var preserveCurrentPriceBtn: NSButton!
+    @IBOutlet weak var showApiRateLimitLogsBtn: NSButton!
     
     public var currentApp: App? {
         didSet {
@@ -107,9 +108,11 @@ class APUploadIAPListVC: NSViewController {
 extension APUploadIAPListVC {
     
     func updateInAppPurchse(iaps: [IAPProduct], appId: String, ascKey: AppStoreConnectKey) {
+        let showApiRateLimit = showApiRateLimitLogsBtn.state.rawValue == 1
         let ascAPI = APASCAPI.init(issuerID: ascKey.issuerID,
                                privateKeyID: ascKey.privateKeyID,
-                                 privateKey: ascKey.privateKey)
+                                 privateKey: ascKey.privateKey,
+                           showApiRateLimit: showApiRateLimit)
         ascAPI.addMessage("密钥信息：\(ascKey.issuerID), \(ascKey.privateKeyID), \(ascKey.privateKey)")
         
         Task {

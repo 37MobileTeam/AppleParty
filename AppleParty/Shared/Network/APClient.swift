@@ -13,7 +13,7 @@ import Alamofire
 let baseHeaders: HTTPHeaders = [
     "Content-Type": "application/json",
     "X-Apple-Widget-Key": "e0b80c3bf78523bfe80974d320935bfa30add02e1bff88ec2166c6bd5a706c42", //目前固定值
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Safari/605.1.15",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15",
     "Accept": "application/json, text/plain, */*;q=0.8",
     "Accept-Language": "zh-CN,zh;q=0.9",
     "Referer": "https://appstoreconnect.apple.com",
@@ -35,8 +35,8 @@ struct APClientSession {
         config = URLSessionConfiguration.af.default
         var headers: HTTPHeaders = baseHeaders
         if InfoCenter.shared.scnt.isNotEmpty, InfoCenter.shared.sessionId.isNotEmpty {
-            headers.add(name: "scnt", value: InfoCenter.shared.scnt)
-            headers.add(name: "X-Apple-ID-Session-Id", value: InfoCenter.shared.sessionId)
+//            headers.add(name: "scnt", value: InfoCenter.shared.scnt)
+//            headers.add(name: "X-Apple-ID-Session-Id", value: InfoCenter.shared.sessionId)
         }
         config.headers = headers
         
@@ -159,7 +159,7 @@ extension APClient {
         case .initCSRF:
             newHeaders.update(name: "fetch-csrf-token", value: "1")
         case .switchProvider:
-            newHeaders.update(name: "X-Requested-With", value: "olympus-ui")
+            newHeaders.update(name: "X-Requested-With", value: "xsdr2$")
         default:
             break
         }
@@ -392,7 +392,7 @@ extension APClient {
                         request(showLoading: showLoading, retry: retry - 1, completionHandler: completionHandler)
                         return
                     }
-                    completionHandler?(json, dataResponse.response, NSError.APClientError(.serviceBadStatusCode, dataResponse.error?.localizedDescription ?? ""))
+                    completionHandler?(json, dataResponse.response, NSError.APClientError(code == 503 ? .service503StatusCode : .serviceBadStatusCode, dataResponse.error?.localizedDescription ?? ""))
                 default:
                     completionHandler?(json, dataResponse.response, NSError.APClientError(.failure, dataResponse.error?.localizedDescription ?? ""))
                 }
@@ -428,7 +428,7 @@ extension APClient {
         case .signIn:
             let status_code = int(from: response?.statusCode)
             switch status_code {
-            case 200, 409:
+            case 200, 409, 503:
                 if let header = response?.headers {
                     APClientSession.shared.config.headers.update(name: "scnt", value: string(from: header["scnt"]))
                     APClientSession.shared.config.headers.update(name: "X-Apple-ID-Session-Id", value: string(from: header["X-Apple-ID-Session-Id"]))
@@ -440,7 +440,7 @@ extension APClient {
         case .submitSecurityCode, .switchProvider:
             InfoCenter.shared.cookies = APClientSession.shared.config.httpCookieStorage?.cookies ?? []
             if case .switchProvider = self {
-                config.headers.update(name: "X-Requested-With", value: "olympus-ui")
+                config.headers.update(name: "X-Requested-With", value: "xsdr2$")
             }
         case .signInSession:
             if json.isNotEmpty {
@@ -501,6 +501,7 @@ public enum APClientErrorCode: Int {
     case twoStepOrFactor = 409
     case privacyAcknowledgementRequired = 412
     case serviceBadStatusCode = 500
+    case service503StatusCode = 503
     case notDeveloperAppleId = 9998
     case unknown = 9999
     
@@ -522,6 +523,8 @@ public enum APClientErrorCode: Int {
             return "未知错误"
         case .serviceBadStatusCode:
             return "服务端处理异常，请重试~"
+        case .service503StatusCode:
+            return "服务端503异常，请重试~"
         }
     }
 }

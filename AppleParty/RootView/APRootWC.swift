@@ -50,7 +50,7 @@ class APRootWC: NSWindowController {
             }
             
         } else {
-            let vc = APLoginVC()
+            let vc = APWebLoginVC()
             vc.successHandle = { [weak self] in
                 self?.fetchAccountTeamInfo()
                 self?.window?.title = UserCenter.shared.developerName
@@ -59,7 +59,7 @@ class APRootWC: NSWindowController {
                 }
             }
             let pannel = NSPanel(contentViewController: vc)
-            pannel.setFrame(NSRect(origin: .zero, size: NSSize(width: 500, height: 330)), display: true)
+            pannel.setFrame(NSRect(origin: .zero, size: NSSize(width: 550, height: 450)), display: true)
             window?.beginSheet(pannel, completionHandler: nil)
         }
     }

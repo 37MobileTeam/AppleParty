@@ -6,9 +6,9 @@ target 'AppleParty' do
   use_frameworks!
 
   # Pods for AppleParty
-  pod 'Alamofire', '~> 5.2'
+  pod 'Alamofire', '~> 5.9.1'
   pod 'SnapKit', '~> 5.0'
-  pod 'Sparkle', '~> 2.0'
+  pod 'Sparkle', '~> 2.6.3'
   pod 'Kanna', '~> 5.2'
   pod 'SWXMLHash', '~> 5.0'
   pod 'CoreXLSX', '~> 0.14'

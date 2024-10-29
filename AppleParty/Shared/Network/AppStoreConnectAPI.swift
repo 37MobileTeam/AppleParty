@@ -60,13 +60,15 @@ class APASCAPI {
     private var provider: APIProvider?
     private var rateLimitPublisher: AnyCancellable?
     
-    init(issuerID: String, privateKeyID: String, privateKey: String) {
+    init(issuerID: String, privateKeyID: String, privateKey: String, showApiRateLimit: Bool) {
         do {
             let configuration = try APIConfiguration(issuerID: issuerID, privateKeyID: privateKeyID, privateKey: privateKey)
             self.provider = APIProvider(configuration: configuration)
-            self.rateLimitPublisher = self.provider?.rateLimitPublisher.sink(receiveValue: { [weak self]  rateLimit in
-                self?.handleError("接口速率限制：\(rateLimit.requestURL?.relativePath ?? ""), \(rateLimit.entries)")
-            })
+            if showApiRateLimit {
+                self.rateLimitPublisher = self.provider?.rateLimitPublisher.sink(receiveValue: { [weak self]  rateLimit in
+                    self?.handleError("接口速率限制：\(rateLimit.requestURL?.relativePath ?? ""), \(rateLimit.entries)")
+                })
+            }
         } catch {
             handleError("初始化失败: \(error.localizedDescription)")
         }

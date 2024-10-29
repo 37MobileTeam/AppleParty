@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="36" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-S3-Fa5">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-S3-Fa5">
                                                                     <rect key="frame" x="0.0" y="12" width="36" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1" id="LsW-Zq-hB0">
@@ -134,7 +134,7 @@
                                                             <rect key="frame" x="111" y="0.0" width="118" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8C-RK-lNM">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8C-RK-lNM">
                                                                     <rect key="frame" x="0.0" y="12" width="118" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="OzZ-QS-Xrv">
@@ -166,7 +166,7 @@
                                                             <rect key="frame" x="229" y="0.0" width="60" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1n-4P-b0Q">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D1n-4P-b0Q">
                                                                     <rect key="frame" x="0.0" y="12" width="60" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1" id="sq1-BL-Rcf">
@@ -198,7 +198,7 @@
                                                             <rect key="frame" x="289" y="0.0" width="102" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V05-T9-An4">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V05-T9-An4">
                                                                     <rect key="frame" x="0.0" y="12" width="102" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Fyk-ea-jSK">
@@ -230,7 +230,7 @@
                                                             <rect key="frame" x="391" y="0.0" width="112" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdV-Er-PG6">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdV-Er-PG6">
                                                                     <rect key="frame" x="0.0" y="12" width="112" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="k5H-G7-RvE">
@@ -265,7 +265,7 @@
                                                             <rect key="frame" x="503" y="0.0" width="102" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8p-aX-EOQ">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8p-aX-EOQ">
                                                                     <rect key="frame" x="0.0" y="12" width="102" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="txV-L7-8pc">
@@ -300,7 +300,7 @@
                                                             <rect key="frame" x="605" y="0.0" width="100" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-S3-VJ2">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pw-S3-VJ2">
                                                                     <rect key="frame" x="0.0" y="3" width="100" height="34"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="cgN-Ef-H9K">
@@ -335,7 +335,7 @@
                                                             <rect key="frame" x="705" y="0.0" width="44" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcF-6d-Y0Y">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcF-6d-Y0Y">
                                                                     <rect key="frame" x="0.0" y="12" width="44" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="1" id="RdH-e2-lmI">
@@ -383,10 +383,6 @@
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yl7-CE-urn">
                                             <rect key="frame" x="340" y="25" width="114" height="47"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="L7q-rE-qUa"/>
-                                                <constraint firstAttribute="width" constant="100" id="luq-WV-0zV"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="提交" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ysI-I3-a0g">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -395,26 +391,30 @@ DQ
 </string>
                                             </buttonCell>
                                             <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="L7q-rE-qUa"/>
+                                                <constraint firstAttribute="width" constant="100" id="luq-WV-0zV"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="createIAP:" target="HcW-sO-g2Q" id="mZJ-aY-eOM"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wiy-jc-2Pw">
                                             <rect key="frame" x="698" y="13" width="88" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="Sbb-sq-gsR"/>
-                                                <constraint firstAttribute="height" constant="20" id="gLt-9i-Kpk"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="设置密钥" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AHB-ou-qRW">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Sbb-sq-gsR"/>
+                                                <constraint firstAttribute="height" constant="20" id="gLt-9i-Kpk"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="clickedSPasswordBtn:" target="HcW-sO-g2Q" id="4WZ-cz-seF"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-GP-uQf">
-                                            <rect key="frame" x="177" y="8" width="440" height="16"/>
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-GP-uQf">
+                                            <rect key="frame" x="179" y="8" width="437" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="注：请检查数据与表格是否一致，提交成功后，商品id和类型不能再更改！" id="04V-rH-2el">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
@@ -423,37 +423,49 @@ DQ
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sv7-52-2Cw">
                                             <rect key="frame" x="698" y="45" width="88" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="Os2-cR-YSb"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="上传截图" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="n9B-2Z-TXF">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Os2-cR-YSb"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="clickedUploadShotBtn:" target="HcW-sO-g2Q" id="pfM-0y-Fwy"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-IS-Cxn">
                                             <rect key="frame" x="18" y="56" width="199" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="jCn-pM-TqY"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="check" title="保留自动续期订阅者现有定价" bezelStyle="regularSquare" imagePosition="left" inset="2" id="rcb-F8-Wjv">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="jCn-pM-TqY"/>
+                                            </constraints>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O5k-L7-xuw">
+                                            <rect key="frame" x="18" y="30" width="207" height="18"/>
+                                            <buttonCell key="cell" type="check" title="显示 ASC API 请求速率的阈值" bezelStyle="regularSquare" imagePosition="left" inset="2" id="7jz-Eq-MTQ">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            </buttonCell>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="UTk-E1-F8x"/>
+                                            </constraints>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="gwi-GP-uQf" secondAttribute="bottom" constant="8" id="446-fY-M9B"/>
                                         <constraint firstAttribute="bottom" secondItem="Wiy-jc-2Pw" secondAttribute="bottom" constant="20" symbolic="YES" id="7js-1K-u7U"/>
+                                        <constraint firstItem="O5k-L7-xuw" firstAttribute="top" secondItem="mWR-IS-Cxn" secondAttribute="bottom" constant="10" id="8dK-sn-ZXM"/>
                                         <constraint firstItem="yl7-CE-urn" firstAttribute="centerY" secondItem="6rW-KE-ixB" secondAttribute="centerY" id="ITd-YX-Trm"/>
                                         <constraint firstAttribute="trailing" secondItem="sv7-52-2Cw" secondAttribute="trailing" constant="15" id="QUP-CD-c2a"/>
                                         <constraint firstItem="Wiy-jc-2Pw" firstAttribute="top" secondItem="sv7-52-2Cw" secondAttribute="bottom" constant="12" id="Rp0-lh-D4G"/>
                                         <constraint firstItem="Wiy-jc-2Pw" firstAttribute="trailing" secondItem="sv7-52-2Cw" secondAttribute="trailing" id="a9w-yY-EWd"/>
                                         <constraint firstItem="yl7-CE-urn" firstAttribute="centerX" secondItem="6rW-KE-ixB" secondAttribute="centerX" id="efU-0I-QhV"/>
                                         <constraint firstItem="mWR-IS-Cxn" firstAttribute="leading" secondItem="6rW-KE-ixB" secondAttribute="leading" constant="20" symbolic="YES" id="hjT-ey-2ZV"/>
+                                        <constraint firstItem="O5k-L7-xuw" firstAttribute="leading" secondItem="6rW-KE-ixB" secondAttribute="leading" constant="20" symbolic="YES" id="htV-cS-Gxk"/>
                                         <constraint firstItem="gwi-GP-uQf" firstAttribute="centerX" secondItem="6rW-KE-ixB" secondAttribute="centerX" id="o1O-9Y-VOc"/>
                                         <constraint firstItem="mWR-IS-Cxn" firstAttribute="top" secondItem="6rW-KE-ixB" secondAttribute="top" constant="25" id="yx3-wU-dQT"/>
                                     </constraints>
@@ -477,6 +489,7 @@ DQ
                     <connections>
                         <outlet property="enterBtn" destination="yl7-CE-urn" id="fxo-dC-Eo4"/>
                         <outlet property="preserveCurrentPriceBtn" destination="mWR-IS-Cxn" id="kC5-n4-ddM"/>
+                        <outlet property="showApiRateLimitLogsBtn" destination="O5k-L7-xuw" id="NkA-Kq-jRr"/>
                         <outlet property="tableView" destination="FfT-VW-kGY" id="eo0-Hf-anq"/>
                     </connections>
                 </viewController>
@@ -498,7 +511,7 @@ DQ
                                     <rect key="frame" x="1" y="1" width="447" height="239"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rfb-ot-DNY">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rfb-ot-DNY">
                                             <rect key="frame" x="13" y="193" width="107" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="需要传入x张图片" id="oMa-Eg-4Q4">
                                                 <font key="font" usesAppearanceFont="YES"/>
@@ -508,13 +521,13 @@ DQ
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kcS-un-E1x">
                                             <rect key="frame" x="351" y="192" width="88" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="Nq6-G6-yns"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="批量上传" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W6k-qu-hFp">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Nq6-G6-yns"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="clickedBatchUploadBtn:" target="ZGW-X2-eY0" id="s3T-H7-xH7"/>
                                             </connections>
@@ -526,7 +539,7 @@ DQ
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="100" headerView="9ym-TL-xUJ" viewBased="YES" id="Pkx-YF-hF7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="415" height="76"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="415" height="102"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -549,7 +562,7 @@ DQ
                                                                         <rect key="frame" x="1" y="1" width="156" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-mk-1ol">
+                                                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-mk-1ol">
                                                                                 <rect key="frame" x="-2" y="-1" width="160" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="Seh-ch-rSz"/>
@@ -613,7 +626,7 @@ DQ
                                                                                         </constraints>
                                                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSAddTemplate" id="qFS-6U-ZiY"/>
                                                                                     </imageView>
-                                                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Zb-BZ-4UZ">
+                                                                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Zb-BZ-4UZ">
                                                                                         <rect key="frame" x="19" y="4" width="84" height="16"/>
                                                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="拖拽图片上传" id="0LG-sI-2vV">
                                                                                             <font key="font" metaFont="system"/>
@@ -677,10 +690,6 @@ DQ
                                         </scrollView>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QQe-WG-p4R">
                                             <rect key="frame" x="227" y="13" width="94" height="52"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="5lo-X9-l3L"/>
-                                                <constraint firstAttribute="height" constant="40" id="t3W-Aj-MWR"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="提交" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4u8-R4-iJl">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -689,16 +698,16 @@ DQ
 </string>
                                             </buttonCell>
                                             <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="5lo-X9-l3L"/>
+                                                <constraint firstAttribute="height" constant="40" id="t3W-Aj-MWR"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="submit:" target="ZGW-X2-eY0" id="XBS-Cc-kwA"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4yB-HB-Sko">
                                             <rect key="frame" x="132" y="13" width="94" height="52"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="Vxa-b9-goA"/>
-                                                <constraint firstAttribute="height" constant="40" id="uMw-Ja-95b"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pTB-tq-Xcl">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -707,6 +716,10 @@ Gw
 </string>
                                             </buttonCell>
                                             <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="Vxa-b9-goA"/>
+                                                <constraint firstAttribute="height" constant="40" id="uMw-Ja-95b"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="cancel:" target="ZGW-X2-eY0" id="giL-cF-Fnw"/>
                                             </connections>
@@ -762,7 +775,7 @@ Gw
                                     <rect key="frame" x="1" y="1" width="498" height="598"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-Rj-ruG">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-Rj-ruG">
                                             <rect key="frame" x="28" y="553" width="41" height="15"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="商品id" id="QYB-Zw-eHV">
                                                 <font key="font" metaFont="cellTitle"/>
@@ -799,7 +812,7 @@ Gw
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s72-vm-I76">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s72-vm-I76">
                                             <rect key="frame" x="237" y="552" width="87" height="15"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="对应的AppleID" id="avW-ms-Mra">
                                                 <font key="font" metaFont="cellTitle"/>
@@ -835,10 +848,6 @@ Gw
                                         </scrollView>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HH6-Lm-CXI">
                                             <rect key="frame" x="380" y="23" width="94" height="52"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="7Pu-0Y-cZl"/>
-                                                <constraint firstAttribute="height" constant="40" id="Tl3-IB-jTG"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="提交" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wti-uT-BJP">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -847,11 +856,15 @@ DQ
 </string>
                                             </buttonCell>
                                             <color key="contentTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="7Pu-0Y-cZl"/>
+                                                <constraint firstAttribute="height" constant="40" id="Tl3-IB-jTG"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="commit:" target="MF2-R2-2hO" id="zUs-9M-dat"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="voo-el-aSb">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="voo-el-aSb">
                                             <rect key="frame" x="195" y="131" width="36" height="15"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="0/100" id="Rvu-t4-mqS">
                                                 <font key="font" metaFont="cellTitle"/>
@@ -859,7 +872,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Pa-GRs">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Pa-GRs">
                                             <rect key="frame" x="433" y="131" width="36" height="15"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="0/100" id="xGg-Co-KSE">
                                                 <font key="font" metaFont="cellTitle"/>
@@ -869,10 +882,6 @@ DQ
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-JD-W0l">
                                             <rect key="frame" x="285" y="23" width="94" height="52"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="DGd-OO-fun"/>
-                                                <constraint firstAttribute="height" constant="40" id="aeW-Ej-VAh"/>
-                                            </constraints>
                                             <buttonCell key="cell" type="push" title="关闭" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="mdF-cu-Xk3">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -880,6 +889,10 @@ DQ
 Gw
 </string>
                                             </buttonCell>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="DGd-OO-fun"/>
+                                                <constraint firstAttribute="height" constant="40" id="aeW-Ej-VAh"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="close:" target="MF2-R2-2hO" id="4dP-Wn-RS1"/>
                                             </connections>

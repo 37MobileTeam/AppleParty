@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="APWebLoginVC" customModule="AppleParty" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelBtn" destination="qxM-hm-PWT" id="UAd-lY-N0a"/>
+                <outlet property="indicatorView" destination="dtJ-5J-DxP" id="zQo-tM-9d5"/>
+                <outlet property="loginBtn" destination="umT-YS-2Tw" id="oY4-Wq-xzj"/>
+                <outlet property="tipsWarningView" destination="3FV-OQ-nKf" id="NkT-JR-Dnu"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+            <subviews>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1rM-sz-rlk">
+                    <rect key="frame" x="8" y="260" width="464" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="tve-kf-cij"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="App Store Connect" id="VHb-gH-1GO">
+                        <font key="font" metaFont="systemBold" size="18"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="umT-YS-2Tw">
+                    <rect key="frame" x="193" y="65" width="94" height="37"/>
+                    <buttonCell key="cell" type="push" title="登录" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="ReJ-dw-xtp">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                    </buttonCell>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Ebj-j4-bbZ"/>
+                        <constraint firstAttribute="height" constant="25" id="erd-oj-9Nc"/>
+                    </constraints>
+                    <connections>
+                        <action selector="clickedLoginBtn:" target="-2" id="bzx-ik-z4B"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qxM-hm-PWT">
+                    <rect key="frame" x="193" y="28" width="94" height="37"/>
+                    <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fhv-gb-seN">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Zo8-yT-7mB"/>
+                        <constraint firstAttribute="width" constant="80" id="aWd-Lq-3SZ"/>
+                    </constraints>
+                    <connections>
+                        <action selector="clickedCancelBtn:" target="-2" id="Y33-Od-paG"/>
+                    </connections>
+                </button>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3FV-OQ-nKf">
+                    <rect key="frame" x="13" y="120" width="454" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="550" id="Fad-vK-Ru4"/>
+                        <constraint firstAttribute="height" constant="80" id="tdV-WD-iKH"/>
+                    </constraints>
+                    <textFieldCell key="cell" truncatesLastVisibleLine="YES" enabled="NO" allowsUndo="NO" alignment="center" id="i97-j7-mQi">
+                        <font key="font" size="14" name=".PingFangUITextSC-Regular"/>
+                        <string key="title">提示：
+登录通过 https://appstoreconnect.apple.com 网页进行授权</string>
+                        <color key="textColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="dtJ-5J-DxP">
+                    <rect key="frame" x="262" y="77" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="5Gc-Ad-yiX"/>
+                        <constraint firstAttribute="width" constant="16" id="l8L-wm-OxQ"/>
+                    </constraints>
+                </progressIndicator>
+            </subviews>
+            <constraints>
+                <constraint firstItem="dtJ-5J-DxP" firstAttribute="centerY" secondItem="umT-YS-2Tw" secondAttribute="centerY" id="2ql-XU-Oy4"/>
+                <constraint firstAttribute="bottom" secondItem="qxM-hm-PWT" secondAttribute="bottom" constant="35" id="6oR-TQ-5jE"/>
+                <constraint firstItem="3FV-OQ-nKf" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" constant="-10" id="Zus-xv-zaI"/>
+                <constraint firstItem="dtJ-5J-DxP" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" constant="30" id="azK-M6-XaT"/>
+                <constraint firstAttribute="trailing" secondItem="3FV-OQ-nKf" secondAttribute="trailing" constant="15" id="div-BZ-Amk"/>
+                <constraint firstItem="1rM-sz-rlk" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="dld-UK-NGQ"/>
+                <constraint firstItem="1rM-sz-rlk" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="15" id="err-Ny-q6f"/>
+                <constraint firstItem="3FV-OQ-nKf" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="f7R-Fn-bmc"/>
+                <constraint firstItem="umT-YS-2Tw" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="fsS-52-w7f"/>
+                <constraint firstItem="3FV-OQ-nKf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="fyj-Ld-adi"/>
+                <constraint firstAttribute="trailing" secondItem="1rM-sz-rlk" secondAttribute="trailing" constant="10" id="g6G-H2-CGw"/>
+                <constraint firstItem="qxM-hm-PWT" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="l1Y-kM-2vx"/>
+                <constraint firstItem="qxM-hm-PWT" firstAttribute="top" secondItem="umT-YS-2Tw" secondAttribute="bottom" constant="12" id="ul4-6v-5hV"/>
+            </constraints>
+            <point key="canvasLocation" x="69" y="154"/>
+        </customView>
+    </objects>
+</document>
