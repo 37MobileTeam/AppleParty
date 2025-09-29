@@ -256,8 +256,8 @@ extension APUploadIAPListVC {
             
             ascAPI.addMessage("开始构建基准国家和自定价格：")
             // base Territory
-            manualPrices.append(["id": baseTerritory, "type": "inAppPurchasePrices"])
-            included.append(ascAPI.fetchInAppPurchasePriceSchedule(scheduleId: baseTerritory, pricePointId: point.id, iapId: iapId))
+            manualPrices.append(["id": "${\(baseTerritory)-\(included.count)}", "type": "inAppPurchasePrices"])
+            included.append(ascAPI.fetchInAppPurchasePriceSchedule(scheduleId: baseTerritory, pricePointId: point.id, iapId: iapId, index: included.count))
             
             // customerPrice
             for pricePoint in schedule.manualPrices {
@@ -265,8 +265,8 @@ extension APUploadIAPListVC {
                 let customerPrice = pricePoint.customerPrice.normalizePrice()
                 let points = await ascAPI.fetchPricePoints(iapId: iapId, territory: [territory])
                 if let point = points.filter({ $0.attributes?.customerPrice!.normalizePrice() == customerPrice }).first {
-                    manualPrices.append(["id": territory, "type": "inAppPurchasePrices"])
-                    included.append(ascAPI.fetchInAppPurchasePriceSchedule(scheduleId: territory, pricePointId: point.id, iapId: iapId))
+                    manualPrices.append(["id": "${\(territory)-\(included.count)}", "type": "inAppPurchasePrices"])
+                    included.append(ascAPI.fetchInAppPurchasePriceSchedule(scheduleId: territory, pricePointId: point.id, iapId: iapId, index: included.count))
                 } else {
                     ascAPI.addMessage("自定价格的内购价格点：\(territory)，\(customerPrice) ，未找到此档位！❌ ")
                 }

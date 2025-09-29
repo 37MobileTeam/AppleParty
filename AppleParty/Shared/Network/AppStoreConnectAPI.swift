@@ -284,9 +284,9 @@ class APASCAPI {
     ///   - pricePointId: 价格点 id
     ///   - iapId: 内购商品 id
     /// - Returns: 价格计划表字典
-    func fetchInAppPurchasePriceSchedule(scheduleId: String, pricePointId: String, iapId: String) -> [String: Any] {
+    func fetchInAppPurchasePriceSchedule(scheduleId: String, pricePointId: String, iapId: String, index: Int) -> [String: Any] {
         [
-            "id": scheduleId,
+            "id": "${\(scheduleId)-\(index)}",
             "type": "inAppPurchasePrices",
             "attributes": [
                 "startDate": nil,
