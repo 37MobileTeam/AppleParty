@@ -9,7 +9,7 @@
             <sparkle:releaseNotesLink>https://37mobileteam.github.io/Sparkle/AppleParty-release.html</sparkle:releaseNotesLink>
             <pubDate>2025-09-29</pubDate>
             <enclosure
-                url="https://github.com/37MobileTeam/AppleParty/releases/download/3.7.0/AppleParty-v3.7.0.zip"
+                url="https://github.com/37MobileTeam/AppleParty/releases/download/3.8.0/AppleParty-v3.8.0.zip"
                 sparkle:shortVersionString="3.8.0"
                 sparkle:version="2025.09.29"
                 type="application/octet-stream"
